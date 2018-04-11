@@ -1,3 +1,28 @@
-<p>
-  fleet works!
-</p>
+<table *ngIf="boats" border="1">
+  <thead>
+    <tr>
+      <th>Boat ID</th>
+      <th>Boat Name</th>
+      <th>Credit Per Hour</th>
+      <th>Status</th>
+      <th>Photo</th>
+      <th>Description</th>
+      <th>Length</th>
+      <th>Make</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let b of boats; let i=index;">
+      <td>{{b.boatId}}</td>
+      <td>{{b.name}}</td>
+      <td>{{b.creditPerHour}}</td>
+      <td>{{b.status}}</td>
+      <td>{{b.photo}}</td>
+      <td>{{b.description}}</td>
+      <td>{{b.length}}</td>
+      <td>{{b.make}}</td>
+      <td>{{b.year}}</td>
+    </tr>
+  </tbody>
+</table>

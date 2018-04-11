@@ -44,7 +44,6 @@ import { EmergencyContactComponent } from './components/myaccount/sections/emerg
     RulesandregulationsComponent,
     ModalSignupComponent,
     EmergencyContactComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -53,7 +52,7 @@ import { EmergencyContactComponent } from './components/myaccount/sections/emerg
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'fleet', component:FleetComponent },
+      { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'home', component: HomeComponent },
       { path: 'membership', component: MembershipComponent },
