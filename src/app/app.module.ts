@@ -21,11 +21,11 @@ import { HomeComponent } from './components/home/home.component';
 import { HomeAboutComponent } from './components/home/sections/home.about/home.about.component';
 import { HomeBookingComponent } from './components/home/sections/home.booking/home.booking.component';
 import { HomeEventsComponent } from './components/home/sections/home.events/home.events.component';
-import { HomeFaqComponent } from './components/home/sections/home.faq/home.faq.component';
 import { HomeBoatImagesComponent } from './components/home/sections/home.boatimages/home.boatimages.component';
 import { MyAccountEmergencyContactsComponent } from './components/myaccount/sections/myaccount.emergencycontacts/myaccount.emergencycontacts.component';
 import { MembershipModalSignupComponent } from './components/membership/sections/membership.modalsignup/membership.modalsignup.component';
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
+import { FaqComponent } from './components/faq/faq.component';
 
 
 @NgModule({
@@ -48,8 +48,8 @@ import { MembershipRulesAndRegulationsComponent } from './components/membership/
     HomeAboutComponent,
     HomeBookingComponent,
     HomeEventsComponent,
-    HomeFaqComponent,
     HomeBoatImagesComponent,
+    FaqComponent,
     
   ],
   imports: [
@@ -67,7 +67,8 @@ import { MembershipRulesAndRegulationsComponent } from './components/membership/
       { path: 'membership', component: MembershipComponent },
       { path: 'my-account', component: MyAccountComponent },
       { path: 'about', component: AboutComponent},
-      { path: 'membership', component: MembershipComponent }
+      { path: 'membership', component: MembershipComponent },
+      { path: 'faq', component: FaqComponent }
     ])
   ],
   providers: [],
