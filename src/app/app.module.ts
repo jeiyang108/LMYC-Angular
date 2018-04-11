@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarModule } from 'angular-calendar';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -50,6 +52,8 @@ import { EmergencyContactComponent } from './components/myaccount/sections/emerg
     BrowserModule,
     FormsModule,
     HttpModule,
+    CalendarModule.forRoot(), // for angular calendar
+    NgbModule.forRoot(), // for angular boostrap
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
