@@ -28,8 +28,9 @@ export class FleetComponent implements OnInit {
   // }
 
   getBoats(): void {
-  this.boatService.getBoats()
-    .then(boats => this.boats = boats);
+  // this.boatService.getBoats()
+  //   .then(boats => this.boats = boats);
+    this.boats = this.boatService.getDummies();
   }
 
   ngOnInit() {

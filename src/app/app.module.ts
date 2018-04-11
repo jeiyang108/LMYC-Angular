@@ -25,6 +25,7 @@ import { RulesandregulationsComponent } from './components/membership/sections/r
 import { ModalSignupComponent } from './components/membership/sections/modal-signup/modal-signup.component';
 import { EmergencyContactComponent } from './components/myaccount/sections/emergencycontact/emergencycontact.component';
 
+import { BoatService } from './services/boat.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,9 @@ import { EmergencyContactComponent } from './components/myaccount/sections/emerg
       { path: 'my-account', component: MyAccountComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    BoatService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
