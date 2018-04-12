@@ -12,12 +12,12 @@ export class ReportComponent implements OnInit {
 
   report: Report;
   reports: Report[];
+  newReport: Report = new Report;
 
   constructor(private reportService: ReportService) { }
 
   ngOnInit() {
-    this.getReports();
-    this.getReport("2dd9dbd3-e521-4de7-a50e-8be025d92a82");
+
   }
 
   getReports() {
@@ -31,10 +31,18 @@ export class ReportComponent implements OnInit {
   }
 
   putReport() {
-    this.report.content = "UPDATED";
-    console.log(this.report);
     this.reportService.putReport(this.report)
       .then(response => console.log("success"));
+  }
+
+  postReport() {
+    this.reportService.postReport(this.newReport)
+      .then(response => console.log("success"));
+  }
+
+  deleteReport(id: string) {
+    this.reportService.deleteReport(id)
+      .then(report => console.log("deleted"));
   }
 
 

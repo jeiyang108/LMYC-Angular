@@ -36,7 +36,7 @@ export class ReportService {
   }
 
   putReport(report: Report): Promise<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('access_token') });
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
     return this.http.put(AppComponent.url + '/api/Reports/' + report.reportID, report, options)
@@ -46,10 +46,20 @@ export class ReportService {
   }
 
   postReport(report: Report): Promise<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('access_token') });
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(AppComponent.url + '/api/Reports', report, options)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
+  }
+
+  deleteReport(id: string): Promise<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.delete(AppComponent.url + '/api/Reports/' + id, options)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);
