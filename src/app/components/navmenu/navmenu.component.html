@@ -6,8 +6,8 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <!-- <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li> -->
+    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+  </li> -->
       <li class="nav-item">
         <a class="nav-link" routerLink='/fleet'>Boats Catalogue</a>
       </li>
@@ -23,14 +23,17 @@
       <li class="nav-item">
         <a class="nav-link" routerLink='/membership'>Membership</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/report'>Report</a>
+      </li>
       <!-- <li class="nav-item dropdown" ngbDropdown> // if you want to have a drop down instead.
-        <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Category</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
-          <a class="dropdown-item" href="#">Angular</a>
-          <a class="dropdown-item" href="#">React</a>
-          <a class="dropdown-item" href="#">Vue.js</a>
-        </div>
-      </li> -->
+    <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Category</a>
+    <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
+      <a class="dropdown-item" href="#">Angular</a>
+      <a class="dropdown-item" href="#">React</a>
+      <a class="dropdown-item" href="#">Vue.js</a>
+    </div>
+  </li> -->
     </ul>
   </div>
   <div *ngIf="!authenticated" class="navbar-collapse collapse">
