@@ -3,37 +3,83 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Booking } from '../models/booking';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import { AppComponent } from '../app.component';
 
 @Injectable()
 export class BookingService {
 
-  private BASE_URL = 'https://localhost:57836/api/Bookings';
-
-  constructor(private http: Http) { }
+  constructor(private http: Http, private appComponent: AppComponent) { }
 
   getBookings(): Promise<Booking[]> {
     let headers = new Headers({
-
       'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')});
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.BASE_URL, options)
+    return this.http.get(AppComponent.url + '/api/Bookings', options)
       .toPromise()
       .then(response => response.json() as Booking[])
       .catch(this.handleError);
   }
 
-  getBookingById(id: string): Promise<Booking> {
+  getBookingByBookingId(id: string): Promise<Booking> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.BASE_URL + id, options)
+    return this.http.get(AppComponent.url + '/api/Bookings/' + id, options)
       .toPromise()
-      .then(response => response.json() as Booking[])
+      .then(response => response.json() as Booking)
       .catch(this.handleError);
   }
 
+  getBookingByBoatId(id: string): Promise<Booking> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
+    let options = new RequestOptions({ headers: headers });
 
+    return this.http.get(AppComponent.url + '/api/Bookings/' + id, options)
+      .toPromise()
+      .then(response => response.json() as Booking)
+      .catch(this.handleError);
+  }
+
+  getBookingByUserId(id: string): Promise<Booking> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(AppComponent.url + '/api/Bookings/' + id, options)
+      .toPromise()
+      .then(response => response.json() as Booking)
+      .catch(this.handleError);
+  }
+
+  putBooking(booking: Booking): Promise<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.put(AppComponent.url + '/api/Bookings/' + booking.bookingId, booking, options)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
+  }
+
+  postBooking(booking: Booking): Promise<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(AppComponent.url + '/api/Bookings' , booking, options)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
+  }
+
+  deleteBooking(id: string): Promise<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.delete(AppComponent.url + '/api/Bookings/' + id, options)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
