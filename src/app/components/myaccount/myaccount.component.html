@@ -1,118 +1,119 @@
+<div class="container">
+    
 <h1>My Account</h1>
 
-<div class="col-lg-3">
-    <!--left container contains basic info-->
-    <div class="jumbotron myaccount-left text-center">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
-
-            <div class="card-body myaccount-card">
-                <p class="username">{{username}}</p>
-                <p class="credit">
-                    <button type="button" class="btn btn-primary">
-                        {{credits}} <span class="badge badge-light">credits</span>
-                    </button>
-                </p>
-                <div class="jumbotron status-card" style="background-color: white">
-                    <div class="member-status">{{memberStatus}}</div>
-                    <div class="skipper-status">{{skipperStatus}}</div>
-                </div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="card-body">
+                <h5 class="card-title">User Overview</h5>
+                <!--left container contains basic info-->
+            
+                <div class="jumbotron myaccount-left text-center" style="height: 40rem;">
+                    <div class="card" style="width: 15.5rem;">
+                        <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
+                        <div class="card-body myaccount-card">
+                            <p class="username">{{username}}</p>
+                            <p class="credit">
+                                <button type="button" class="btn btn-primary">
+                                    {{credits}} <span class="badge badge-light">credits</span>
+                                </button>
+                            </p>
+                            <div class="jumbotron status-card" style="background-color: white">
+                                <div class="member-status">{{memberStatus}}</div>
+                                <div class="skipper-status">{{skipperStatus}}</div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="col-md-7">
+        <div class="card-body">
+            <h5 class="card-title">Details</h5>
 
-<div class="col-lg-9">
-    <!--right container contains detailed info-->
-    <div class="myaccount-right jumbotron">
-        <ul class="nav nav-tabs nav-justified nav-pills">
-            <li class="active"><a data-toggle="tab" href="#member-status">Member Status</a></li>
-            <li><a data-toggle="tab" href="#skills">Skills</a></li>
-            <li><a data-toggle="tab" href="#personal-info">Personal Info</a></li>
-        </ul>
-
-
-        <div class="tab-content">
-            <!--Member status, skipper status, credits-->
-            <div id="member-status" class="tab-pane fade in active">
-                <h3>Member Status</h3>
-                <table class="table table-hover member-status-table">
-
-                    <tbody>
-                        <tr>
-                            <td>Current Credits</td>
-                            <td>{{credits}}</td>
-                        </tr>
-                        <tr>
-                            <td>Member Status</td>
-                            <td>{{memberStatus}}</td>
-                        </tr>
-                        <tr>
-                            <td>Skipper Status</td>
-                            <td>{{skipperStatus}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <h4>Member Status</h4>
+                    <table class="table table-hover member-status-table">
+                        <tbody>
+                            <tr>
+                                <td>Current Credits</td>
+                                <td>{{credits}}</td>
+                            </tr>
+                            <tr>
+                                <td>Member Status</td>
+                                <td>{{memberStatus}}</td>
+                            </tr>
+                            <tr>
+                                <td>Skipper Status</td>
+                                <td>{{skipperStatus}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <h4>Sailing Qualifications and Experience</h4>
+                    <table class="table table-hover skills-table">
+                        <tbody>
+                            <tr>
+                                <td>Sailing Qualifications</td>
+                                <td>{{sailingQualifications}}</td>
+                            </tr>
+                            <tr>
+                                <td>Skills</td>
+                                <td>{{skills}}</td>
+                            </tr>
+                            <tr>
+                                <td>Experience</td>
+                                <td>{{sailingExeprience}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <h4>Personal Informaton</h4>
+                    <table class="table table-hover info-table">
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{firstName}} {{lastName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>{{street}}, {{city}}, {{province}}, {{country}}, {{postalCode}}</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile Phone</td>
+                                <td>{{mobilePhone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Home Phone</td>
+                                <td>{{homePhone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Work Phone</td>
+                                <td>{{workPhone}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <!--skills, sailing qualifications, and sailing experience -->
-            <div id="skills" class="tab-pane fade">
-                <h3>Sailing Qualifications and Experience</h3>
-                <table class="table table-hover skills-table">
-
-                    <tbody>
-                        <tr>
-                            <td>Sailing Qualifications</td>
-                            <td>{{sailingQualifications}}</td>
-                        </tr>
-                        <tr>
-                            <td>Skills</td>
-                            <td>{{skills}}</td>
-                        </tr>
-                        <tr>
-                            <td>Experience</td>
-                            <td>{{sailingExeprience}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-
-            <!--First Name, Last Name, Address, Phone, Emergency Contactx2, Change PW-->
-            <div id="personal-info" class="tab-pane fade">
-
-                <h3>Personal Informaton</h3>
-                <table class="table table-hover info-table">
-
-                    <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td>{{firstName}} {{lastName}}</td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td>{{street}}, {{city}}, {{province}}, {{country}}, {{postalCode}}</td>
-                        </tr>
-                        <tr>
-                            <td>Mobile Phone</td>
-                            <td>{{mobilePhone}}</td>
-                        </tr>
-                        <tr>
-                            <td>Home Phone</td>
-                            <td>{{homePhone}}</td>
-                        </tr>
-                        <tr>
-                            <td>Work Phone</td>
-                            <td>{{workPhone}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <hr />
-
-
-               <my-account-emergency-contacts></my-account-emergency-contacts>
-            </div>
+            <hr />
         </div>
+    </div>
+</div>
+<br />
+<my-account-emergency-contacts></my-account-emergency-contacts>
+<br />
+    <div class="container">
+        <!--RESERVATION-->
+        <reservations></reservations>
     </div>
 </div>
