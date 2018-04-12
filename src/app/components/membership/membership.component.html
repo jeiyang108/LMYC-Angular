@@ -1,3 +1,46 @@
-<p>
-  membership works!
-</p>
+<div class="body">
+
+    <div class="container">
+        <h1>Membership</h1>
+
+        <div class="container membership-container">
+            
+            <p>You don't need to own a boat or even know how to sail in order become a member of one of White Rock's best kept secrets – the Lower Mainland Yacht Co-op (LMYC). All you need is an interest in sailing.</p>
+            <p>You can learn to be a skipper on one of our seven boats; join the fun on long weekend cruises or simply sail around Semiahmoo Bay with other members... all for an affordable price!</p>
+            <p>The Lower Mainland Yacht Cooperative (LMYC) consists of 115 "Full" members and six sailboats moored at the end of the pier. We have three C&C 27’s MK3, a Catalina 28 Mk2. a Cal 25 MK2 and a 27' C&C MK5. Aside from a membership fee, members are required to contribute a minimum of 20 hours of their time to either boat maintenance or other club tasks.</p>
+            <p>The most important aspect of the cooperative is the maintenance of the boats. All boats are kept in good condition as a result of regular maintenance, including scheduled Maintenance Days, which are on the Saturday morning following the General Meeting of each month. Each boat has it’s own Maintenance Crew and Leader. Most Maintenance Day crew members are scheduled for six times per year.</p>
+            <p>Annual bottom painting and minor upgrading are done early each season. Co-op members do most of this work; professional trades are hired as needed. This is an excellent opportunity to learn the workings of the boats while getting to know your fellow sailors.</p>
+            <p>Boats are booked on a first come, first serve basis, each member being allocated 320 hours of sailing during the "high season" months of June, July and August. This allows for a week of sailing during this peak period if accompanied by three non-member guests/crew. During the balance of the year, a member's booking hours are unlimited.</p>
+            <p>As a full member, you can join in the fun on the long weekend "Club Cruises" to gorgeous destinations in the Gulf Islands. Your nominal fee for the weekend includes most provisions and expenses. Saturday morning you leave for a beautiful 3-day trip to some of BC's most beautiful spots.</p>
+            <p>The fact that we usually have a waiting list for full membership points to the value and popularity of our club. Often all of those wishing full membership are able to transfer from social member status by the February following their application.</p>
+            <p>Once the application to full membership is accepted, the 2018 initiation fee of $200 plus the annual fee of $700 [total amount = $900] is payable prior to January 31st.  There are no refunds on memberships.</p>
+            <p>Those on our waiting list pay $25 per year. They are referred to as "Social Members" and are entitled to attend all member meetings and social functions. Associate members stay at the top of the waiting list, pay $50 per year, and are also welcome at all member meetings and social functions.</p>
+            <p><b>For more information email Doug our Membeship Dirctor at <a href="mailto:lmycmembership@gmail.com">lmycmembership@gmail.com</a> he'll be happy to answer questions and guide you thru the process. But if you are ready to apply, please fill in the application form below:</b></p>
+        </div>
+
+        <div class="container jumbotron signup-container">
+            <form>
+                <h2 class="display-4">Come aboard and join the adventure!</h2>
+                <p class="lead">Fill in the form to join our organizaiton. </p>
+                <hr />
+                <button type="button" class="btn btn-lg btn-primary" (click)="openSignup(signupModal)" data-toggle="modal" data-target="#signupModal">
+                    Sign Up >>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SignUp Modal -->
+
+    <ng-template #signupModal>
+        <signup></signup>
+    </ng-template>
+    <!-- End of Modal -->
+
+
+    <!-- Rules and Regulations -->
+    <div class="container">
+        <rulesandregulations></rulesandregulations>
+    </div>
+
+</div>

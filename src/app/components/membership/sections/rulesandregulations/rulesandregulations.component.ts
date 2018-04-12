@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-rulesandregulations',
+  selector: 'rulesandregulations',
   templateUrl: './rulesandregulations.component.html',
   styleUrls: ['./rulesandregulations.component.css']
 })
