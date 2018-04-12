@@ -26,6 +26,7 @@ import { MyAccountEmergencyContactsComponent } from './components/myaccount/sect
 import { MembershipModalSignupComponent } from './components/membership/sections/membership.modalsignup/membership.modalsignup.component';
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { ContactUsComponent } from './components/contactus/contactus.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { FaqComponent } from './components/faq/faq.component';
     HomeEventsComponent,
     HomeBoatImagesComponent,
     FaqComponent,
+    ContactUsComponent,
     
   ],
   imports: [
@@ -68,7 +70,8 @@ import { FaqComponent } from './components/faq/faq.component';
       { path: 'my-account', component: MyAccountComponent },
       { path: 'about', component: AboutComponent},
       { path: 'membership', component: MembershipComponent },
-      { path: 'faq', component: FaqComponent }
+      { path: 'faq', component: FaqComponent },
+      { path: 'contact-us', component: ContactUsComponent },
     ])
   ],
   providers: [],
