@@ -2,3 +2,18 @@ span {
     font-size: 100%;
     color: #849dbc;
 }
+
+#contactus {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.btn {
+    margin: 8px;
+}
+
+#info {
+    font-size: 40px;
+    text-align: center;
+    margin: 2px;
+}
