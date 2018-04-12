@@ -28,9 +28,11 @@ import { MembershipRulesAndRegulationsComponent } from './components/membership/
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
 import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
-import { ReportComponent } from './components/report/report.component';
+import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 
 import { BoatService } from './services/boat.service';
+import { MembersComponent } from './components/members/members.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { BoatService } from './services/boat.service';
     ContactUsComponent,
     FleetImageComponent,
     ReportComponent,
+    MembersComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,8 +71,10 @@ import { BoatService } from './services/boat.service';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
+      { path: 'members', component: MembersComponent },
       { path: 'home', component: HomeComponent },
       { path: 'membership', component: MembershipComponent },
       { path: 'my-account', component: MyAccountComponent },
