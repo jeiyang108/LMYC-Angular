@@ -13,7 +13,7 @@ export class BoatService {
     {'BoatId':'00003','Name':'a','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'a','Length':5,'Make':'a','Year': 5},
     {'BoatId':'00004','Name':'a','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'a','Length':5,'Make':'a','Year': 5},
   ];
-  private BASE_URL = 'https://localhost:44355/api/boats';
+  private BASE_URL = 'https://localhost:44302/api/boats';
   private headers = new Headers(
     {
       'Content-Type': 'application/json',

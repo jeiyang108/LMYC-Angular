@@ -1,3 +1,28 @@
 <p>
-  home works!
+home works!
 </p>
+
+<div class="alignment" align="center">
+    <div class="welcome image">
+        <img src="../../assets/images/welcome-boat.jpg" alt="Photo of a boat" />
+        <div class="image-content">
+
+            <h1 class="header"><span>Welcome</span></h1>
+            <button [routerLink]="['/membership']">
+                Become A Member
+            </button>
+
+        </div>
+
+    </div>
+    <home-about></home-about>
+    <home-events></home-events>
+    <div class="row">
+        <div class="col-md-6">
+            <home-booking></home-booking>
+        </div>
+        <div class="col-md-6">
+            <home-boat-images></home-boat-images>
+        </div>
+    </div>
+</div>
