@@ -11,11 +11,18 @@ body {
 
  p {
     font-size: 100%;
+}
+h1, h2, h5, p, ul, ol{
     color: #849dbc;
 }
-h1 {
-    color: #849dbc;
+
+ul.a {
+    list-style-type: circle;
 }
+
+
+
+
 
 #footer {
     position: relative;

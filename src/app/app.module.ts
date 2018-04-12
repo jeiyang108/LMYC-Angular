@@ -28,6 +28,7 @@ import { MembershipRulesAndRegulationsComponent } from './components/membership/
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
 import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
+import { ReportComponent } from './components/report/report.component';
 
 import { BoatService } from './services/boat.service';
 
@@ -55,6 +56,7 @@ import { BoatService } from './services/boat.service';
     FaqComponent,
     ContactUsComponent,
     FleetImageComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,7 @@ import { BoatService } from './services/boat.service';
       { path: 'membership', component: MembershipComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'contact-us', component: ContactUsComponent },
+      { path: 'report', component: ReportComponent },
     ])
   ],
   providers: [
