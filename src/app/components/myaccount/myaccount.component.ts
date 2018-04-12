@@ -33,7 +33,7 @@ export class MyAccountComponent implements OnInit {
     SailingExeprience: string = 'n/a';
 
     EmergencyContactName1: string = 'Jane Smith';
-    emergencyContact1Phone1: string = '6040000000';
+    EmergencyContactPhone1: string = '6040000000';
     EmergencyContactName2: string = 'Isaac Toast';
     EmergencyContactPhone2: string = '6040000001';
 
