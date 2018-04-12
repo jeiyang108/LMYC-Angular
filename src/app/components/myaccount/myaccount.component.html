@@ -1,118 +1,192 @@
-<h1>My Account</h1>
+<div class="body">
+        
+    <div class="container">
+        
+        <h1>My Account</h1>
 
-<div class="col-lg-3">
-    <!--left container contains basic info-->
-    <div class="jumbotron myaccount-left text-center">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
+        <div class="row">
+            <div class="col-lg-3 col-md-3" style="width: 250px; margin-right:0px; padding-right: 0px;">
+                <!--left container contains basic info-->
+                <div class="jumbotron myaccount-left text-center">
+                    <div class="card">
+                        <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
+    
+                        <div class="card-body myaccount-card">
+                            <p class="username">{{Username}}</p>
+                            <p class="credit">
+                                <button type="button" class="btn btn-primary">
+                                    {{Credits}} <span class="badge badge-light">credits</span>
+                                </button>
+                            </p>
+                            <div class="jumbotron status-card" style="background-color: white">
+                                <div class="member-status">{{MemberStatus}}</div>
+                                <div class="skipper-status">{{SkipperStatus}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buttons for modals (Volunteer, Reservations, View Docs)-->
+                    <div class="button-container">
+                        <form>
+                            
+                            <!-- Volunteer Modal -->
+                            <button type="button" class="btn btn-lg btn-primary" (click)="openVolunteer(volunteerModal)" data-toggle="modal" data-target="#volunteerModal" >
+                                Volunteer
+                            </button>
+                            <!-- (TBD) View docs? -->
+                            <button type="button" class="btn btn-lg btn-primary" (click)="openViewdocs(viewdocsModal)" data-toggle="modal" data-target="#viewdocsModal">
+                                View Documents
+                            </button>
 
-            <div class="card-body myaccount-card">
-                <p class="username">{{username}}</p>
-                <p class="credit">
-                    <button type="button" class="btn btn-primary">
-                        {{credits}} <span class="badge badge-light">credits</span>
-                    </button>
-                </p>
-                <div class="jumbotron status-card" style="background-color: white">
-                    <div class="member-status">{{memberStatus}}</div>
-                    <div class="skipper-status">{{skipperStatus}}</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-9 col-md-9">
+                <!--right container contains detailed info-->
+                <div class="myaccount-right jumbotron">
+
+                    <!--
+
+                        Bootstrap 4.1 tabs are not working for some reason.
+                        Disabling it for now an display the user info in one page.
+
+
+                        <ul class="nav nav-tabs nav-pills nav-fill" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#member-status" role="tab" data-toggle="tab">Member Status</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="#skills" role="tab" data-toggle="tab">Skills</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="#personal-info" role="tab" data-toggle="tab">Personal Info</a>
+                            </li>
+                        </ul>
+
+                    -->
+    
+    
+                    <div class="tab-content">
+                        <!--Member status, skipper status, credits-->
+                        <div id="member-status" role="tabpanel"> <!-- class="tab-pane fade in active"-->
+                            <h3>Member Status</h3>
+                            <table class="table table-hover member-status-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Current Credits</td>
+                                        <td>{{Credits}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Member Status</td>
+                                        <td>{{MemberStatus}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Skipper Status</td>
+                                        <td>{{SkipperStatus}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+    
+                        <!--skills, sailing qualifications, and sailing experience -->
+                        <div id="skills" role="tabpanel" > <!--class="tab-pane fade"-->
+                            <h3>Sailing Qualifications and Experience</h3>
+                            <table class="table table-hover skills-table">
+    
+                                <tbody>
+                                    <tr>
+                                        <td>Sailing Qualifications</td>
+                                        <td>{{SailingQualifications}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Skills</td>
+                                        <td>{{Skills}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Experience</td>
+                                        <td>{{SailingExeprience}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+    
+    
+                        <!--First Name, Last Name, Address, Phone, Emergency Contactx2, Change PW-->
+                        <div id="personal-info" role="tabpanel"> <!-- class="tab-pane fade"-->
+    
+                            <h3>Personal Information</h3>
+                            <table class="table table-hover info-table">
+    
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>{{FirstName}} {{LastName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>{{Street}}, {{City}}, {{Province}}, {{Country}}, {{PostalCode}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile Phone</td>
+                                        <td>{{MobilePhone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Home Phone</td>
+                                        <td>{{HomePhone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Work Phone</td>
+                                        <td>{{WorkPhone}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+    
+                            <hr />
+    
+    
+                            <h3>Emergency Contact</h3>
+                            <table class="table table-hover emergency-contact-table">
+                                <tbody>
+                                    <tr>
+                                        <td>{{EmergencyContact1Name}}</td>
+                                        <td>{{EmergencyContact1Phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{EmergencyContact2Name}}</td>
+                                        <td>{{EmergencyContact2Phone}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    
 </div>
 
-<div class="col-lg-9">
-    <!--right container contains detailed info-->
-    <div class="myaccount-right jumbotron">
-        <ul class="nav nav-tabs nav-justified nav-pills">
-            <li class="active"><a data-toggle="tab" href="#member-status">Member Status</a></li>
-            <li><a data-toggle="tab" href="#skills">Skills</a></li>
-            <li><a data-toggle="tab" href="#personal-info">Personal Info</a></li>
-        </ul>
+
+<!-- Volunteer Modal -->
+<ng-template #volunteerModal>
+    <volunteer></volunteer>
+</ng-template>
+<!-- Modal End -->
 
 
-        <div class="tab-content">
-            <!--Member status, skipper status, credits-->
-            <div id="member-status" class="tab-pane fade in active">
-                <h3>Member Status</h3>
-                <table class="table table-hover member-status-table">
-
-                    <tbody>
-                        <tr>
-                            <td>Current Credits</td>
-                            <td>{{credits}}</td>
-                        </tr>
-                        <tr>
-                            <td>Member Status</td>
-                            <td>{{memberStatus}}</td>
-                        </tr>
-                        <tr>
-                            <td>Skipper Status</td>
-                            <td>{{skipperStatus}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!--skills, sailing qualifications, and sailing experience -->
-            <div id="skills" class="tab-pane fade">
-                <h3>Sailing Qualifications and Experience</h3>
-                <table class="table table-hover skills-table">
-
-                    <tbody>
-                        <tr>
-                            <td>Sailing Qualifications</td>
-                            <td>{{sailingQualifications}}</td>
-                        </tr>
-                        <tr>
-                            <td>Skills</td>
-                            <td>{{skills}}</td>
-                        </tr>
-                        <tr>
-                            <td>Experience</td>
-                            <td>{{sailingExeprience}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<!-- View Docs Modal -->
+<ng-template #viewdocsModal>
+    <viewdocs></viewdocs>
+</ng-template>
+<!-- Modal End -->
 
 
-            <!--First Name, Last Name, Address, Phone, Emergency Contactx2, Change PW-->
-            <div id="personal-info" class="tab-pane fade">
-
-                <h3>Personal Informaton</h3>
-                <table class="table table-hover info-table">
-
-                    <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td>{{firstName}} {{lastName}}</td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td>{{street}}, {{city}}, {{province}}, {{country}}, {{postalCode}}</td>
-                        </tr>
-                        <tr>
-                            <td>Mobile Phone</td>
-                            <td>{{mobilePhone}}</td>
-                        </tr>
-                        <tr>
-                            <td>Home Phone</td>
-                            <td>{{homePhone}}</td>
-                        </tr>
-                        <tr>
-                            <td>Work Phone</td>
-                            <td>{{workPhone}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <hr />
-
-
-               <my-account-emergency-contacts></my-account-emergency-contacts>
-            </div>
-        </div>
-    </div>
+<!-- RESERVATION SECTION-->
+<div class="container" id="reservation">
+    <!--RESERVATION -->
+    <reservations></reservations>
 </div>
+

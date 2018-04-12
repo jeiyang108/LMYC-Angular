@@ -16,6 +16,7 @@ import { BookingComponent } from './components/booking/booking.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MembershipComponent } from './components/membership/membership.component';
 import { MyAccountComponent } from './components/myaccount/myaccount.component';
+import { ModalVolunteerComponent } from './components/myaccount/sections/modal-volunteer/modal-volunteer.component';
 import { ReservationsComponent } from './components/myaccount/reservations/reservations.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeAboutComponent } from './components/home/sections/home.about/home.about.component';
@@ -27,6 +28,9 @@ import { MembershipModalSignupComponent } from './components/membership/sections
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
+import { RulesandregulationsComponent } from './components/membership/sections/rulesandregulations/rulesandregulations.component';
+import { ModalSignupComponent } from './components/membership/sections/modal-signup/modal-signup.component';
+import { ModalViewDocsComponent } from './components/myaccount/sections/modal-view-docs/modal-view-docs.component';
 
 
 @NgModule({
@@ -52,6 +56,12 @@ import { ContactUsComponent } from './components/contactus/contactus.component';
     HomeBoatImagesComponent,
     FaqComponent,
     ContactUsComponent,
+    ModalVolunteerComponent,
+    ReservationsComponent,
+    RulesandregulationsComponent,
+    ModalSignupComponent,
+    ModalViewDocsComponent,
+
     
   ],
   imports: [
