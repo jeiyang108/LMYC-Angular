@@ -1,3 +1,8 @@
 .container {
-	margin-bottom: 120px;
+	margin-bottom: 100%;
+}
+
+.wrapper{
+	min-height: 100%;
+
 }
