@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class MyAccountComponent implements OnInit {
   loading: boolean = false;
   user: User;
+  username: string = sessionStorage.getItem("username");
 
   constructor(
     private accountService: AccountService,
@@ -22,7 +23,7 @@ export class MyAccountComponent implements OnInit {
 
   //used to retrieve account info of the currenty logged in user.
   displayUserInfo(): void {
-      this.accountService.getUserById("338b5df4-c3ee-42df-9938-c85564cda83a")
+      this.accountService.getUserByName(this.username)
         .then(user => {
           this.user = user;
         });
