@@ -16,3 +16,10 @@ body {
 h1 {
     color: #849dbc;
 }
+
+#footer {
+    position: relative;
+    bottom:0;
+    width: 100%;
+    margin-top: auto;
+}
