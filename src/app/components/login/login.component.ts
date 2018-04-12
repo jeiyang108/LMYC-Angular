@@ -1,6 +1,6 @@
 import { Http, Response } from '@angular/http';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { Headers, RequestOptions } from '@angular/http';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/map';
@@ -18,19 +18,23 @@ export class LoginComponent {
     username: string;
     password: string;
 
-    constructor(private http: Http, private router: Router) { }
+    constructor(
+      private http: Http,
+      private router: Router,
+      private modal: NgbModal) { }
 
     ngOnInit() {
-        localStorage.removeItem("username");
-        localStorage.removeItem("access_token");
+        sessionStorage.removeItem("username");
+        sessionStorage.removeItem("access_token");
+        sessionStorage.removeItem("autheticated");
     }
 
     login() {
         this.authenticate()
             .subscribe(authenticated => {
-                /*if (authenticated === true) {
-                    this.router.navigate(['/about/']);
-                }*/
+                if (authenticated === true) {
+                    this.router.navigate(['/home/']);
+                }
             });
     }
 
@@ -42,8 +46,9 @@ export class LoginComponent {
         return this.http.post(AppComponent.url + "/connect/token/", body, options)
             .map((response: Response) => {
                 if (response.json().access_token) {
-                    localStorage.setItem("username", this.username);
-                    localStorage.setItem("access_token", response.json().access_token);
+                    sessionStorage.setItem("username", this.username);
+                    sessionStorage.setItem("access_token", response.json().access_token);
+                    sessionStorage.setItem("authenticated", "true");
 
                     return true;
                 } else {

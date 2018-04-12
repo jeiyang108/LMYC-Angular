@@ -7,14 +7,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
   styleUrls: ['./navmenu.component.css']
 })
 export class NavMenuComponent implements OnInit {
+  private authenticated: boolean;
 
-  constructor(private modal:NgbModal) { }
+  constructor() { }
 
   ngOnInit() {
+  	if (sessionStorage.getItem("authenticated") == "true") {
+  		this.authenticated = true;
+  	} else {
+  		this.authenticated = false;
+  	}
   }
-
-  open(loginModal){ 
-        this.modal.open(loginModal);
-    }
-
 }
