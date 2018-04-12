@@ -8,6 +8,9 @@ export class Report {
     dateCreated: Date;
     userId: string;
     codeId: string;
+    description: string;
+    classification: ClassificationCode;
+    
     
     constructor() { }
 }

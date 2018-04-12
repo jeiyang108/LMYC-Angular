@@ -4,6 +4,8 @@ import { Report } from '../../models/report';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
+import { AppComponent } from '../../app.component';
+import { ReportService } from '../../services/report.service';
 
 
 @Component({
@@ -22,9 +24,9 @@ export class VolunteerComponent implements OnInit {
   // });
 
 
-  constructor(private fb: FormBuilder, private http: Http) { 
+  constructor(private fb: FormBuilder,private reportService: ReportService) { 
     this.report = new Report();
-    this.report.date = new Date(); // This prevents a console error for reading a null date
+    this.report.dateCreated = new Date(); // This prevents a console error for reading a null date
   }
 
   // createForm() {
@@ -45,11 +47,11 @@ export class VolunteerComponent implements OnInit {
 
   newReport() {
 
-    console.log(this.report.date);
-    console.log(this.report.numberHours);
+    console.log(this.report.dateCreated);
+    console.log(this.report.hours);
     console.log(this.report.description);
 
-    return this.http.post("https://localhost:44302" + "/api/Reports", this.report)
-      .subscribe((data) => {}); 
+    this.reportService.postReport(this.report)
+      .then(response => console.log("success"));
   }
 }
