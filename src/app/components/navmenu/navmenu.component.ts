@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navmenu',
@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 export class NavMenuComponent implements OnInit {
   private authenticated: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   	this.refresh();
@@ -19,6 +19,7 @@ export class NavMenuComponent implements OnInit {
     sessionStorage.setItem("authenticated", "false");
     sessionStorage.removeItem("acess_token");
     location.reload();
+    this.router.navigate(['/home/']);
   }
 
   refresh() {

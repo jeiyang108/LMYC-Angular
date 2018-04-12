@@ -33,8 +33,8 @@ export class LoginComponent {
         this.authenticate()
             .subscribe(authenticated => {
                 if (authenticated === true) {
-                    this.router.navigate(['/home/']);
                     location.reload();
+                    this.router.navigate(['/home/']);
                 }
             });
     }
