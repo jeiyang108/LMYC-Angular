@@ -9,16 +9,19 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" routerLink='/fleet'>Boats</a>
+        <a class="nav-link" routerLink='/fleet'>Boats Catalogue</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink='/booking'>Bookings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink='/membership'>Members</a>
+        <a class="nav-link" routerLink='/my-account'>My Account</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink='/my-account'>My Account</a>
+        <a class="nav-link" routerLink='/about'>About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/membership'>Membership</a>
       </li>
       <!-- <li class="nav-item dropdown" ngbDropdown> // if you want to have a drop down instead.
         <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Category</a>
@@ -33,6 +36,12 @@
   <div *ngIf="!authenticated" class="navbar-collapse collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+          <a class="nav-link" routerLink='/contact-us'>Contact Us</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link">Register MODAL</a>
+        </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink='/login'>Login</a>
       </li>
     </ul>
@@ -40,7 +49,7 @@
   <div *ngIf ="authenticated" class="navbar-collapse collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link">Logout</a>
+        <a class="nav-link" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>
@@ -75,4 +84,3 @@
     </ul>
   </div>
 </nav> -->
-<router-outlet></router-outlet>

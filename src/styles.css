@@ -3,27 +3,30 @@
 
 body {
     padding-top: 80px; 
-
-    /*Copied from the old project*/
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
  }
  .starter-template {
      padding: 3rem 1.5rem;
      text-align: center;
  }
 
- /* To change font, or color of all text, make changes in 
-    both tags.
-*/
-
-h1 {
-    padding-left: 15px;
-    padding-right: 15px;
+ p {
+    font-size: 100%;
 }
- /* for components maybe unecessary*/
-/*.component-content {
-}*/
+h1, h2, h5, p, ul, ol{
+    color: #849dbc;
+}
+
+ul.a {
+    list-style-type: circle;
+}
+
+
+
+
+
+#footer {
+    position: relative;
+    bottom:0;
+    width: 100%;
+    margin-top: auto;
+}
