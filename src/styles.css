@@ -3,7 +3,7 @@
 
 html, body{
     height: 100%;
-    min-height: 100%;
+    min-height: 80%;
 }
 body {
     padding-top: 80px; 
