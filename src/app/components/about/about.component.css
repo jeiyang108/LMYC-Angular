@@ -1,18 +1,8 @@
 .outer {
     width: 80%;
-    height: 600px;
-
     margin: 0 auto;
-    position: relative;
 }
 
 img {
     float: right;
-}
-p {
-    font-size: 150%;
-    color: #849dbc;
-}
-h1 {
-    color: #849dbc;
 }

@@ -28,6 +28,8 @@ import { MembershipModalSignupComponent } from './components/membership/sections
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
+import { ContactUsComponent } from './components/contactus/contactus.component';
+import { ReportComponent } from './components/report/report.component'
 
 
 @NgModule({
@@ -52,7 +54,10 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
     HomeEventsComponent,
     HomeBoatImagesComponent,
     FaqComponent,
-    VolunteerComponent 
+    VolunteerComponent,
+    ContactUsComponent,
+    ReportComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -72,8 +77,9 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
       { path: 'about', component: AboutComponent},
       { path: 'membership', component: MembershipComponent },
       { path: 'faq', component: FaqComponent },
-      { path: 'volunteer', component: VolunteerComponent }
-
+      { path: 'volunteer', component: VolunteerComponent },
+      { path: 'contact-us', component: ContactUsComponent },
+      { path: 'report', component: ReportComponent },
     ])
   ],
   providers: [],
