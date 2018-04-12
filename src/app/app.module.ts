@@ -33,6 +33,7 @@ import { ReportComponent } from './components/myaccount/sections/myaccount.repor
 import { BoatService } from './services/boat.service';
 import { MembersComponent } from './components/members/members.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DocumentComponent } from './components/document/document.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { RegisterComponent } from './components/register/register.component';
     ReportComponent,
     MembersComponent,
     RegisterComponent,
+    DocumentComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +85,7 @@ import { RegisterComponent } from './components/register/register.component';
       { path: 'faq', component: FaqComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
+      { path: 'documents', component: DocumentComponent },
     ])
   ],
   providers: [
