@@ -18,4 +18,12 @@ export class NavMenuComponent implements OnInit {
   		this.authenticated = false;
   	}
   }
+
+  ngOnRefresh() {
+    if (sessionStorage.getItem("authenticated") == "true") {
+      this.authenticated = true;
+    } else {
+      this.authenticated = false;
+    }
+  }
 }
