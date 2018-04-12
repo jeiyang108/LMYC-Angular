@@ -28,9 +28,9 @@ export class LoginComponent {
     login() {
         this.authenticate()
             .subscribe(authenticated => {
-                if (authenticated === true) {
+                /*if (authenticated === true) {
                     this.router.navigate(['/about/']);
-                }
+                }*/
             });
     }
 
