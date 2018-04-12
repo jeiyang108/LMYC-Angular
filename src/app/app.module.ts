@@ -32,6 +32,7 @@ import { ReportComponent } from './components/myaccount/sections/myaccount.repor
 
 import { BoatService } from './services/boat.service';
 import { MembersComponent } from './components/members/members.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MembersComponent } from './components/members/members.component';
     FleetImageComponent,
     ReportComponent,
     MembersComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { MembersComponent } from './components/members/members.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'members', component: MembersComponent },
