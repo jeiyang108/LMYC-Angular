@@ -28,7 +28,7 @@ import { MembershipRulesAndRegulationsComponent } from './components/membership/
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
 import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
-import { ReportComponent } from './components/report/report.component';
+import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 
 import { BoatService } from './services/boat.service';
 

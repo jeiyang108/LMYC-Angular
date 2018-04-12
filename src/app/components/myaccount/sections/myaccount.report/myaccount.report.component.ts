@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ReportService } from '../../services/report.service';
-import { Report } from '../../models/report';
+import { ReportService } from '../../../../services/report.service';
+import { Report } from '../../../../models/report';
 
 @Component({
-  selector: 'report',
-  templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css'],
+  selector: 'my-account-report',
+  templateUrl: './myaccount.report.component.html',
+  styleUrls: ['./myaccount.report.component.css'],
   providers: [ReportService]
 })
 export class ReportComponent implements OnInit {
