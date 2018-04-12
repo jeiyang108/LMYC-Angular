@@ -27,7 +27,10 @@ import { MembershipModalSignupComponent } from './components/membership/sections
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
+import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
+import { ReportComponent } from './components/report/report.component';
 
+import { BoatService } from './services/boat.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,8 @@ import { ContactUsComponent } from './components/contactus/contactus.component';
     HomeBoatImagesComponent,
     FaqComponent,
     ContactUsComponent,
-    
+    FleetImageComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,7 @@ import { ContactUsComponent } from './components/contactus/contactus.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'fleet', component:FleetComponent },
+      { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'home', component: HomeComponent },
       { path: 'membership', component: MembershipComponent },
@@ -72,9 +76,12 @@ import { ContactUsComponent } from './components/contactus/contactus.component';
       { path: 'membership', component: MembershipComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'contact-us', component: ContactUsComponent },
+      { path: 'report', component: ReportComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    BoatService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

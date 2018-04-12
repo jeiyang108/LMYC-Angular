@@ -1,10 +1,13 @@
 import { ClassificationCode } from "./classification-code";
 
 export class Report {
-    date: Date;
-    numberHours: number;
-    description: string; 
-    classificationCode: ClassificationCode;
+    reportID: string;
+    content: string;
+    hours: number;
+    approved: boolean;
+    dateCreated: Date;
+    userId: string;
+    codeId: string;
     
     constructor() { }
 }
