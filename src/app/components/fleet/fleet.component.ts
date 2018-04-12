@@ -19,25 +19,53 @@ export class FleetComponent implements OnInit {
     private router: Router
   ) { }
 
-  onSelect(boat: Boat): void {
-    this.selected = boat;
-  }
+  // onSelect(boat: Boat): void {
+  //   this.selected = boat;
+  // }
 
   // gotoDetail(): void {
   //   this.router.navigate(['/detail', this.selected.BoatId]);
   // }
 
   getBoats(): void {
-  // this.boatService.getBoats()
-  //   .then(boats => this.boats = boats);
-    this.boats = this.boatService.getDummies();
+    this.boatService.getBoats()
+      .then(boats => {
+        this.boats = boats;
+      });
   }
 
   ngOnInit() {
     this.getBoats();
   }
 
-  onBook() {
-    
+  onBook(index: string) {
+    console.log(index);
+    //this.bookingService.setSelectedBoat(this.boats[index]);
+  }
+
+  applyStatusStyle(status: string) {
+    switch(status)
+    {
+      case 'Out-of Service':
+        return '.text-dangerous';
+      default:
+        return '.text-success';
+    }
+  }
+
+  applyCardHeaderStyle(feet: number) {
+    switch(feet)
+    {
+      case 25:
+        return 'bg-warning';
+      case 27:
+        return 'bg-success';
+      case 28:
+        return 'bg-info';
+      case 30:
+        return 'bg-primary';
+      default:
+        return;
+    }
   }
 }

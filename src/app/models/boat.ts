@@ -1,9 +1,9 @@
 export class Boat {
     BoatId: string;
     Name: string;
-    CreditPerHour: number;
+    CreditsPerHour: number;
     Status: string;
-    Photo: Blob;
+    Photo: any;
     Description: string;
     Length: number;
     Make: string;
