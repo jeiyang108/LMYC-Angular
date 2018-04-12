@@ -1,8 +1,6 @@
 .container {
-	margin-bottom: 100%;
+
+	
+    min-height: 100%;
 }
 
-.wrapper{
-	min-height: 100%;
-
-}
