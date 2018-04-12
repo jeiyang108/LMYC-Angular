@@ -9,16 +9,14 @@
             <div id="fleet-boat-label-feet-boat">BOAT</div>
           </div>
         </div>
-        <img class="card-img-top" src="" alt="card boat image">
-        <div class="card-body text-center">
+        <img class="card-img-top" id="fleet-boat-img" src="data:image/jpg;base64,{{b.photo}}" alt="card boat image" (click)="showImageModal(b.photo)">
+        <div class="card-body text-center d-flex flex-column">
           <h4 class="card-title">{{b.name}}</h4>
-          <ul>
-            <li><span class="fleet-boat-label">Status : </span><span [ngClass]='applyStatusStyle(b.status)'>{{b.status}}</span></li>
-            <li><span class="fleet-boat-label">Make : </span>{{b.make}}</li>
-            <li><span class="fleet-boat-label">Year : </span>{{b.year}}</li>
-            <li>{{b.description}}</li>
-          </ul>
-          <div style="">
+          <div><span class="fleet-boat-label">Status : </span><span [ngClass]='applyStatusStyle(b.status)'>{{b.status}}</span></div>
+          <div><span class="fleet-boat-label">Make : </span>{{b.make}}</div>
+          <div><span class="fleet-boat-label">Year : </span>{{b.year}}</div>
+          <div>{{b.description}}</div>
+          <div class="mt-auto">
             <hr>
               <div>
                 <span class="fleet-boat-label" id="fleet-boat-label"></span>
@@ -26,10 +24,12 @@
                 <span class="fleet-boat-label" id="fleet-boat-label">Credit(s) per Hour</span>
               </div>
             <hr>
-            <a [routerLink]="" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
-        </div>
+            <a [routerLink]="['/booking']" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<fleet-image *ngIf='showImage' [photo]="outputPhoto" (close)="closeImageModal($event)"></fleet-image>

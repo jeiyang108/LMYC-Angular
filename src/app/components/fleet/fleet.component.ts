@@ -13,19 +13,13 @@ export class FleetComponent implements OnInit {
 
   selected: Boat;
   boats: Boat[];
+  showImage: Boolean = false;
+  outputPhoto: any;
 
   constructor(
     private boatService: BoatService,
     private router: Router
   ) { }
-
-  // onSelect(boat: Boat): void {
-  //   this.selected = boat;
-  // }
-
-  // gotoDetail(): void {
-  //   this.router.navigate(['/detail', this.selected.BoatId]);
-  // }
 
   getBoats(): void {
     this.boatService.getBoats()
@@ -39,7 +33,7 @@ export class FleetComponent implements OnInit {
   }
 
   onBook(index: string) {
-    console.log(index);
+    // console.log(index);
     //this.bookingService.setSelectedBoat(this.boats[index]);
   }
 
@@ -47,9 +41,9 @@ export class FleetComponent implements OnInit {
     switch(status)
     {
       case 'Out-of Service':
-        return '.text-dangerous';
+        return 'text-dangerous';
       default:
-        return '.text-success';
+        return 'text-success';
     }
   }
 
@@ -59,13 +53,22 @@ export class FleetComponent implements OnInit {
       case 25:
         return 'bg-warning';
       case 27:
-        return 'bg-success';
-      case 28:
         return 'bg-info';
+      case 28:
+        return 'bg-success';
       case 30:
-        return 'bg-primary';
+        return 'bg-dark';
       default:
-        return;
+        return 'bg-dark';
     }
+  }
+
+  showImageModal(photoString: any) {
+    this.showImage = true
+    this.outputPhoto = photoString;
+  }
+
+  closeImageModal() {
+    this.showImage = false;
   }
 }

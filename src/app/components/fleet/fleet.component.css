@@ -3,24 +3,18 @@
     float: left;
 }
 
-ul {
-  list-style-type: none;
-  padding-left:0;
-}
-
-.top5 { margin-top:5px; }
-.top7 { margin-top:7px; }
-.top10 { margin-top:10px; }
-.top15 { margin-top:15px; }
-.top17 { margin-top:17px; }
-.top30 { margin-top:30px; }
 .topbot15 { margin-top:15px; margin-bottom:15px }
 
-
-img {
+#fleet-boat-img {
     height: 240px;
-    /* width: 180px; */
-    border: 1px solid black
+    /* object-fit: contain; */
+    /* object-fit: cover; */
+    /* object-fit: scale-down; */
+}
+
+#fleet-boat-img:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .fleet-boat-label {
