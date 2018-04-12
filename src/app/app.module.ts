@@ -27,8 +27,12 @@ import { MembershipModalSignupComponent } from './components/membership/sections
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
-import { ReportComponent } from './components/report/report.component';
+import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
+import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 
+import { BoatService } from './services/boat.service';
+import { MembersComponent } from './components/members/members.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +57,10 @@ import { ReportComponent } from './components/report/report.component';
     HomeBoatImagesComponent,
     FaqComponent,
     ContactUsComponent,
+    FleetImageComponent,
     ReportComponent,
-    
+    MembersComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,8 +71,10 @@ import { ReportComponent } from './components/report/report.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'fleet', component:FleetComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
+      { path: 'members', component: MembersComponent },
       { path: 'home', component: HomeComponent },
       { path: 'membership', component: MembershipComponent },
       { path: 'my-account', component: MyAccountComponent },
@@ -77,7 +85,9 @@ import { ReportComponent } from './components/report/report.component';
       { path: 'report', component: ReportComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    BoatService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
