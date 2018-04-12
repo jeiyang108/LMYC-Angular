@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+<div class="login">
+    <div class="container-fluid">
+        <h4>Login</h4>
+        <form (ngSubmit)="login()">
+            <div class="row">
+                <input id="username" type="text" placeholder="Username" name="username" [(ngModel)]="username" />
+            </div>
+            <br />
+            <div class="row">
+                <input id="password" type="password" placeholder="Password" name="password" [(ngModel)]="password" />
+            </div>
+            <div class="row">
+                <button id="login" type="submit" class="btn btn-main">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
