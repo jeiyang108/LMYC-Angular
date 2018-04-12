@@ -31,6 +31,7 @@ import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 
 import { BoatService } from './services/boat.service';
+import { MembersComponent } from './components/members/members.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { BoatService } from './services/boat.service';
     ContactUsComponent,
     FleetImageComponent,
     ReportComponent,
+    MembersComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { BoatService } from './services/boat.service';
       { path: 'login', component: LoginComponent },
       { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
+      { path: 'members', component: MembersComponent },
       { path: 'home', component: HomeComponent },
       { path: 'membership', component: MembershipComponent },
       { path: 'my-account', component: MyAccountComponent },
