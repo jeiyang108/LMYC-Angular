@@ -1,28 +1,33 @@
-<table *ngIf="boats" border="1">
-  <thead>
-    <tr>
-      <th>Boat ID</th>
-      <th>Boat Name</th>
-      <th>Credit Per Hour</th>
-      <th>Status</th>
-      <th>Photo</th>
-      <th>Description</th>
-      <th>Length</th>
-      <th>Make</th>
-      <th>Year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let b of boats; let i=index;">
-      <td>{{b.BoatId}}</td>
-      <td>{{b.Name}}</td>
-      <td>{{b.CreditPerHour}}</td>
-      <td>{{b.Status}}</td>
-      <td>{{b.Photo}}</td>
-      <td>{{b.Description}}</td>
-      <td>{{b.Length}}</td>
-      <td>{{b.Make}}</td>
-      <td>{{b.Year}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div *ngIf="boats" class="row">
+    <div *ngFor="let b of boats; let i=index" class="col-md-4 fleet-boat">
+      <div class="card top30">
+        <div class="card-header">
+          <div id="fleet-boat-label-feet-number">{{b.Length}}</div>
+          <div>
+            <div id="fleet-boat-label-feet-unit">ft</div>
+            <div id="fleet-boat-label-feet-boat">BOAT</div>
+          </div>
+        </div>
+        <img class="card-img-top" src="..." alt="">
+        <div class="card-body text-center">
+          <h4 class="card-title">{{b.Name}}</h4>
+          <ul>
+            <li><span class="fleet-boat-label">Status : </span>{{b.Status}}</li>
+            <li><span class="fleet-boat-label">Make : </span>{{b.Make}}</li>
+            <li><span class="fleet-boat-label">Year : </span>{{b.Year}}</li>
+            <li>{{b.Description}}</li>
+          </ul>
+          <hr>
+          <div>
+            <span class="fleet-boat-label" id="fleet-boat-label"></span>
+            <span id="fleet-boat-label-credit-number">{{b.CreditPerHour}}</span>
+            <span class="fleet-boat-label" id="fleet-boat-label">Credit(s) per Hour</span>
+          </div>
+          <hr>
+          <a href="#" class="btn btn-primary">Book Online</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

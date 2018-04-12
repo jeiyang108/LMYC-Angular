@@ -36,4 +36,8 @@ export class FleetComponent implements OnInit {
   ngOnInit() {
     this.getBoats();
   }
+
+  onBook() {
+    
+  }
 }

@@ -8,10 +8,18 @@ import 'rxjs/add/operator/map';
 export class BoatService {
 
   private Dummies: Boat[] = [
-    {'BoatId':'00001','Name':'a','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'a','Length':5,'Make':'a','Year': 5},
-    {'BoatId':'00002','Name':'a','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'a','Length':5,'Make':'a','Year': 5},
-    {'BoatId':'00003','Name':'a','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'a','Length':5,'Make':'a','Year': 5},
-    {'BoatId':'00004','Name':'a','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'a','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'1','Name':'boat-a','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'2','Name':'boat-b','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'3','Name':'boat-c','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'4','Name':'boat-d','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'5','Name':'boat-e','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'6','Name':'boat-f','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'7','Name':'boat-g','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'8','Name':'boat-h','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'9','Name':'boat-i','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'10','Name':'boat-j','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'11','Name':'boat-k','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
+    {'BoatId':'12','Name':'boat-l','CreditPerHour':5,'Status':'a','Photo':undefined,'Description':'_aDescription','Length':5,'Make':'a','Year': 5},
   ];
   private BASE_URL = 'https://localhost:44302/api/boats';
   private headers = new Headers(
