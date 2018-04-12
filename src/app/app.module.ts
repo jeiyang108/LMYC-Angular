@@ -31,6 +31,7 @@ import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.
 import { ReportComponent } from './components/report/report.component';
 
 import { BoatService } from './services/boat.service';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,8 @@ import { BoatService } from './services/boat.service';
   ],
   providers: [
     BoatService,
+    AccountService,
+    
   ],
   bootstrap: [AppComponent]
 })

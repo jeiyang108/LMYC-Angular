@@ -1,6 +1,7 @@
 export class User {
-
-    Username: string;
+    Email: string;
+    Id: string;
+    UserName: string;
     FirstName: string;
     LastName: string;
     MemberStatus: string;
@@ -16,7 +17,7 @@ export class User {
     Credits: number;
     SailingQualifications: string;
     Skills: string;
-    SailingExeprience: string ;
+    SailingExeprience: string;
 
     EmergencyContactName1: string;
     EmergencyContactPhone1: string;
