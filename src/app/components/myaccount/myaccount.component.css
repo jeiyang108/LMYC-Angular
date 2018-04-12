@@ -26,8 +26,23 @@
 }
 
 .button-container {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.button-container button {
+    margin-top: 10px;
+
+}
+
+.viewdocs-modal, .volunteer-modal {
+    max-width: 950px;
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 950px;
+    }
 }
 
 #volunteerModalTitle {

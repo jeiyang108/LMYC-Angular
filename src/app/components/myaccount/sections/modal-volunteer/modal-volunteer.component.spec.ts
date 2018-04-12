@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmergencycontactComponent } from './emergencycontact.component';
+import { ModalVolunteerComponent } from './modal-volunteer.component';
 
-describe('EmergencycontactComponent', () => {
-  let component: EmergencycontactComponent;
-  let fixture: ComponentFixture<EmergencycontactComponent>;
+describe('ModalVolunteerComponent', () => {
+  let component: ModalVolunteerComponent;
+  let fixture: ComponentFixture<ModalVolunteerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmergencycontactComponent ]
+      declarations: [ ModalVolunteerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmergencycontactComponent);
+    fixture = TestBed.createComponent(ModalVolunteerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

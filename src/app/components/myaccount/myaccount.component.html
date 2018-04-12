@@ -24,13 +24,28 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Buttons for modals (Volunteer, Reservations, View Docs)-->
+                    <div class="button-container">
+                        <form>
+                            
+                            <!-- Volunteer Modal -->
+                            <button type="button" class="btn btn-lg btn-primary" (click)="openVolunteer(volunteerModal)" data-toggle="modal" data-target="#volunteerModal" >
+                                Volunteer
+                            </button>
+                            <!-- (TBD) View docs? -->
+                            <button type="button" class="btn btn-lg btn-primary" (click)="openViewdocs(viewdocsModal)" data-toggle="modal" data-target="#viewdocsModal">
+                                View Documents
+                            </button>
+
+                        </form>
+                    </div>
                 </div>
             </div>
             
             <div class="col-lg-9 col-md-9">
                 <!--right container contains detailed info-->
                 <div class="myaccount-right jumbotron">
-                    
+
                     <!--
 
                         Bootstrap 4.1 tabs are not working for some reason.
@@ -60,15 +75,15 @@
                                 <tbody>
                                     <tr>
                                         <td>Current Credits</td>
-                                        <td>{{credits}}</td>
+                                        <td>{{Credits}}</td>
                                     </tr>
                                     <tr>
                                         <td>Member Status</td>
-                                        <td>{{memberStatus}}</td>
+                                        <td>{{MemberStatus}}</td>
                                     </tr>
                                     <tr>
                                         <td>Skipper Status</td>
-                                        <td>{{skipperStatus}}</td>
+                                        <td>{{SkipperStatus}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -82,15 +97,15 @@
                                 <tbody>
                                     <tr>
                                         <td>Sailing Qualifications</td>
-                                        <td>{{sailingQualifications}}</td>
+                                        <td>{{SailingQualifications}}</td>
                                     </tr>
                                     <tr>
                                         <td>Skills</td>
-                                        <td>{{skills}}</td>
+                                        <td>{{Skills}}</td>
                                     </tr>
                                     <tr>
                                         <td>Experience</td>
-                                        <td>{{sailingExeprience}}</td>
+                                        <td>{{SailingExeprience}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -106,23 +121,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Name</td>
-                                        <td>{{firstName}} {{lastName}}</td>
+                                        <td>{{FirstName}} {{LastName}}</td>
                                     </tr>
                                     <tr>
                                         <td>Address</td>
-                                        <td>{{street}}, {{city}}, {{province}}, {{country}}, {{postalCode}}</td>
+                                        <td>{{Street}}, {{City}}, {{Province}}, {{Country}}, {{PostalCode}}</td>
                                     </tr>
                                     <tr>
                                         <td>Mobile Phone</td>
-                                        <td>{{mobilePhone}}</td>
+                                        <td>{{MobilePhone}}</td>
                                     </tr>
                                     <tr>
                                         <td>Home Phone</td>
-                                        <td>{{homePhone}}</td>
+                                        <td>{{HomePhone}}</td>
                                     </tr>
                                     <tr>
                                         <td>Work Phone</td>
-                                        <td>{{workPhone}}</td>
+                                        <td>{{WorkPhone}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -147,50 +162,31 @@
                     </div>
                 </div>
             </div>
-            <!-- Bootstrap CSS -->
-<!-- jQuery first, then Bootstrap JS. -->
-<!-- Nav tabs -->
-
         </div>
     </div>
 
 
-    <!-- Buttons for modals (Volunteer, Reservations, View Docs)-->
-    <div class="container button-container">
-        <form class="jumbotron">
-            
-            <!-- Volunteer Modal -->
-            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#volunteerModal">
-                Volunteer
-            </button>
-            
-            <!-- (TBD) Go to Reservation page-->
-            <a href="#reservation" class="btn btn-lg btn-primary page-scroll">
-                    Reservations
-            </a>
-            
-            <!-- (TBD) View docs? -->
-            
-            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#viewDocs">
-                View Documents
-            </button>
-
-        </form>
-    </div>
-
-
-    <!-- RESERVATION SECTION-->
-    <div class="container" id="reservation">
-        <!--RESERVATION-->
-        <reservations></reservations>
-    </div>
-
+    
 </div>
 
 
-
-<!-- Volunteer Modal <modal_volunteer></modal_volunteer>-->
-
-
-
+<!-- Volunteer Modal -->
+<ng-template #volunteerModal>
+    <volunteer></volunteer>
+</ng-template>
 <!-- Modal End -->
+
+
+<!-- View Docs Modal -->
+<ng-template #viewdocsModal>
+    <viewdocs></viewdocs>
+</ng-template>
+<!-- Modal End -->
+
+
+<!-- RESERVATION SECTION-->
+<div class="container" id="reservation">
+    <!--RESERVATION -->
+    <reservations></reservations>
+</div>
+

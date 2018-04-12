@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'my-account',
@@ -35,9 +36,19 @@ export class MyAccountComponent implements OnInit {
   retrieveInfo() {
       this.Loading = true; //is loading;
   }
-  constructor() { }
+
+  constructor(private modal:NgbModal) { }
 
   ngOnInit() {
   }
+
+  openVolunteer(volunteerModal){ 
+      this.modal.open(volunteerModal, { size: 'lg' });
+  }
+
+  openViewdocs(viewdocsModal){
+      this.modal.open(viewdocsModal, { size: 'lg' });
+  }
+
 
 }

@@ -20,10 +20,11 @@ import { FooterComponent } from './components/home/sections/footer/footer.compon
 import { BoatsimagesComponent } from './components/home/sections/boatsimages/boatsimages.component';
 import { MembershipComponent } from './components/membership/membership.component';
 import { MyAccountComponent } from './components/myaccount/myaccount.component';
+import { ModalVolunteerComponent } from './components/myaccount/sections/modal-volunteer/modal-volunteer.component';
 import { ReservationsComponent } from './components/myaccount/reservations/reservations.component';
 import { RulesandregulationsComponent } from './components/membership/sections/rulesandregulations/rulesandregulations.component';
 import { ModalSignupComponent } from './components/membership/sections/modal-signup/modal-signup.component';
-import { EmergencyContactComponent } from './components/myaccount/sections/emergencycontact/emergencycontact.component';
+import { ModalViewDocsComponent } from './components/myaccount/sections/modal-view-docs/modal-view-docs.component';
 
 
 @NgModule({
@@ -42,10 +43,12 @@ import { EmergencyContactComponent } from './components/myaccount/sections/emerg
     BoatsimagesComponent,
     MembershipComponent,
     MyAccountComponent,
+    ModalVolunteerComponent,
     ReservationsComponent,
     RulesandregulationsComponent,
     ModalSignupComponent,
-    EmergencyContactComponent,
+    ModalViewDocsComponent,
+
     
   ],
   imports: [
