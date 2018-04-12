@@ -1,8 +1,6 @@
-import { Booking } from "./booking";
-
 export class NonMember {
     public nonMemberId: string;
-    public booking: Booking;
+    public bookingId: string;
     public name: string;
     constructor () {}
 }

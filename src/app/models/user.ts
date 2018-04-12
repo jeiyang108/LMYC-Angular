@@ -1,9 +1,4 @@
-import { EmergencyContact } from "./emergency-contact";
-import { Booking } from "./booking";
-
 export class User {
-    public userName: string;
-    public email: string;
     public firstName: string;
     public lastName: string;
     public memberStatus: string;
@@ -20,7 +15,6 @@ export class User {
     public skills: string;
     public sailingExperience: string;
     public credits: number;
-    public emergencyContacts: EmergencyContact;
-    public bookings: Booking[];
+    public emergencyContactId: string;
     constructor () {}
 }

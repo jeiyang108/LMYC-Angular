@@ -1,9 +1,6 @@
-import { Booking } from "./booking";
-import { User } from "./user";
-
 export class Member {
-    public booking: Booking;
+    public bookingId: string;
     public allocatedCredits: number;
-    public user: User;
+    public userId: string;
     constructor () {}
 }
