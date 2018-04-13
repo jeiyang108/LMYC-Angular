@@ -21,9 +21,9 @@ export class User {
     Skills: string;
     SailingExperience: string;
     emergencyContacts: EmergencyContact;
-
+    
     Password: string;
     ConfirmPassword: string;
-        
+
 }
 

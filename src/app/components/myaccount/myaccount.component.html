@@ -142,74 +142,52 @@
                     <div class="row">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6">
                             <label for="InputFirstName">First Name</label>
-                            <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" placeholder="{{user.firstName}}" />
+                            <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [value]="user.firstName"/>
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6">
                             <label for="InputLastName">Last Name</label>
-                            <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp" placeholder="Last Name" />
+                            <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [value]="user.lastName"/>
                         </div>
                     </div>
           
                     <div class="form-group">
                         <label for="InputEmail">Email Address</label>
-                        <input type="email" class="form-control" id="InputEmail" placeholder="Enter Email Address">
+                        <input type="email" class="form-control" id="InputEmail"  [value]="user.email">
                     </div>
                     <div class="form-group">
                         <label for="InputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="exampleInputPassword1"  [value]="user.password">
                     </div>
           
                     <div class="row">
                         <div class="form-group col-lg-4 col-md-4 col-sm-4">
                             <label for="InputHomePhone">Home Phone</label>
-                            <input type="text" class="form-control" id="InputHomePhone" placeholder="Home Phone" />
+                            <input type="text" class="form-control" id="InputHomePhone"  [value]="user.homePhone" />
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4">
                             <label for="InputMobilePhone">Mobile Phone</label>
-                            <input type="text" class="form-control" id="InputMobilePhone" placeholder="Mobile Phone" />
+                            <input type="text" class="form-control" id="InputMobilePhone"  [value]="user.mobilePhone" />
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4">
                             <label for="InputHomePhone">Work Phone</label>
-                            <input type="text" class="form-control" id="InputWorkPhone" placeholder="Work Phone" />
+                            <input type="text" class="form-control" id="InputWorkPhone"  [value]="user.workPhone"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="InputAddress">Address</label>
-                        <input type="text" class="form-control" id="InputAddress" aria-describedby="addressHelp" placeholder="123 Kingsway Ave, Burnaby, BC, V1V1V1" />
-                    </div>
-          
+                    
+                    <!-- Address part. -->
+
                     <br />
-                    <div class="row">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                            <label for="InputMemberStatus">Membership Type</label>
-                            <select class="form-control" id="InputMemberStatus">
-                                <option>Full Member</option>
-                                <option>Associate Member</option>
-                                <option>Social Member</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-          
-                            <label for="InputSkipperStatus">Skipper Status</label>
-                            <select class="form-control" id="InputSkipperStatus">
-                                <option>Crew</option>
-                                <option>Day Skipper</option>
-                                <option>Cruise Skipper</option>
-                            </select>
-                        </div>
-                    </div>
-          
                     <hr />
           
                     <div class="form-group"><label>Emergency Contact 1</label></div>
                     <div class="row">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6">
                             <label for="InputEmergencyName1">Name</label>
-                            <input type="text" class="form-control" id="InputEmergencyName1" placeholder="Name">
+                            <input type="text" class="form-control" id="InputEmergencyName1"  [value]="emergencyContact.name1">
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6">
                             <label for="InputEmergencyNumber1">Contact Info</label>
-                            <input type="text" class="form-control" id="InputEmergencyNumber1" placeholder="7781230000">
+                            <input type="text" class="form-control" id="InputEmergencyNumber1" [value]="emergencyContact.phone1">
                         </div>
                     </div>
                     <hr />
@@ -217,23 +195,23 @@
                     <div class="row">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6">
                             <label for="InputEmergencyName2">Name</label>
-                            <input type="text" class="form-control" id="InputEmergencyName2" placeholder="Name">
+                            <input type="text" class="form-control" id="InputEmergencyName2"  [value]="emergencyContact.name2">
                         </div>
           
                         <div class="form-group col-lg-6 col-md-6 col-sm-6">
                             <label for="InputEmergencyNumber2">Contact Info</label>
-                            <input type="text" class="form-control" id="InputEmergencyNumber2" placeholder="7781230000">
+                            <input type="text" class="form-control" id="InputEmergencyNumber2"  [value]="emergencyContact.phone2">
                         </div>
                     </div>
                     <hr />
                     <div class="row">
                         <div class="form-group col-lg-8 col-md-8 col-sm-8">
                             <label for="InputSailingQualification">Sailing Qualification</label>
-                            <input type="text" class="form-control" id="InputSailingQualification" placeholder="Skills">
+                            <input type="text" class="form-control" id="InputSailingQualification" [value]="user.sailingQualifications">
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4">
                             <label for="InputSailingExperience">Sailing Experience</label>
-                            <select class="form-control" id="InputSailingExperience" placeholder="Sailing Experience">
+                            <select class="form-control" id="InputSailingExperience" [value]="user.sailingExeprience">
                                 <option>Professional</option>
                                 <option>Intermediate</option>
                                 <option>Beginner</option>
@@ -242,7 +220,7 @@
                     </div>
                     <div class="form-group">
                         <label for="InputSkills">Skills</label>
-                        <input type="text" class="form-control" id="InputSkills" placeholder="Skills">
+                        <input type="text" class="form-control" id="InputSkills" [value]="user.skills">
                     </div>
 
                 </form>
