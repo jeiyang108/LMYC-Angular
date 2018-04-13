@@ -1,4 +1,3 @@
-
 import { EmergencyContact } from '../models/emergency-contact';
 export class User {
 
