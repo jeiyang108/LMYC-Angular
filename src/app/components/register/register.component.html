@@ -1,159 +1,126 @@
-  <div class="body">
-  	<h1>Sign Up</h1>
-      <form>
-          <div class="row">
-              <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                  <label for="InputFirstName">First Name</label>
-                  <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" placeholder="First Name" [(ngModel)]="newUser.firstName"/>
-                  <small id="firstnameHelp" class="form-text text-muted">Enter your first name.</small>
-              </div>
-              <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                  <label for="InputLastName">Last Name</label>
-                  <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp" placeholder="Last Name" [(ngModel)]="newUser.lastName"/>
-                  <small id="lastnameHelp" class="form-text text-muted">Enter your last name.</small>
-              </div>
-          </div>
+<div class="modal-header">
+    <h4 class="modal-title lead text-center jumbotron" id="signupModalTitle">Sign Up</h4>
+</div>
 
-          <div class="form-group">
-              <label for="InputEmail">Email Address</label>
-              <input type="email" class="form-control" id="InputEmail" placeholder="Enter Email Address" [(ngModel)]="newUser.email">
-              <small id="emailHelp" class="form-text text-muted">A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.</small>
-          </div>
-          <div class="form-group">
-              <label for="InputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="newUser.password">
-          </div>
+<div class="modal-body">
+    <form>
+        <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="InputFirstName">First Name</label>
+                <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" placeholder="First Name" [(ngModel)]="firstName" name="firstName"/>
+                <small id="firstnameHelp" class="form-text text-muted">Enter your first name.</small>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="InputLastName">Last Name</label>
+                <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp" placeholder="Last Name" [(ngModel)]="lastName" name="lastName"/>
+                <small id="lastnameHelp" class="form-text text-muted">Enter your last name.</small>
+            </div>
+        </div>
 
-          <div class="row">
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputHomePhone">Home Phone</label>
-                  <input type="text" class="form-control" id="InputHomePhone" placeholder="Home Phone" [(ngModel)]="newUser.homePhone"/>
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputMobilePhone">Mobile Phone</label>
-                  <input type="text" class="form-control" id="InputMobilePhone" placeholder="Mobile Phone" [(ngModel)]="newUser.mobilePhone"/>
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputHomePhone">Work Phone</label>
-                  <input type="text" class="form-control" id="InputWorkPhone" placeholder="Work Phone" [(ngModel)]="newUser.workPhone"/>
-              </div>
-          </div>
-          <div class="form-group"><label>Address</label></div>
-          <div class="form-group">
-              <label for="InputAddressStreet">Street</label>
-              <input type="text" class="form-control" id="InputAddressStreet" placeholder="123 Kingsway Ave" [(ngModel)]="newUser.street"/>
-          </div>
-          <div class="form-group">
-              <label for="InputAddressCity">City</label>
-              <input type="text" class="form-control" id="InputAddressCity" placeholder="Burnaby" [(ngModel)]="newUser.city"/>
-          </div>
-          <div class="row">
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputAddressProvince">Province</label>
-                  <input type="text" class="form-control" id="InputAddressProvince" placeholder="BC" [(ngModel)]="newUser.province"/>
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputAddressCountry">Country</label>
-                  <input type="text" class="form-control" id="InputAddressCountry" placeholder="Canada" [(ngModel)]="newUser.country"/>
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputAddressPostalCode">Postal Code</label>
-                  <input type="text" class="form-control" id="InputAddressPostalCode" placeholder="V1V1V1" [(ngModel)]="newUser.postalCode"/>
-              </div>
-          </div>
+        <div class="form-group">
+            <label for="InputEmail">Email Address</label>
+            <input type="email" class="form-control" id="InputEmail" placeholder="Enter Email Address" [(ngModel)]="email" name="email">
+            <small id="emailHelp" class="form-text text-muted">A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.</small>
+        </div>
+        <div class="form-group">
+            <label for="InputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password">
+        </div>
 
-          <br />
-          <!--<div class="row">
-              <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                  <label for="InputMemberStatus">Membership Type</label>
-                  <select class="form-control" id="InputMemberStatus">
-                      <option>Full Member</option>
-                      <option>Associate Member</option>
-                      <option>Social Member</option>
-                  </select>
-              </div>
-              <div class="form-group col-lg-6 col-md-6 col-sm-6">
+        <div class="row">
+            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                <label for="InputHomePhone">Home Phone</label>
+                <input type="text" class="form-control" id="InputHomePhone" placeholder="Home Phone" [(ngModel)]="homePhone" name="homePhone"/>
+            </div>
+            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                <label for="InputMobilePhone">Mobile Phone</label>
+                <input type="text" class="form-control" id="InputMobilePhone" placeholder="Mobile Phone" [(ngModel)]="mobilePhone" name="mobilePhone"/>
+            </div>
+            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                <label for="InputHomePhone">Work Phone</label>
+                <input type="text" class="form-control" id="InputWorkPhone" placeholder="Work Phone" [(ngModel)]="workPhone" name="workPhone"/>
+            </div>
+        </div>
 
-                  <label for="InputSkipperStatus">Skipper Status</label>
-                  <select class="form-control" id="InputSkipperStatus">
-                      <option>Crew</option>
-                      <option>Day Skipper</option>
-                      <option>Cruise Skipper</option>
-                  </select>
-              </div>
-          </div>-->
+        <div class="form-group">
+            <label for="InputStreet">Street</label>
+            <input type="text" class="form-control" id="InputStreet" aria-describedby="streetHelp" placeholder="123 Kingsway Ave" [(ngModel)]="street" name="street"/>
+            <small id="streetHelp" class="form-text text-muted">Enter your residential street.</small>
+        </div>
+        <div class="form-group">
+            <label for="InputCity">City</label>
+            <input type="text" class="form-control" id="InputCity" aria-describedby="cityHelp" placeholder="Burnaby" [(ngModel)]="city" name="city"/>
+            <small id="cityHelp" class="form-text text-muted">Enter your residential city.</small>
+        </div>
+        <div class="form-group">
+            <label for="InputProvince">Province</label>
+            <input type="text" class="form-control" id="InputProvince" aria-describedby="provinceHelp" placeholder="BC" [(ngModel)]="province" name="province"/>
+            <small id="provinceHelp" class="form-text text-muted">Enter your residential province.</small>
+        </div>
+        <div class="form-group">
+            <label for="InputPostalCode">Postal Code</label>
+            <input type="text" class="form-control" id="InputPostalCode" aria-describedby="postalCodeHelp" placeholder="V1V1V1" [(ngModel)]="postalCode" name="postalCode"/>
+            <small id="postalCodeHelp" class="form-text text-muted">Enter your residential postal code.</small>
+        </div>
+        <div class="form-group">
+            <label for="InputCountry">Country</label>
+            <input type="text" class="form-control" id="InputCountry" aria-describedby="countryHelp" placeholder="Canada" [(ngModel)]="country" name="country"/>
+            <small id="countryHelp" class="form-text text-muted">Enter your residential country.</small>
+        </div>
+        <br />
 
-          <hr />
+        <hr />
 
-          <div class="form-group"><label>Emergency Contact 1</label></div>
-          <div class="row">
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputEmergencyName1">Name</label>
-                  <input type="text" class="form-control" id="InputEmergencyName1" placeholder="Name" [(ngModel)]="newUser.emContactName1">
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
+        <div class="form-group"><label>Emergency Contact 1</label></div>
+        <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="InputEmergencyName1">Name</label>
+                <input type="text" class="form-control" id="InputEmergencyName1" placeholder="Name" [(ngModel)]="name1" name="name1"/>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="InputEmergencyNumber1">Contact Info</label>
+                <input type="text" class="form-control" id="InputEmergencyNumber1" placeholder="7781230000" [(ngModel)]="phone1" name="phone1"/>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group"><label>Emergency Contact 2</label></div>
+        <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="InputEmergencyName2">Name</label>
+                <input type="text" class="form-control" id="InputEmergencyName2" placeholder="Name" [(ngModel)]="name2" name="name2"/>
+            </div>
 
-                  <label for="InputEmergencyRelationship1">Relationship</label>
-                  <select class="form-control" id="InputEmergencyRelationship1" [(ngModel)]="newUser.emRelationship1">
-                      <option>Family</option>
-                      <option>Relative</option>
-                      <option>Friend</option>
-                      <option>Other</option>
-                  </select>
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputEmergencyNumber1">Contact Info</label>
-                  <input type="text" class="form-control" id="InputEmergencyNumber1" placeholder="7781230000" [(ngModel)]="newUser.emContactPhone1">
-              </div>
-          </div>
-          <hr />
-          <div class="form-group"><label>Emergency Contact 2</label></div>
-          <div class="row">
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputEmergencyName2">Name</label>
-                  <input type="text" class="form-control" id="InputEmergencyName2" placeholder="Name" [(ngModel)]="newUser.emContactName2">
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-
-                  <label for="InputEmergencyRelationship2">Relationship</label>
-                  <select class="form-control" id="InputEmergencyRelationship2" [(ngModel)]="newUser.emRelationship2">
-                      <option>Family</option>
-                      <option>Relative</option>
-                      <option>Friend</option>
-                      <option>Other</option>
-                  </select>
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputEmergencyNumber2">Contact Info</label>
-                  <input type="text" class="form-control" id="InputEmergencyNumber2" placeholder="7781230000" [(ngModel)]="newUser.emContactPhone2">
-              </div>
-          </div>
-          <hr />
-          <div class="row">
-              <div class="form-group col-lg-8 col-md-8 col-sm-8">
-                  <label for="InputSailingQualification">Sailing Qualification</label>
-                  <input type="text" class="form-control" id="InputSailingQualification" placeholder="Skills" [(ngModel)]="newUser.sailingQualifications">
-              </div>
-              <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                  <label for="InputSailingExperience">Sailing Experience</label>
-                  <select class="form-control" id="InputSailingExperience" placeholder="Sailing Experience" [(ngModel)]="newUser.sailingExperience">
-                      <option>Professional</option>
-                      <option>Intermediate</option>
-                      <option>Beginner</option>
-                  </select>
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="InputSkills">Skills</label>
-              <input type="text" class="form-control" id="InputSkills" placeholder="Skills" [(ngModel)]="newUser.skills">
-          </div>
-          <div class="form-group">
-              <input type="checkbox" class="form-check-input" id="Check1">
-              <label class="form-check-label" for="Check1">You agree to our terms of use.</label>
-          </div>
-      </form>
-  </div>
-  <div class="row">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Submit</button>
-  </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="InputEmergencyNumber2">Contact Info</label>
+                <input type="text" class="form-control" id="InputEmergencyNumber2" placeholder="7781230000" [(ngModel)]="phone2" name="phone2"/>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="form-group col-lg-8 col-md-8 col-sm-8">
+                <label for="InputSailingQualification">Sailing Qualification</label>
+                <input type="text" class="form-control" id="InputSailingQualification" placeholder="Skills" [(ngModel)]="sailingQualification" name="sailingQualification"/>
+            </div>
+            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                <label for="InputSailingExperience">Sailing Experience</label>
+                <select class="form-control" id="InputSailingExperience" placeholder="Sailing Experience" [(ngModel)]="sailingExperience" name="sailingExperience">
+                    <option>Professional</option>
+                    <option>Intermediate</option>
+                    <option>Beginner</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="InputSkills">Skills</label>
+            <input type="text" class="form-control" id="InputSkills" placeholder="Skills" [(ngModel)]="skills" name="skills"/>
+        </div>
+        <div class="form-group" style="padding-left: 20px;">
+            <input type="checkbox" class="form-check-input" id="Check1"/>
+            <label class="form-check-label" for="Check1">You agree to our terms of use.</label>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Submit</button>
+</div>

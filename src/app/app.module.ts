@@ -14,7 +14,6 @@ import { FleetComponent } from './components/fleet/fleet.component';
 import { HistoryComponent } from './components/about/history/history.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MembershipComponent } from './components/membership/membership.component';
 import { MyAccountComponent } from './components/myaccount/myaccount.component';
 import { ReservationsComponent } from './components/myaccount/reservations/reservations.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,7 +22,6 @@ import { HomeBookingComponent } from './components/home/sections/home.booking/ho
 import { HomeEventsComponent } from './components/home/sections/home.events/home.events.component';
 import { HomeBoatImagesComponent } from './components/home/sections/home.boatimages/home.boatimages.component';
 import { MyAccountEmergencyContactsComponent } from './components/myaccount/sections/myaccount.emergencycontacts/myaccount.emergencycontacts.component';
-import { MembershipModalSignupComponent } from './components/membership/sections/membership.modalsignup/membership.modalsignup.component';
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
@@ -34,6 +32,7 @@ import { AccountService } from './services/account.service';
 
 import { MembersComponent } from './components/members/members.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MembershipComponent } from './components/membership/membership.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import { RegisterComponent } from './components/register/register.component';
     BookingComponent,
     FooterComponent,
     MembershipComponent,
-    MembershipModalSignupComponent,
     MembershipRulesAndRegulationsComponent,
     MyAccountComponent,
     MyAccountEmergencyContactsComponent,
@@ -80,7 +78,6 @@ import { RegisterComponent } from './components/register/register.component';
       { path: 'membership', component: MembershipComponent },
       { path: 'my-account', component: MyAccountComponent },
       { path: 'about', component: AboutComponent},
-      { path: 'membership', component: MembershipComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
