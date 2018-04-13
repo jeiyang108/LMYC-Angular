@@ -17,9 +17,10 @@ export class AccountService {
   
   getUserByName(username: string): Promise<User> {
     let options = new RequestOptions({ headers: this.headers});
-    return this.http.get(this.BASE_URL + "/" + username, options)
+    return this.http.get(this.BASE_URL + username, options)
       .toPromise()
-      .then(result => result.json() as User);
+      .then(result => result.json() as User)
+      .catch(this.handleError);
   }
 
   // postBoat(newBoat: Boat): Promise<Boat> {

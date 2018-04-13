@@ -69,8 +69,13 @@ export class VolunteerComponent implements OnInit {
   // }
 
   newReport() {
-    this.report.userId = this.user.userID;
-    console.log(JSON.stringify(this.report));
+    this.username = sessionStorage.getItem('username');
+
+    this.displayUserInfo();
+
+    this.report.userId = this.user.id;
+    console.log(this.report);
+    console.log(this.user); 
 
     this.reportService.postReport(this.report)
       .then(response => console.log('success'));

@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
         MemberStatus: "Full Member",
         SkipperStatus: "Crew",
         Credits: signupForm.form.value.credits,
-        userID: null
+        id: null
       };
      }
   }
