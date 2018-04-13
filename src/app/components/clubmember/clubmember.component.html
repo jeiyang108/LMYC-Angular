@@ -1,0 +1,32 @@
+
+<div class="container">
+
+  <table *ngIf="members" class="table table-hover">
+      <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Member Status</th>
+              <th>Skipper Status</th>
+              <th>MobilePhone</th>
+              <th>Skills</th>
+              <th>SailingExperience</th>
+          </tr>
+      </thead>
+  
+      <tr *ngFor="let user of members; let i=index;" >
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.memberStatus}}</td>
+          <td>{{user.skipperStatus}}</td>
+          <td>{{user.mobilePhone}}</td>
+          <td>{{user.skills}}</td>
+          <td>{{user.sailingExperience}}</td>
+
+      </tr>
+  
+  </table>
+
+</div>

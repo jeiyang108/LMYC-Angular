@@ -45,6 +45,8 @@ import { BoatService } from './services/boat.service';
 import { AccountService } from './services/account.service';
 import { BookingService } from './services/booking.service';
 import { AddBookingComponent } from './components/booking/add-booking/add-booking.component';
+import { ClubmemberComponent } from './components/clubmember/clubmember.component';
+import { ClubMemberService } from './services/clubmember.service';
 
 
 @NgModule({
@@ -75,7 +77,8 @@ import { AddBookingComponent } from './components/booking/add-booking/add-bookin
     MembersComponent,
     RegisterComponent,
     DocumentComponent,
-    AddBookingComponent
+    AddBookingComponent,
+    ClubmemberComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +105,8 @@ import { AddBookingComponent } from './components/booking/add-booking/add-bookin
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
       { path: 'documents', component: DocumentComponent },
-      { path: 'booking/create', component: AddBookingComponent }
+      { path: 'booking/create', component: AddBookingComponent },
+      { path: 'clubmember', component: ClubmemberComponent }
     ])
   ],
   providers: [
@@ -111,7 +115,8 @@ import { AddBookingComponent } from './components/booking/add-booking/add-bookin
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
 
     ReportService,
-    BookingService
+    BookingService,
+    ClubMemberService
   ],
   bootstrap: [AppComponent]
 })
