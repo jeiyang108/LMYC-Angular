@@ -51,6 +51,7 @@ export class MyAccountComponent implements OnInit {
       this.accountService.getUserByName(this.username)
         .subscribe((user : User) => {
           this.user = user;
+          this.changedUser= user;
           //this.changedUser = this.convertToUppercase(user);
 
           // console.log(user);
@@ -71,7 +72,8 @@ export class MyAccountComponent implements OnInit {
   }
   
   updateUserInfo(): void {
-      // this.changedUser.EmergencyContacts = this.changedEmergencyContact;
+
+      this.changedUser.emergencyContacts = this.changedEmergencyContact;
       this.accountService.updateUserInfo(this.changedUser).then( () => {
         this.displayUserInfo();
       }).catch( () => {

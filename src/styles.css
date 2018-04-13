@@ -32,5 +32,28 @@ ul.a {
     list-style-type: circle;
 }
 
+.btn-primary {
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
+}
 
 
+#updateInfoModalTitle {
+    background-color: #343a40 !important;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+#signupModalTitle {
+    background-color: #343a40 !important;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.card-body {
+    padding: 1rem;
+}
