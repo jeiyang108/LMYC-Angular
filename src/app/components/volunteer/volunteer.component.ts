@@ -13,7 +13,7 @@ import { User } from '../../models/user';
 
 
 @Component({
-  selector: 'app-volunteer',
+  selector: 'volunteer',
   templateUrl: './volunteer.component.html',
   styleUrls: ['./volunteer.component.css'],
   providers: [ReportService, ClassificationcodeService]

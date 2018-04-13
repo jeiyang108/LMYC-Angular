@@ -8,7 +8,7 @@
       <!-- <li class="nav-item active">
     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
   </li> -->
-      <li class="nav-item">
+      <li *ngIf="authenticated" class="nav-item">
         <a class="nav-link" routerLink='/fleet'>Boat Catalogue</a>
       </li>
       <li *ngIf="authenticated" class="nav-item">
@@ -29,11 +29,11 @@
 
 
 
-      <li>
+      <!--<li>
         <a class="nav-link" routerLink='/report'>Report</a>
-      </li>
+      </li>-->
 
-      <li class="nav-item">
+      <li *ngIf="authenticated" class="nav-item">
           <a class="nav-link" routerLink='/documents'>Documents</a>
         </li>
       <!-- <li class="nav-item">

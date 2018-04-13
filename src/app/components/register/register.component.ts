@@ -86,8 +86,10 @@ export class RegisterComponent implements OnInit {
       
       this.signupService.register(user)
           .subscribe(res => {
-            this.router.navigateByUrl('/login');
+            this.router.navigate(['/login/']);
       });
     }
+
+    this.router.navigate(['/login/']);
   }
 }
