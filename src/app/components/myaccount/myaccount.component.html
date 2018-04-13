@@ -22,11 +22,16 @@
                                 <div class="member-status">{{user.MemberStatus}}</div>
                                 <div class="skipper-status">{{user.SkipperStatus}}</div>
                             </div>
-                            <p class="edit">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateInfoModal">
+                            <div class="edit" style="margin-bottom: 10px;">
+                                <button type="button" class="btn btn-primary" style="width:150.38px;" data-toggle="modal" data-target="#updateInfoModal">
                                     Update My Info
                                 </button>
-                            </p>
+                            </div>
+                            <div class="changePassword">
+                                <button type="button" class="btn btn-primary" style="width:150.38px;" data-toggle="modal" data-target="#changePasswordModal">
+                                    Change Password
+                                </button>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -232,7 +237,44 @@
                     <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateUserInfo()">Update</button>
                 </div>
              </div>   
-            </div>  
-            
+        </div>  
     </div>
-  </div>
+</div>
+
+
+
+
+
+
+<!-- Change Password Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title lead text-center jumbotron" id="updateInfoModalTitle">Change Password</h4>
+                </div>
+            
+                <div class="modal-body" style="padding: 30px;">
+                    <div class="form-group">
+                        <label for="password1" class="">Current Password</label>
+                        <input id="password1" class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="currentPassword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">New Password</label>
+                        <input id="password2" class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="newPassword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password3">New Password Confirm</label>
+                        <input id="password3" class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="newPasswordConfirm" />
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="changePassword()">Update</button>
+                </div>
+             </div>   
+        </div>  
+    </div>
+</div>

@@ -18,7 +18,10 @@ export class MyAccountComponent implements OnInit {
   changedEmergencyContact: EmergencyContact;
 
   username: string = sessionStorage.getItem("username");
-  retrievedInfo: any;
+  
+  currentPassword: string;
+  newPassword: string;
+  newPasswordConfirm: string;
 
   constructor(
     private accountService: AccountService,
@@ -47,7 +50,6 @@ export class MyAccountComponent implements OnInit {
           this.user = this.convertToUppercase(user);
           this.changedUser = this.convertToUppercase(user);
 
-          this.retrievedInfo = user;
           console.log(user);
           this.emergencyContact = new EmergencyContact();
           this.emergencyContact.Name1 = user.emergencyContacts.name1;
@@ -74,4 +76,16 @@ export class MyAccountComponent implements OnInit {
       });
   }
   
+  changePassword(): void {
+      if(this.newPassword != this.newPasswordConfirm) {
+          alert("Password does not match.");
+      } else {
+          this.accountService.changePassword(this.username, this.currentPassword, this.newPassword)
+          .then(() => {})
+          .catch( r => {
+            alert("Unable to update password: " + r);
+          })
+      }
+  }
+
 }

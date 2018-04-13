@@ -30,6 +30,20 @@ export class AccountService {
       .toPromise()
       .then();
   }
+
+  changePassword(username: string, currentPassword: string, newPassword: string) {
+    let options = new RequestOptions({ headers: this.headers});
+
+    let changeRequest = {
+      CurrentPassword: currentPassword,
+      NewPassword: newPassword
+    };
+
+    const url = this.BASE_URL + "/" + username;
+    return this.http.patch(url, JSON.stringify(changeRequest), options) // JSON.stringify(newUser), options
+      .toPromise()
+      .then();
+  }
   // postBoat(newBoat: Boat): Promise<Boat> {
   //   return this.http.post(this.BASE_URL, JSON.stringify(newBoat))
   //     .toPromise()
