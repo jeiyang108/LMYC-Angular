@@ -19,12 +19,11 @@
           <div class="mt-auto">
             <hr>
               <div>
-                <span class="fleet-boat-label" id="fleet-boat-label"></span>
                 <span id="fleet-boat-label-credit-number">{{b.creditsPerHour}}</span>
-                <span class="fleet-boat-label" id="fleet-boat-label">Credit(s) per Hour</span>
+                <span class="fleet-boat-label" id="fleet-boat-label-credit">Credit(s) per Hour</span>
               </div>
             <hr>
-            <a [routerLink]="['/booking']" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
+            <a [routerLink]="['/booking/create']" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
           </div>
         </div>
       </div>
