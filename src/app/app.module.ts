@@ -82,7 +82,6 @@ import { DocumentComponent } from './components/document/document.component';
       { path: 'membership', component: MembershipComponent },
       { path: 'my-account', component: MyAccountComponent },
       { path: 'about', component: AboutComponent},
-      { path: 'membership', component: MembershipComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
