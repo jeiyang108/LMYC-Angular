@@ -23,8 +23,8 @@
       <div>
         <label for="volunteerClass">Classification Codes</label>
         <br/>
-        <select name="volunteerClass" [(ngModel)]="report.classification">
-            <option *ngFor="let code of classCodes" [value]="code">{{code}}</option>
+        <select name="volunteerClass" [(ngModel)]="report.codeId">
+            <option *ngFor="let code of classCodes" [value]="code.codeID">{{code.codeID}}</option>
          </select>
       </div>
       <br/>
