@@ -5,34 +5,82 @@
     Create Volunteer Hours
   </h3>
 
-  <form (ngSubmit)="newReport()">
+  <form id="volunteerForm" name="volunteerForm" (ngSubmit)="newReport()" >
       <div>
           <label for="volunteerDate">Date</label>
           <br/>
-          <input type="date" [(ngModel)]="report.dateCreated" max="2100-12-31" class="form-control" name="volunteerDate" required/>
+          <input type="date" [(ngModel)]="report.dateCreated" min="2000-01-01"
+          max="{{validation}}" class="form-control" name="volunteerDate" 
+          required #volunteerDate="ngModel"/>
+          
+          <div *ngIf="volunteerDate.invalid && (volunteerDate.dirty || volunteerDate.touched)"
+            class="alert alert-danger">
+            <div *ngIf="volunteerDate.errors.max">
+                Date is too high.
+            </div>  
+            <div *ngIf="volunteerDate.errors.min">
+                Date is too high.
+            </div>  
+          </div>
       <br/>
       </div>
 
       <div>
           <label for="volunteerHours">Number of Hours</label>
           <br/>
-          <input type="text" [(ngModel)]="report.hours" maxlength="2" name="volunteerHours" class="form-control" required/> 
+          <input type="number" max="24" min="1" [(ngModel)]="report.hours" maxlength="2" 
+                name="volunteerHours" class="form-control" #volunteerHours="ngModel" required/> 
+          
+          <div *ngIf="volunteerHours.invalid && (volunteerHours.dirty || volunteerHours.touched)"
+                class="alert alert-danger">
+                <div *ngIf="volunteerHours.errors.required">
+                    Hours are required.
+                </div>
+                <div *ngIf="volunteerHours.errors.max">
+                        Hours must be 24 or below
+                </div>
+                <div *ngIf="volunteerHours.errors.min">
+                        Hours must be 1 or above
+                </div>
+          </div>
+
       </div>
       <br/>
 
       <div>
         <label for="volunteerClass">Classification Codes</label>
         <br/>
-        <select name="volunteerClass" [(ngModel)]="report.codeId">
-            <option *ngFor="let code of classCodes" [value]="code.codeId">{{code.codeId}}</option>
+        <select name="volunteerClass" [(ngModel)]="report.codeId" required #volunteerClass="ngModel">
+            <option *ngFor="let code of classCodes" [value]="code.codeId">
+                {{code.codeId}}
+            </option>
          </select>
+
+         <div *ngIf="volunteerClass.invalid && (volunteerClass.dirty || volunteerClass.touched)"
+            class="alert alert-danger">
+            <div *ngIf="volunteerClass.errors.required">
+                A code is required.
+            </div>
+         </div>
+
+
       </div>
       <br/>
 
       <div>
           <label for="volunteerDesc">Description</label>
           <br/>
-          <input class="form-control" [(ngModel)]="report.content"  type="text" name="volunteerDesc" placeholder="What did you do?"> 
+          <input class="form-control" [(ngModel)]="report.content"  type="text" name="volunteerDesc"
+            placeholder="What did you do?" #volunteerDesc="ngModel" required> 
+         
+
+        <div *ngIf="volunteerDesc.invalid && (volunteerDesc.dirty || volunteerDesc.touched)"
+           class="alert alert-danger">
+           <div *ngIf="volunteerDesc.errors.required">
+               A description is required.
+           </div>  
+         </div>
+     
       </div>
       <br/>
 

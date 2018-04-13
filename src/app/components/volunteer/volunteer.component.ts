@@ -21,10 +21,11 @@ import { User } from '../../models/user';
 export class VolunteerComponent implements OnInit {
 
   report: Report;
+  validation: string;
   user: User;
   classCodes: ClassificationCode[] = new Array();
   username: string = sessionStorage.getItem('username');
-
+  temp: string;
 
   ngOnInit() {
     this.report = new Report();
@@ -39,6 +40,7 @@ export class VolunteerComponent implements OnInit {
   {
     this.report = new Report();
     this.report.dateCreated = new Date(); // This prevents a console error for reading a null date
+    this.validation = new Date().toISOString().slice(0, 10); // To run on the date picker, sets max date
     this.loadClassCodes();
   }
 
@@ -70,13 +72,7 @@ export class VolunteerComponent implements OnInit {
 
   newReport() {
     this.username = sessionStorage.getItem('username');
-
-    this.displayUserInfo();
-
     this.report.userId = this.user.id;
-    console.log(this.report);
-    console.log(this.user); 
-
     this.reportService.postReport(this.report)
       .then(response => console.log('success'));
   }
