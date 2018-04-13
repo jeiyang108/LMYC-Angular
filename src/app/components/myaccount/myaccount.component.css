@@ -1,3 +1,14 @@
 .tab-pane {
     padding: 20px;
 }
+#updateInfoModalTitle {
+    background-color: #286090;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.updateInfo-container {
+    margin-top: 20px;
+}

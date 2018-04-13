@@ -29,8 +29,9 @@ import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
 import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
-
 import { BoatService } from './services/boat.service';
+import { AccountService } from './services/account.service';
+
 import { MembersComponent } from './components/members/members.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DocumentComponent } from './components/document/document.component';
@@ -90,6 +91,8 @@ import { DocumentComponent } from './components/document/document.component';
   ],
   providers: [
     BoatService,
+    AccountService,
+    
   ],
   bootstrap: [AppComponent]
 })
