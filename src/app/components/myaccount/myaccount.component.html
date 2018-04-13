@@ -3,31 +3,36 @@
 <h1>My Account</h1>
 
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-4">
         <div class="card-body">
                 <h5 class="card-title">User Overview</h5>
                 <!--left container contains basic info-->
             
                 <div class="jumbotron myaccount-left text-center" style="height: 40rem;">
-                    <div class="card" style="width: 15.5rem;">
+                    <div class="card" style="width: 15rem;">
                         <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
                         <div class="card-body myaccount-card">
-                            <p class="username">{{username}}</p>
+                            <p class="username">{{user.userName}}</p>
                             <p class="credit">
                                 <button type="button" class="btn btn-primary">
-                                    {{credits}} <span class="badge badge-light">credits</span>
+                                    {{user.credits}} <span class="badge badge-light">credits</span>
                                 </button>
                             </p>
-                            <div class="jumbotron status-card" style="background-color: white">
-                                <div class="member-status">{{memberStatus}}</div>
-                                <div class="skipper-status">{{skipperStatus}}</div>
+                            <div class="jumbotron status-card" style="background-color: white; margin-bottom: 0px; padding: 32px;">
+                                <div class="member-status">{{user.memberStatus}}</div>
+                                <div class="skipper-status">{{user.skipperStatus}}</div>
                             </div>
+                            <p class="edit">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateInfoModal">
+                                    Update My Info
+                                </button>
+                            </p>
                         </div>
                     </div>
             </div>
         </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-8">
         <div class="card-body">
             <h5 class="card-title">Details</h5>
 
@@ -45,15 +50,15 @@
                         <tbody>
                             <tr>
                                 <td>Current Credits</td>
-                                <td>{{credits}}</td>
+                                <td>{{user.credits}}</td>
                             </tr>
                             <tr>
                                 <td>Member Status</td>
-                                <td>{{memberStatus}}</td>
+                                <td>{{user.memberStatus}}</td>
                             </tr>
                             <tr>
                                 <td>Skipper Status</td>
-                                <td>{{skipperStatus}}</td>
+                                <td>{{user.skipperStatus}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -64,15 +69,15 @@
                         <tbody>
                             <tr>
                                 <td>Sailing Qualifications</td>
-                                <td>{{sailingQualifications}}</td>
+                                <td>{{user.sailingQualifications}}</td>
                             </tr>
                             <tr>
                                 <td>Skills</td>
-                                <td>{{skills}}</td>
+                                <td>{{user.skills}}</td>
                             </tr>
                             <tr>
                                 <td>Experience</td>
-                                <td>{{sailingExeprience}}</td>
+                                <td>{{user.sailingExeprience}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -83,23 +88,23 @@
                         <tbody>
                             <tr>
                                 <td>Name</td>
-                                <td>{{firstName}} {{lastName}}</td>
+                                <td>{{user.firstName}} {{user.lastName}}</td>
                             </tr>
                             <tr>
                                 <td>Address</td>
-                                <td>{{street}}, {{city}}, {{province}}, {{country}}, {{postalCode}}</td>
+                                <td>{{user.street}}, {{user.city}}, {{user.province}}, {{user.country}}, {{user.postalCode}}</td>
                             </tr>
                             <tr>
                                 <td>Mobile Phone</td>
-                                <td>{{mobilePhone}}</td>
+                                <td>{{user.mobilePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Home Phone</td>
-                                <td>{{homePhone}}</td>
+                                <td>{{user.homePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Work Phone</td>
-                                <td>{{workPhone}}</td>
+                                <td>{{user.workPhone}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -110,10 +115,122 @@
     </div>
 </div>
 <br />
-<my-account-emergency-contacts></my-account-emergency-contacts>
+<my-account-emergency-contacts [contact]="emergencyContact"></my-account-emergency-contacts>
+<br />
+<my-account-report></my-account-report>
 <br />
     <div class="container">
         <!--RESERVATION-->
         <reservations></reservations>
     </div>
 </div>
+
+
+
+
+
+<!-- Update Info Modal -->
+<div class="modal fade" id="updateInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title lead text-center jumbotron" id="updateInfoModalTitle">Update Information</h4>
+            </div>
+          
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                            <label for="InputFirstName">First Name</label>
+                            <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [value]="user.firstName"/>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                            <label for="InputLastName">Last Name</label>
+                            <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [value]="user.lastName"/>
+                        </div>
+                    </div>
+          
+                    <div class="form-group">
+                        <label for="InputEmail">Email Address</label>
+                        <input type="email" class="form-control" id="InputEmail"  [value]="user.email">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1"  [value]="user.password">
+                    </div>
+          
+                    <div class="row">
+                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                            <label for="InputHomePhone">Home Phone</label>
+                            <input type="text" class="form-control" id="InputHomePhone"  [value]="user.homePhone" />
+                        </div>
+                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                            <label for="InputMobilePhone">Mobile Phone</label>
+                            <input type="text" class="form-control" id="InputMobilePhone"  [value]="user.mobilePhone" />
+                        </div>
+                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                            <label for="InputHomePhone">Work Phone</label>
+                            <input type="text" class="form-control" id="InputWorkPhone"  [value]="user.workPhone"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Address part. -->
+
+                    <br />
+                    <hr />
+          
+                    <div class="form-group"><label>Emergency Contact 1</label></div>
+                    <div class="row">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                            <label for="InputEmergencyName1">Name</label>
+                            <input type="text" class="form-control" id="InputEmergencyName1"  [value]="emergencyContact.name1">
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                            <label for="InputEmergencyNumber1">Contact Info</label>
+                            <input type="text" class="form-control" id="InputEmergencyNumber1" [value]="emergencyContact.phone1">
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group"><label>Emergency Contact 2</label></div>
+                    <div class="row">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                            <label for="InputEmergencyName2">Name</label>
+                            <input type="text" class="form-control" id="InputEmergencyName2"  [value]="emergencyContact.name2">
+                        </div>
+          
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                            <label for="InputEmergencyNumber2">Contact Info</label>
+                            <input type="text" class="form-control" id="InputEmergencyNumber2"  [value]="emergencyContact.phone2">
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="form-group col-lg-8 col-md-8 col-sm-8">
+                            <label for="InputSailingQualification">Sailing Qualification</label>
+                            <input type="text" class="form-control" id="InputSailingQualification" [value]="user.sailingQualifications">
+                        </div>
+                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                            <label for="InputSailingExperience">Sailing Experience</label>
+                            <select class="form-control" id="InputSailingExperience" [value]="user.sailingExeprience">
+                                <option>Professional</option>
+                                <option>Intermediate</option>
+                                <option>Beginner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="InputSkills">Skills</label>
+                        <input type="text" class="form-control" id="InputSkills" [value]="user.skills">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Update</button>
+            </div>
+          
+            
+        </div>
+    </div>
+  </div>

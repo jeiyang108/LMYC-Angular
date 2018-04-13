@@ -8,7 +8,7 @@
     
     <p>You don't need to own a boat or even know how to sail in order become a member of one of White Rock's best kept secrets – the Lower Mainland Yacht Co-op (LMYC). All you need is an interest in sailing.</p>
     <p>You can learn to be a skipper on one of our seven boats; join the fun on long weekend cruises or simply sail around Semiahmoo Bay with other members... all for an affordable price!</p>
-    <p>The Lower Mainland Yacht Cooperative (LMYC) consists of 115 "Full" members and six sailboats moored at the end of the pier. We have three C&C 27’s MK3, a Catalina 28 Mk2. a Cal 25 MK2 and a 27' C&C MK5. Aside from a membership fee, members are required to contribute a minimum of 20 hours of their time to either boat maintenance or other club tasks.</p>
+    <p>The Lower Mainland Yacht Cooperative (LMYC) consists of 115 "Full" members and six sailboats moored at the end of the pier. We have three C&amp;C 27’s MK3, a Catalina 28 Mk2. a Cal 25 MK2 and a 27' C&amp;C MK5. Aside from a membership fee, members are required to contribute a minimum of 20 hours of their time to either boat maintenance or other club tasks.</p>
     <p>The most important aspect of the cooperative is the maintenance of the boats. All boats are kept in good condition as a result of regular maintenance, including scheduled Maintenance Days, which are on the Saturday morning following the General Meeting of each month. Each boat has it’s own Maintenance Crew and Leader. Most Maintenance Day crew members are scheduled for six times per year.</p>
     <p>Annual bottom painting and minor upgrading are done early each season. Co-op members do most of this work; professional trades are hired as needed. This is an excellent opportunity to learn the workings of the boats while getting to know your fellow sailors.</p>
     <p>Boats are booked on a first come, first serve basis, each member being allocated 320 hours of sailing during the "high season" months of June, July and August. This allows for a week of sailing during this peak period if accompanied by three non-member guests/crew. During the balance of the year, a member's booking hours are unlimited.</p>
@@ -21,24 +21,15 @@
 
 
 
-<div class="container jumbotron signup-container">
+<div *ngIf="!authenticated" class="container jumbotron signup-container">
     <form>
         <h2 class="display-4">Come aboard and join the adventure!</h2>
         <p class="lead">Fill in the form to join our organizaiton. </p>
         <hr />
-        <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#signupModal">
+        <button type="button" class="btn btn-lg btn-primary" [routerLink]="['/register']">
             Sign Up >>
         </button>
     </form>
-</div>
-
-<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-
-          <membership-modal-signup></membership-modal-signup>     
-         </div>
-  </div>
 </div>
 
 

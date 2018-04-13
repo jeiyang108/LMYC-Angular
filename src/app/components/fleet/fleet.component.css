@@ -1,0 +1,31 @@
+#fleet-boat-label-feet-number {
+    font-size: 36px;
+    float: left;
+}
+
+.topbot15 { margin-top:15px; margin-bottom:15px }
+
+#fleet-boat-img {
+    height: 240px;
+    /* object-fit: contain; */
+    /* object-fit: cover; */
+    /* object-fit: scale-down; */
+}
+
+#fleet-boat-img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.fleet-boat-label {
+    font-weight: 600
+}
+
+#fleet-boat-label-credit-number {
+    font-size: 55px;
+}
+
+#fleet-boat-booking-btn-oos {
+    pointer-events:none;
+    text-decoration: line-through;
+}

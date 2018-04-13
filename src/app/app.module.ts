@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule } from 'angular-calendar';
 import { ReactiveFormsModule } from '@angular/forms'; 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -15,7 +16,6 @@ import { FleetComponent } from './components/fleet/fleet.component';
 import { HistoryComponent } from './components/about/history/history.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MembershipComponent } from './components/membership/membership.component';
 import { MyAccountComponent } from './components/myaccount/myaccount.component';
 import { ReservationsComponent } from './components/myaccount/reservations/reservations.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,7 +24,6 @@ import { HomeBookingComponent } from './components/home/sections/home.booking/ho
 import { HomeEventsComponent } from './components/home/sections/home.events/home.events.component';
 import { HomeBoatImagesComponent } from './components/home/sections/home.boatimages/home.boatimages.component';
 import { MyAccountEmergencyContactsComponent } from './components/myaccount/sections/myaccount.emergencycontacts/myaccount.emergencycontacts.component';
-import { MembershipModalSignupComponent } from './components/membership/sections/membership.modalsignup/membership.modalsignup.component';
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
@@ -33,6 +32,16 @@ import { ReportComponent } from './components/report/report.component';
 import { ReportService } from './services/report.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
+import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
+import { MembersComponent } from './components/members/members.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MembershipComponent } from './components/membership/membership.component';
+
+import { ErrorInterceptor } from './http-interceptors/error-interceptor';
+
+import { BoatService } from './services/boat.service';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +55,6 @@ import { HttpClientModule } from '@angular/common/http';
     BookingComponent,
     FooterComponent,
     MembershipComponent,
-    MembershipModalSignupComponent,
     MembershipRulesAndRegulationsComponent,
     MyAccountComponent,
     MyAccountEmergencyContactsComponent,
@@ -58,7 +66,11 @@ import { HttpClientModule } from '@angular/common/http';
     FaqComponent,
     VolunteerComponent,
     ContactUsComponent,
-    ReportComponent
+    ReportComponent,
+    FleetImageComponent,
+    ReportComponent,
+    MembersComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,20 +83,26 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
+      { path: 'members', component: MembersComponent },
       { path: 'home', component: HomeComponent },
       { path: 'membership', component: MembershipComponent },
       { path: 'my-account', component: MyAccountComponent },
       { path: 'about', component: AboutComponent},
-      { path: 'membership', component: MembershipComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'volunteer', component: VolunteerComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
     ])
   ],
-  providers: [ReportService],
+  providers: [
+    BoatService,
+    AccountService,
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    ReportService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

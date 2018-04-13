@@ -1,6 +1,8 @@
+<h1  style="margin-bottom: 100px;">Login</h1>
+<br>
+<br>
 <div class="login">
     <div class="container-fluid">
-        <h4>Login</h4>
         <form (ngSubmit)="login()">
             <div class="row">
                 <input id="username" type="text" placeholder="Username" name="username" [(ngModel)]="username" />
@@ -10,7 +12,7 @@
                 <input id="password" type="password" placeholder="Password" name="password" [(ngModel)]="password" />
             </div>
             <div class="row">
-                <button id="login" type="submit" class="btn btn-main">Login</button>
+                <button id="login" type="submit" class="btn btn-outline-dark">Login</button>
             </div>
         </form>
     </div>

@@ -9,13 +9,13 @@
     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
   </li> -->
       <li class="nav-item">
-        <a class="nav-link" routerLink='/fleet'>Boats Catalogue</a>
+        <a class="nav-link" routerLink='/fleet'>Boat Catalogue</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="authenticated" class="nav-item">
         <a class="nav-link" routerLink='/booking'>Bookings</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink='/my-account'>My Account</a>
+      <li *ngIf="authenticated" class="nav-item">
+        <a class="nav-link" routerLink='/members'>Club Members</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink='/about'>About</a>
@@ -37,6 +37,9 @@
         <a class="nav-link" routerLink='/report'>Report</a>
       </li>
 
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink='/report'>Report</a>
+      </li> -->
       <!-- <li class="nav-item dropdown" ngbDropdown> // if you want to have a drop down instead.
     <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Category</a>
     <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
@@ -49,11 +52,11 @@
   </div>
   <div *ngIf="!authenticated" class="navbar-collapse collapse">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
           <a class="nav-link" routerLink='/contact-us'>Contact Us</a>
-      </li>
+      </li> -->
       <li class="nav-item">
-          <a class="nav-link">Register MODAL</a>
+          <a class="nav-link" routerLink='/register'>Register</a>
         </li>
       <li class="nav-item">
         <a class="nav-link" routerLink='/login'>Login</a>
@@ -62,6 +65,9 @@
   </div>
   <div *ngIf ="authenticated" class="navbar-collapse collapse">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/my-account'>My Account</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" (click)="logout()">Logout</a>
       </li>

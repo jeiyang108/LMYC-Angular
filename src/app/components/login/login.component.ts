@@ -26,15 +26,15 @@ export class LoginComponent {
     ngOnInit() {
         sessionStorage.removeItem("username");
         sessionStorage.removeItem("access_token");
-        sessionStorage.removeItem("autheticated");
+        sessionStorage.removeItem("authenticated");
     }
 
     login() {
         this.authenticate()
             .subscribe(authenticated => {
                 if (authenticated === true) {
-                    this.router.navigate(['/home/']);
                     location.reload();
+                    this.router.navigate(['/home/']);
                 }
             });
     }

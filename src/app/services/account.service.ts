@@ -1,33 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Boat } from '../models/boat';
+import { User } from '../models/user';
+import { HttpClient } from 'selenium-webdriver/http';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map';
 
 @Injectable()
-export class BoatService {
-  private BASE_URL = 'https://localhost:44302/api/boats';
+export class AccountService {
+  private BASE_URL = 'https://localhost:44302/Api/ApplicationUsers/';
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
-      // 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
     }
   );
-  selectedBoatId: string;
+
   constructor(private http: Http) { }
-
-  getBoats(): Promise<Boat[]> {
+  
+  getUserByName(username: string): Promise<User> {
     let options = new RequestOptions({ headers: this.headers});
-    return this.http.get(this.BASE_URL, options)
+    return this.http.get(this.BASE_URL + "/" + username, options)
       .toPromise()
-      .then(response => response.json() as Boat[])
-      .catch(this.handleError);
-  }
-
-  getBoatById(id: string): Promise<Boat> {
-    let options = new RequestOptions({ headers: this.headers});
-    return this.getBoats()
-      .then(result => result.find(boat => boat.BoatId === id));
+      .then(result => result.json() as User);
   }
 
   // postBoat(newBoat: Boat): Promise<Boat> {

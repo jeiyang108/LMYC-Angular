@@ -12,8 +12,12 @@ body {
  p {
     font-size: 100%;
 }
-h1, h2, h5, p, ul, ol{
+h1, h2, h3, h5, ul, ol{
     color: #849dbc;
+}
+
+p {
+    color: #000;
 }
 
 ul.a {
