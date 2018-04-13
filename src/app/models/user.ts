@@ -1,4 +1,6 @@
+import { EmergencyContact } from '../models/emergency-contact';
 export class User {
+
     Email: string;
     Id: string;
     UserName: string;
@@ -19,8 +21,5 @@ export class User {
     Skills: string;
     SailingExeprience: string;
 
-    EmergencyContactName1: string;
-    EmergencyContactPhone1: string;
-    EmergencyContactName2: string;
-    EmergencyContactPhone2: string;
+    emergencyContacts: EmergencyContact;
 }
