@@ -1,16 +1,5 @@
-h4 {
-    text-align: center;
-    margin-top: 250px;
-}
-
 input::placeholder {
     color: lightgrey;
-}
-
-.btn-main {
-    color: #fff;
-    background: #3C526B;
-    border-color: #3C526B;
 }
 
 input {

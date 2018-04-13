@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule } from 'angular-calendar';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -27,12 +28,18 @@ import { FaqComponent } from './components/faq/faq.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
 import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
+import { MembersComponent } from './components/members/members.component';
+import { RegisterComponent } from './components/register/register.component';
+
+import { DocumentComponent } from './components/document/document.component';
+
+import { MembershipComponent } from './components/membership/membership.component';
+
+import { ErrorInterceptor } from './http-interceptors/error-interceptor';
+
 import { BoatService } from './services/boat.service';
 import { AccountService } from './services/account.service';
 
-import { MembersComponent } from './components/members/members.component';
-import { RegisterComponent } from './components/register/register.component';
-import { MembershipComponent } from './components/membership/membership.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +67,7 @@ import { MembershipComponent } from './components/membership/membership.componen
     ReportComponent,
     MembersComponent,
     RegisterComponent,
+    DocumentComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,12 +89,13 @@ import { MembershipComponent } from './components/membership/membership.componen
       { path: 'faq', component: FaqComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
+      { path: 'documents', component: DocumentComponent },
     ])
   ],
   providers: [
     BoatService,
     AccountService,
-    
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
