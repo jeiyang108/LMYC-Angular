@@ -52,8 +52,8 @@ export class RegisterComponent implements OnInit {
         Skills: signupForm.form.value.skills,
         SailingExperience: signupForm.form.value.sailingExperience,
         emergencyContacts: contact,
-        MemberStatus: signupForm.form.value.memberStatus,
-        SkipperStatus: signupForm.form.value.skipperStatus,
+        MemberStatus: "Full Member",
+        SkipperStatus: "Crew",
         Credits: signupForm.form.value.credits
       }
      }
