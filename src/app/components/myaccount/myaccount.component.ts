@@ -43,7 +43,7 @@ export class MyAccountComponent implements OnInit {
   }
   
   updateUserInfo(): void {
-      console.log("submitted.");
+
       this.accountService.updateUserInfo(this.retrievedInfo);
   }
   
