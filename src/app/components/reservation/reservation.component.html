@@ -1,0 +1,49 @@
+<h1 class="header">Booking</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <!-- <th>Booking Id</th> -->
+            <th>Start Date Time</th>
+            <th>End Date Time</th>
+            <th>Credits Used</th>
+            <th>Boat Id</th>
+            <!-- <th>User Id</th> -->
+            <th>Itinerary</th>
+            <!-- <th>Member Number</th>
+            <th>Non Member Number</th> -->
+            <!-- <th></th> -->
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of bookings; let i=index">
+            <!-- <td>{{b.bookingId}}</td> -->
+            <td>{{b.startDateTime}}</td>
+            <td>{{b.endDateTime}}</td>
+            <td>{{b.creditsUsed}}</td>
+            <td>{{b.boatId}}</td>
+            <!-- <td>{{b.userId}}</td> -->
+            <td>{{b.itinerary}}</td>
+            <!-- <td>{{b.memberList.length}}</td>
+            <td>{{b.nonMemberList.length}}</td> -->
+            <!-- <td>
+                <ul *ngFor="let m of b.memberList; let j=index">
+                    <li>{{m.firstName}} {{m.lastName}}</li>
+                </ul>
+            </td>
+            <td>
+                <ul *ngFor="let n of b.nonMemberList; let k=index">
+                    <li>{{n.firstName}} {{n.lastName}}</li>
+                </ul>
+            </td> -->
+            <td>
+                <!-- <span class="btn btn-primary btn-sm" (click)="getBooking(b.bookingId)">view</span> -->
+                <span class="btn btn-primary btn-sm" (click)="editBooking(b.bookingId)">edit</span>
+                <span class="btn btn-primary btn-sm" (click)="deleteBooking(b.bookingId)">x</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div [routerLink]="['/booking']" class="btn btn-primary">Reserve</div>

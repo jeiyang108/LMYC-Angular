@@ -16,7 +16,7 @@ import { FleetComponent } from './components/fleet/fleet.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MyAccountComponent } from './components/myaccount/myaccount.component';
-import { ReservationsComponent } from './components/myaccount/reservations/reservations.component';
+// import { ReservationsComponent } from './components/myaccount/reservations/reservations.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeAboutComponent } from './components/home/sections/home.about/home.about.component';
 import { HomeBookingComponent } from './components/home/sections/home.booking/home.booking.component';
@@ -34,6 +34,7 @@ import { ReportComponent } from './components/myaccount/sections/myaccount.repor
 import { MembersComponent } from './components/members/members.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReservationComponent } from './components/reservation/reservation.component'
 
 import { DocumentComponent } from './components/document/document.component';
 
@@ -61,7 +62,7 @@ import { AddBookingComponent } from './components/booking/add-booking/add-bookin
     MembershipRulesAndRegulationsComponent,
     MyAccountComponent,
     MyAccountEmergencyContactsComponent,
-    ReservationsComponent,
+    ReservationComponent,
     HomeAboutComponent,
     HomeBookingComponent,
     HomeEventsComponent,
