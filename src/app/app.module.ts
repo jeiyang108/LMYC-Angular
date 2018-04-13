@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule } from 'angular-calendar';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+// import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -19,7 +19,7 @@ import { MyAccountComponent } from './components/myaccount/myaccount.component';
 import { ReservationsComponent } from './components/myaccount/reservations/reservations.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeAboutComponent } from './components/home/sections/home.about/home.about.component';
-import { HomeBookingComponent } from './components/home/sections/home.booking/home.booking.component';
+// import { HomeBookingComponent } from './components/home/sections/home.booking/home.booking.component';
 import { HomeEventsComponent } from './components/home/sections/home.events/home.events.component';
 import { HomeBoatImagesComponent } from './components/home/sections/home.boatimages/home.boatimages.component';
 import { MyAccountEmergencyContactsComponent } from './components/myaccount/sections/myaccount.emergencycontacts/myaccount.emergencycontacts.component';
@@ -30,15 +30,16 @@ import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 import { MembersComponent } from './components/members/members.component';
 import { RegisterComponent } from './components/register/register.component';
-
 import { DocumentComponent } from './components/document/document.component';
-
 import { MembershipComponent } from './components/membership/membership.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { ReservationDetailComponent } from './components/reservation/reservation-detail/reservation-detail.component';
 
-import { ErrorInterceptor } from './http-interceptors/error-interceptor';
+// import { ErrorInterceptor } from './http-interceptors/error-interceptor';
 
 import { BoatService } from './services/boat.service';
 import { AccountService } from './services/account.service';
+import { BookingService } from './services/booking.service';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { AccountService } from './services/account.service';
     MyAccountEmergencyContactsComponent,
     ReservationsComponent,
     HomeAboutComponent,
-    HomeBookingComponent,
+    // HomeBookingComponent,
     HomeEventsComponent,
     HomeBoatImagesComponent,
     FaqComponent,
@@ -68,6 +69,8 @@ import { AccountService } from './services/account.service';
     MembersComponent,
     RegisterComponent,
     DocumentComponent,
+    ReservationComponent,
+    ReservationDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,12 +93,14 @@ import { AccountService } from './services/account.service';
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
       { path: 'documents', component: DocumentComponent },
+      { path: 'reservations', component: ReservationComponent },
+      { path: 'reservations/:id', component: ReservationDetailComponent },
     ])
   ],
   providers: [
     BoatService,
     AccountService,
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    BookingService
   ],
   bootstrap: [AppComponent]
 })
