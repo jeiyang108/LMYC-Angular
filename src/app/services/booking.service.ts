@@ -41,13 +41,13 @@ export class BookingService {
       .catch(this.handleError);
   }
 
-  getBookingByUserId(id: string): Promise<Booking> {
+  getBookingsByUserId(id: string): Promise<Booking[]> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(AppComponent.url + '/api/Bookings/' + id, options)
+    return this.http.get(AppComponent.url + '/api/Bookings/user/' + id, options)
       .toPromise()
-      .then(response => response.json() as Booking)
+      .then(response => response.json() as Booking[])
       .catch(this.handleError);
   }
 
