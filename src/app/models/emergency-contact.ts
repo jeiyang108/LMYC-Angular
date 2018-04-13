@@ -1,4 +1,4 @@
-export class EmergencyContact {
+export interface EmergencyContact {
 
     name1: string;
     name2: string;

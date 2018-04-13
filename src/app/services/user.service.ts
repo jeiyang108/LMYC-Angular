@@ -4,6 +4,7 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { AppComponent } from '../app.component';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable() 
 export class UserService {
@@ -18,9 +19,8 @@ export class UserService {
         }
         let options = new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})});
     
-        return this.http.post(AppComponent.url + "/api/Accounts", JSON.stringify(newUser), options)
+        return this.http.post(AppComponent.url + "/api/Accounts/register", JSON.stringify(newUser), options)
           .map(res => {
-            console.log(res.json());
             return res.json();
           }).catch(this.handleError);
       }

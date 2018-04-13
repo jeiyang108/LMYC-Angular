@@ -10,7 +10,12 @@ export interface User {
     PostalCode: string;
     Password: string;
     ConfirmPassword: string;
-    emergencyContacts: EmergencyContact;
+
+    //
+    EmergencyContactName1: string;
+    EmergencyContactName2: string;
+    EmergencyContactPhone1: string;
+    EmergencyContactPhone2: string;
 
 //Boat stuff
     SailingQualifications: string;
@@ -25,4 +30,3 @@ export interface User {
     HomePhone: string;
     WorkPhone: string;
 }
-

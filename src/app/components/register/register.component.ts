@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   postalCode: string;
   country: string;
   province: string;
-  mobileNumber: string;
+  mobilePhone: string;
   homePhone: string;
   workPhone: string;
   sailingQualification: string;
@@ -51,8 +51,9 @@ export class RegisterComponent implements OnInit {
   }
 
   register(signupForm: NgForm) {
+    console.log(signupForm.valid);
     if (signupForm && signupForm.valid) {
-      let contact: EmergencyContact = {
+      var contact: EmergencyContact = {
         name1: this.name1,
         name2: this.name2,
         phone1: this.phone1,
@@ -70,23 +71,25 @@ export class RegisterComponent implements OnInit {
         Province: this.province,
         PostalCode: this.postalCode,
         Country: this.country,
-        MobilePhone: this.mobileNumber,
+        MobilePhone: this.mobilePhone,
         HomePhone: this.homePhone,
         WorkPhone: this.workPhone,
         SailingQualifications: this.sailingQualification,
         Skills: this.skills,
         SailingExperience: this.sailingExperience,
-        emergencyContacts: contact,
-        MemberStatus: "Full Member",
-        SkipperStatus: "Crew"
-      }
+        EmergencyContactName1: this.name1,
+        EmergencyContactName2: this.name2,
+        EmergencyContactPhone1: this.phone1,
+        EmergencyContactPhone2: this.phone2,
+        MemberStatus: 'Full Member',
+        SkipperStatus: 'Crew'
+      };
       
+      console.log(user.City);
       this.signupService.register(user)
-        .subscribe(res => {
-          this.router.navigateByUrl('/login');
-        });
-     }
-     console.log(this.userName);
-     console.log(this.email);
+          .subscribe(res => {
+            this.router.navigateByUrl('/login');
+      });
+    }
   }
 }
