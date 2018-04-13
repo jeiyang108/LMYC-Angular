@@ -1,4 +1,4 @@
-import { ClassificationCode } from "./classification-code";
+import { ClassificationCode } from './classification-code';
 
 export class Report {
     reportID: string;
@@ -7,7 +7,7 @@ export class Report {
     approved: boolean;
     dateCreated: Date;
     userId: string;
-    codeId: string;
+    codeId: ClassificationCode;
     
     constructor() { }
 }

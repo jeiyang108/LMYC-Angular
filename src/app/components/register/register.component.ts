@@ -28,11 +28,12 @@ export class RegisterComponent implements OnInit {
     if (signupForm && signupForm.valid) {
       let address
       let contact: EmergencyContact = {
-        Name1: signupForm.form.value.name1,
-        Name2: signupForm.form.value.name2,
-        Phone1: signupForm.form.value.phone1,
-        Phone2: signupForm.form.value.phone2
-      }
+
+        name1: signupForm.form.value.name1,
+        name2: signupForm.form.value.name2,
+        phone1: signupForm.form.value.phone1,
+        phone2: signupForm.form.value.phone2
+      };
       let user: User = {
         UserName: signupForm.form.value.userName,
         Email: signupForm.form.value.email,
@@ -54,8 +55,9 @@ export class RegisterComponent implements OnInit {
         EmergencyContacts: contact,
         MemberStatus: "Full Member",
         SkipperStatus: "Crew",
-        Credits: signupForm.form.value.credits
-      }
+        Credits: signupForm.form.value.credits,
+        id: null
+      };
      }
   }
 }
