@@ -1,3 +1,163 @@
-<p>
-  booking works!
-</p>
+<h1>Bookings</h1>
+<br/>
+<div class="row text-center">
+    <div class="col-md-4">
+        <div class="btn-group">
+            <div class="btn btn-primary"
+                 mwlCalendarPreviousView
+                 [view]="view"
+                 [(viewDate)]="viewDate"
+                 (viewDateChange)="activeDayIsOpen = false">
+                Previous
+            </div>
+            <div class="btn btn-outline-secondary"
+                 mwlCalendarToday
+                 [(viewDate)]="viewDate">
+                Today
+            </div>
+            <div class="btn btn-primary"
+                 mwlCalendarNextView
+                 [view]="view"
+                 [(viewDate)]="viewDate"
+                 (viewDateChange)="activeDayIsOpen = false">
+                Next
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+    </div>
+    <div class="col-md-4">
+        <button type="button" class="btn btn-primary pull-right" (click)="open(content)">
+            Add Booking
+        </button>
+    </div>
+</div>
+<br>
+
+<div [ngSwitch]="view">
+    <mwl-calendar-month-view [viewDate]="viewDate"
+                             [events]="events"
+                             [refresh]="refresh"
+                             [activeDayIsOpen]="activeDayIsOpen"
+                             (dayClicked)="dayClicked($event.day)"
+                             (eventClicked)="handleEvent('View Details', $event.event)"
+                             (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-month-view>
+</div>
+
+<!-- Modal for new booking -->
+<ng-template #content let-close="close">
+  <div class="modal-header">
+    <h4 class="modal-title">New Booking</h4>  
+    <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <h4>Details</h4>
+      <div class="form-group">
+          <label for="boatName" class="col-sm-3 control-label">Boat Name</label>
+          <div class="col-sm-8">
+              <input type="text" class="form-control" id="boatName" />
+          </div>
+      </div>
+      <hr />
+      <h4>Start Time</h4>
+      <div class="form-group">
+          <label for="startDate" class="col-sm-3 control-label">Start Date</label>
+          <div class="col-sm-8">
+              <input type="text" class="form-control" id="startDate" name="startDate" placeholder="MM/DD/YYYY"/>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="startTime" class="col-sm-3 control-label">Start Time</label>
+          <div class="col-sm-8">
+              <input type="text" class="form-control" id="startTime" />
+          </div>
+      </div>
+      <hr />
+      <h4>End Time</h4>
+      <div class="form-group">
+          <label for="endDate" class="col-sm-3 control-label">End Date</label>
+          <div class="col-sm-8">
+              <input type="text" class="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYYY" />
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="endTime" class="col-sm-3 control-label">End Time</label>
+          <div class="col-sm-8">
+              <input type="text" class="form-control" id="endTime" />
+          </div>
+      </div>
+      <hr />
+      <h4>Itinerary</h4>
+      <div class="form-group">
+          <div class="col-sm-8">
+              <textarea class="form-control" name="itinerary"></textarea>
+          </div>
+      </div>
+  </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="close()">Close</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">{{ modalData?.action }}</h5>
+      <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="boatName" class="col-sm-3 control-label">Boat Name</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="boatName" disabled/>
+                </div>
+            </div>
+            <hr />
+            <h4>Start Time</h4>
+            <div class="form-group">
+                <label for="startDate" class="col-sm-3 control-label">Start Date</label>
+                <div class="col-sm-8">
+                    {{ modalData?.event.start.getMonth() + 1}}/ {{ modalData?.event.start.getDay}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="startTime" class="col-sm-3 control-label">Start Time</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="startTime" />
+                </div>
+            </div>
+            <hr />
+            <h4>End Time</h4>
+            <div class="form-group">
+                <label for="endDate" class="col-sm-3 control-label">End Date</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYYY" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="endTime" class="col-sm-3 control-label">End Time</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="endTime" />
+                </div>
+            </div>
+            <hr />
+            <h4>Itinerary</h4>
+            <div class="form-group">
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="itinerary"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
+    </div>
+  </ng-template>

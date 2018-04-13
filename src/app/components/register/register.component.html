@@ -3,7 +3,7 @@
 </div>
 
 <div class="modal-body">
-    <form>
+    <form #registerForm="ngForm">
         <div class="row">
             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                 <label for="InputFirstName">First Name</label>
@@ -22,10 +22,20 @@
             <input type="email" class="form-control" id="InputEmail" placeholder="Enter Email Address" [(ngModel)]="email" name="email">
             <small id="emailHelp" class="form-text text-muted">A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.</small>
         </div>
+
+        <div class="form-group">
+            <label for="InputUserName">UserName</label>
+            <input type="text" class="form-control" id="exampleInputUserName" placeholder="UserName" [(ngModel)]="userName" name="userName">
+        </div>
+
         <div class="form-group">
             <label for="InputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password">
+            <input type="password" class="form-control" id="InputPassword" placeholder="Password" [(ngModel)]="password" name="password">
         </div>
+        <div class="form-group">
+                <label for="InputConfirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="InputConfirmPassword" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword">
+            </div>
 
         <div class="row">
             <div class="form-group col-lg-4 col-md-4 col-sm-4">
@@ -119,8 +129,9 @@
             <label class="form-check-label" for="Check1">You agree to our terms of use.</label>
         </div>
     </form>
+    
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="register(registerForm)">Submit</button>
 </div>

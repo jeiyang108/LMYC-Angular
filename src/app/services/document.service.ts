@@ -4,10 +4,11 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
+import { AppComponent } from '../app.component';
+
 
 @Injectable()
 export class DocumentService {
-  private BASE_URL = 'https://localhost:44302/api/documents';
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ export class DocumentService {
   getDocs(): Promise<Document[]> {
       console.log("In service getDocs")
     let options = new RequestOptions({ headers: this.headers});
-    return this.http.get(this.BASE_URL, options)
+    return this.http.get(AppComponent.url + "/api/documents", options)
       .toPromise()
       .then(response => response.json() as Document[])
       .catch(this.handleError);

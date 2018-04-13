@@ -4,22 +4,23 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { AppComponent } from '../app.component';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable() 
 export class UserService {
 
-    constructor(private http: Http, private appComponent: AppComponent) {
+    constructor(private http: Http) {
     }
     
     register(newUser: User) {
-        if (!newUser.UserName || !newUser.Password) {
+        console.log(newUser);
+        if (!newUser.userName || !newUser.password) {
           return;
         }
         let options = new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})});
     
-        return this.http.post(AppComponent.url + "/api/Accounts", JSON.stringify(newUser), options)
+        return this.http.post(AppComponent.url + "/api/Accounts/register", JSON.stringify(newUser), options)
           .map(res => {
-            console.log(res.json());
             return res.json();
           }).catch(this.handleError);
       }
@@ -28,5 +29,4 @@ export class UserService {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
-
 } 

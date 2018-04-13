@@ -13,7 +13,6 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { LoginComponent } from './components/login/login.component';
 import { AboutComponent } from './components/about/about.component';
 import { FleetComponent } from './components/fleet/fleet.component';
-import { HistoryComponent } from './components/about/history/history.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MyAccountComponent } from './components/myaccount/myaccount.component';
@@ -34,6 +33,7 @@ import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 import { MembersComponent } from './components/members/members.component';
 import { RegisterComponent } from './components/register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DocumentComponent } from './components/document/document.component';
 
@@ -43,6 +43,8 @@ import { ErrorInterceptor } from './http-interceptors/error-interceptor';
 
 import { BoatService } from './services/boat.service';
 import { AccountService } from './services/account.service';
+import { BookingService } from './services/booking.service';
+import { AddBookingComponent } from './components/booking/add-booking/add-booking.component';
 
 
 @NgModule({
@@ -53,7 +55,6 @@ import { AccountService } from './services/account.service';
     LoginComponent,
     AboutComponent,
     FleetComponent,
-    HistoryComponent,
     BookingComponent,
     FooterComponent,
     MembershipComponent,
@@ -74,11 +75,13 @@ import { AccountService } from './services/account.service';
     MembersComponent,
     RegisterComponent,
     DocumentComponent,
+    AddBookingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
     CalendarModule.forRoot(), // for angular calendar
@@ -99,13 +102,16 @@ import { AccountService } from './services/account.service';
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
       { path: 'documents', component: DocumentComponent },
+      { path: 'booking/create', component: AddBookingComponent }
     ])
   ],
   providers: [
     BoatService,
     AccountService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    ReportService
+
+    ReportService,
+    BookingService
   ],
   bootstrap: [AppComponent]
 })

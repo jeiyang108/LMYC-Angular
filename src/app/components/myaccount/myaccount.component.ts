@@ -11,11 +11,14 @@ import { Router } from '@angular/router';
   templateUrl: './myaccount.component.html',
   styleUrls: ['./myaccount.component.css']
 })
+
 export class MyAccountComponent implements OnInit {
-  user: User;
-  changedUser: User;
-  emergencyContact: EmergencyContact;
-  changedEmergencyContact: EmergencyContact;
+  user: User = new User();
+  changedUser: User = new User();
+  emergencyContact: EmergencyContact = new EmergencyContact();
+  changedEmergencyContact: EmergencyContact = new EmergencyContact();
+
+  firstName: string
 
   username: string = sessionStorage.getItem("username");
   
@@ -46,29 +49,29 @@ export class MyAccountComponent implements OnInit {
   //used to retrieve account info of the currenty logged in user.
   displayUserInfo(): void {
       this.accountService.getUserByName(this.username)
-        .then((user : any) => {
-          this.user = this.convertToUppercase(user);
-          this.changedUser = this.convertToUppercase(user);
+        .subscribe((user : User) => {
+          this.user = user;
+          //this.changedUser = this.convertToUppercase(user);
 
-          console.log(user);
-          this.emergencyContact = new EmergencyContact();
-          this.emergencyContact.Name1 = user.emergencyContacts.name1;
-          this.emergencyContact.Name2 = user.emergencyContacts.name2;
-          this.emergencyContact.Phone1 = user.emergencyContacts.phone1;
-          this.emergencyContact.Phone2 = user.emergencyContacts.phone2;
-
+          // console.log(user);
           
-          this.changedEmergencyContact = new EmergencyContact();
-          this.changedEmergencyContact.Name1 = user.emergencyContacts.name1;
-          this.changedEmergencyContact.Name2 = user.emergencyContacts.name2;
-          this.changedEmergencyContact.Phone1 = user.emergencyContacts.phone1;
-          this.changedEmergencyContact.Phone2 = user.emergencyContacts.phone2;
+          console.log(this.user.emergencyContacts.name1)
+          this.emergencyContact.name1 = user.emergencyContacts.name1;
+          this.emergencyContact.name2 = user.emergencyContacts.name2;
+          this.emergencyContact.phone1 = user.emergencyContacts.phone1;
+          this.emergencyContact.phone2 = user.emergencyContacts.phone2;
+          
+
+          this.changedEmergencyContact.name1 = user.emergencyContacts.name1;
+          this.changedEmergencyContact.name2 = user.emergencyContacts.name2;
+          this.changedEmergencyContact.phone1 = user.emergencyContacts.phone1;
+          this.changedEmergencyContact.phone2 = user.emergencyContacts.phone2;
           console.log(this.emergencyContact);
         });
   }
   
   updateUserInfo(): void {
-      this.changedUser.EmergencyContacts = this.changedEmergencyContact;
+      // this.changedUser.EmergencyContacts = this.changedEmergencyContact;
       this.accountService.updateUserInfo(this.changedUser).then( () => {
         this.displayUserInfo();
       }).catch( () => {

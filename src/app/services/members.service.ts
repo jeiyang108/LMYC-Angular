@@ -4,9 +4,10 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
+import { AppComponent } from '../app.component';
+
 @Injectable()
 export class MembersService {
-  private BASE_URL = 'https://localhost:44302/api/members';
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
@@ -18,7 +19,7 @@ export class MembersService {
   getMembers(): Promise<Member[]> {
       console.log("In service getMembers")
     let options = new RequestOptions({ headers: this.headers});
-    return this.http.get(this.BASE_URL, options)
+    return this.http.get(AppComponent.url, options)
       .toPromise()
       .then(response => response.json() as Member[])
       .catch(this.handleError);

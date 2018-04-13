@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ReportService {
 
-  constructor(private http: Http, private appComponent: AppComponent) {
+  constructor(private http: Http) {
   }
 
   getReports(): Promise<Report[]> {

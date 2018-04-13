@@ -51,7 +51,7 @@ export class VolunteerComponent implements OnInit {
 
   displayUserInfo(): void {
     this.accountService.getUserByName(this.username)
-      .then(user => {
+      .subscribe(user => {
         this.user = user;
       });
   }

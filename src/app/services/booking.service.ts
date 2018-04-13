@@ -8,7 +8,7 @@ import { AppComponent } from '../app.component';
 @Injectable()
 export class BookingService {
 
-  constructor(private http: Http, private appComponent: AppComponent) { }
+  constructor(private http: Http) { }
 
   getBookings(): Promise<Booking[]> {
     let headers = new Headers({
@@ -64,6 +64,14 @@ export class BookingService {
   postBooking(booking: Booking): Promise<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
+
+    // booking.memberList = JSON.stringify(booking.memberList);
+    // booking.nonMemberList = JSON.stringify(booking.nonMemberList);
+
+    for (let i=0; i<booking.members.length; i++) {
+      delete booking.members[i].name;
+      delete booking.members[i].bookingId;
+    }
 
     return this.http.post(AppComponent.url + '/api/Bookings' , booking, options)
       .toPromise()

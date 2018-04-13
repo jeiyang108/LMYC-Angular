@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient } from 'selenium-webdriver/http';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { AppComponent } from '../app.component';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AccountService {
-  private BASE_URL = 'https://localhost:44302/Api/ApplicationUsers';
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
@@ -15,23 +18,22 @@ export class AccountService {
 
   constructor(private http: Http) { }
   
-  getUserByName(username: string): Promise<User> {
+  getUserByName(username: string): Observable<any> {
     let options = new RequestOptions({ headers: this.headers});
-    return this.http.get(this.BASE_URL + username, options)
-      .toPromise()
-      .then(result => result.json() as User)
+    return this.http.get(AppComponent.url + "/api/applicationusers/" + username, options)
+      .map(res => <User>res.json())
       .catch(this.handleError);
   }
 
   updateUserInfo(updatedUserInfo: User): Promise<Response> {
-    console.log("New Data: " + updatedUserInfo.UserName);
+    console.log("New Data: " + updatedUserInfo.userName);
     let options = new RequestOptions({ headers: this.headers});
-    const url = this.BASE_URL + "/" + updatedUserInfo.UserName;
+    const url = AppComponent.url + "/api/applicationusers/" + updatedUserInfo.userName;
     return this.http.put(url, JSON.stringify(updatedUserInfo), options) // JSON.stringify(newUser), options
       .toPromise()
       .then();
   }
-
+  
   changePassword(username: string, currentPassword: string, newPassword: string) {
     let options = new RequestOptions({ headers: this.headers});
 
@@ -40,25 +42,12 @@ export class AccountService {
       NewPassword: newPassword
     };
 
-    const url = this.BASE_URL + "/" + username;
+    const url = AppComponent.url + "/api/applicationusers/" + username;
+    
     return this.http.patch(url, JSON.stringify(changeRequest), options) // JSON.stringify(newUser), options
       .toPromise()
       .then();
   }
-  // postBoat(newBoat: Boat): Promise<Boat> {
-  //   return this.http.post(this.BASE_URL, JSON.stringify(newBoat))
-  //     .toPromise()
-  //     .then(result => result.json().data)
-  //     .catch(this.handleError);
-  // }
-
-  // deleteBoat(delBoat: Boat): Promise<void> {
-  //   const url = this.BASE_URL + '/' + delBoat.BoatId;
-  //   return this.http.delete(url)
-  //     .toPromise()
-  //     .then(() => null)
-  //     .catch(this.handleError);
-  // }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

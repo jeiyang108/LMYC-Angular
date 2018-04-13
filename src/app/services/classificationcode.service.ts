@@ -7,7 +7,7 @@ import { ClassificationCode } from '../models/classification-code';
 @Injectable()
 export class ClassificationcodeService {
 
-  constructor(private http: Http, private appComponent: AppComponent) {
+  constructor(private http: Http) {
   }
 
   getClassCodes(): Promise<ClassificationCode[]> {
