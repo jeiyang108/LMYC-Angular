@@ -44,7 +44,11 @@ export class MembershipModalSignupComponent implements OnInit {
         emContactName1: signupForm.form.value.emContactName1,
         emContactPhone1: signupForm.form.value.emContactPhone1,
         emContactName2: signupForm.form.value.emContactName2,
-        emContactPhone2: signupForm.form.value.emContactPhone2
+        emContactPhone2: signupForm.form.value.emContactPhone2,
+        membershipType: "Full Member",
+        skipperStatus: "Crew",
+        emRelationship1: signupForm.form.value.emRelationship1,
+        emRelationship2: signupForm.form.value.emRelationship2
       }
 
       console.log(user.password);
