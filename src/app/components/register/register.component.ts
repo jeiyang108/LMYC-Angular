@@ -32,7 +32,8 @@ export class RegisterComponent implements OnInit {
         name2: signupForm.form.value.name2,
         phone1: signupForm.form.value.phone1,
         phone2: signupForm.form.value.phone2
-      }
+      };
+
       let user: User = {
         UserName: signupForm.form.value.userName,
         Email: signupForm.form.value.email,
@@ -54,8 +55,9 @@ export class RegisterComponent implements OnInit {
         emergencyContacts: contact,
         MemberStatus: "Full Member",
         SkipperStatus: "Crew",
-        Credits: signupForm.form.value.credits
-      }
+        Credits: signupForm.form.value.credits,
+        userID: null
+      };
      }
   }
 }

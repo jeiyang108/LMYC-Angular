@@ -6,9 +6,11 @@ import { Http, Response } from '@angular/http';
 import { AppComponent } from '../../app.component';
 import { ReportService } from '../../services/report.service';
 import { ClassificationcodeService } from '../../services/classificationcode.service';
-
+import { AccountService } from '../../services/account.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { User } from '../../models/user';
+
 
 @Component({
   selector: 'app-volunteer',
@@ -19,16 +21,21 @@ import { HttpModule } from '@angular/http';
 export class VolunteerComponent implements OnInit {
 
   report: Report;
+  user: User;
   classCodes: ClassificationCode[] = new Array();
+  username: string = sessionStorage.getItem('username');
+
 
   ngOnInit() {
     this.report = new Report();
     this.report.dateCreated = new Date();
+    this.displayUserInfo();
   }
 
   constructor(private fb: FormBuilder,
     private reportService: ReportService,
-    private classService: ClassificationcodeService)
+    private classService: ClassificationcodeService,
+    private accountService: AccountService)
   {
     this.report = new Report();
     this.report.dateCreated = new Date(); // This prevents a console error for reading a null date
@@ -38,6 +45,13 @@ export class VolunteerComponent implements OnInit {
   loadClassCodes() {
     this.classService.getClassCodes()
     .then(classCodes => this.classCodes = classCodes);
+  }
+
+  displayUserInfo(): void {
+    this.accountService.getUserByName(this.username)
+      .then(user => {
+        this.user = user;
+      });
   }
 
   // volunteerForm = new FormGroup ({
@@ -55,6 +69,7 @@ export class VolunteerComponent implements OnInit {
   // }
 
   newReport() {
+    this.report.userId = this.user.userID;
     console.log(JSON.stringify(this.report));
 
     this.reportService.postReport(this.report)
