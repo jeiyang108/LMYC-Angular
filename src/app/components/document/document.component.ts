@@ -3,6 +3,8 @@ import { Document } from '../../models/Document';
 
 import { Router } from '@angular/router';
 import { DocumentService } from '../../services/document.service';
+import * as FileSaver from "file-saver";
+import 'rxjs/Rx' ;
 @Component({
   selector: 'document',
   templateUrl: './document.component.html',
@@ -17,7 +19,7 @@ export class DocumentComponent implements OnInit {
   ) { }
 
   docs: Document[];
-
+  doc: Document;
 
   getDocs(): void {
     console.log("in getDocs in component");
@@ -27,6 +29,23 @@ export class DocumentComponent implements OnInit {
         console.log(this.docs);
       });
       console.log(this.docs);
+  }
+
+  downloadFile(id: string) {
+    console.log("In Download function");
+    console.log(id);
+
+    this.DocService.getDocById(id).then(d=>{
+      this.doc = d;
+      console.log("Inside DocServices: " + this.doc);
+      var blob = new Blob([this.doc.content], { type: this.doc.contentType });
+      console.log(blob);
+      FileSaver.saveAs(blob,this.doc.documentName);
+    });
+
+  }
+  getDoc(id: string) {
+
   }
 
   ngOnInit() {
