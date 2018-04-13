@@ -1,3 +1,6 @@
+import { Member } from './member';
+import { NonMember } from './non-member';
+
 export class Booking {
   bookingId: string;
   startDateTime: Date;
@@ -6,5 +9,7 @@ export class Booking {
   boatId: string;
   userId: string;
   itinerary: string;
+  memberList: Member[];
+  nonMemberList: NonMember[];
   constructor() { }
 }
