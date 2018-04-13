@@ -34,12 +34,16 @@ import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 import { MembersComponent } from './components/members/members.component';
 import { RegisterComponent } from './components/register/register.component';
+
+import { DocumentComponent } from './components/document/document.component';
+
 import { MembershipComponent } from './components/membership/membership.component';
 
 import { ErrorInterceptor } from './http-interceptors/error-interceptor';
 
 import { BoatService } from './services/boat.service';
 import { AccountService } from './services/account.service';
+
 
 @NgModule({
   declarations: [
@@ -69,6 +73,7 @@ import { AccountService } from './services/account.service';
     ReportComponent,
     MembersComponent,
     RegisterComponent,
+    DocumentComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +98,7 @@ import { AccountService } from './services/account.service';
       { path: 'volunteer', component: VolunteerComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
+      { path: 'documents', component: DocumentComponent },
     ])
   ],
   providers: [

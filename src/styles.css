@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
+html, body{
+    height: 100%;
+    min-height: 80%;
+}
 body {
     padding-top: 80px; 
+    margin: 0;
  }
  .starter-template {
      padding: 3rem 1.5rem;
@@ -12,7 +17,9 @@ body {
  p {
     font-size: 100%;
 }
-h1, h2, h3, h5, ul, ol{
+
+h1, h2, h5, p, ul, ol, ul.a{
+
     color: #849dbc;
 }
 
@@ -26,11 +33,3 @@ ul.a {
 
 
 
-
-
-#footer {
-    position: relative;
-    bottom:0;
-    width: 100%;
-    margin-top: auto;
-}
