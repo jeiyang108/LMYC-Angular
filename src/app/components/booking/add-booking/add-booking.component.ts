@@ -8,6 +8,7 @@ import { BoatService } from '../../../services/boat.service';
 import { BookingService } from '../../../services/booking.service';
 import { User } from '../../../models/user';
 import { ListUserServiceService } from '../../../services/list-user-service.service';
+import { AccountService } from '../../../services/account.service';
 
 @Injectable()
 export class NgbDateNativeAdapter extends NgbDateAdapter<Date> {
@@ -49,7 +50,7 @@ export class AddBookingComponent implements OnInit {
   // reference for modal
   modalRef: any;
 
-  constructor(private modalService: NgbModal, private boatService: BoatService, private bookingService: BookingService, private lus:ListUserServiceService) { }
+  constructor(private modalService: NgbModal, private boatService: BoatService, private bookingService: BookingService, private lus:ListUserServiceService, private accountService: AccountService) { }
 
   ngOnInit() {
     this.boatService.getBoats()
@@ -87,6 +88,8 @@ export class AddBookingComponent implements OnInit {
     this.close();
   }
   addBooking() {
+    //this.reservation.userId = "73941b29-3fcb-48f0-83e9-485637e6a154";
+    this.reservation.userId = sessionStorage.getItem('username');
     this.reservation.members = this.selectedMembers;
     this.reservation.nonMembers = this.selectedNonMembers;
     this.reservation.startDateTime = new Date(this.reservation.startDateTime.getFullYear(),
@@ -100,7 +103,9 @@ export class AddBookingComponent implements OnInit {
                     +this.selectedEndTime.substring(0,2) - 7,
                     +this.selectedEndTime.substring(3,5));
     console.log(this.reservation);
-    this.bookingService.postBooking(this.reservation);
+    console.log(this.reservation.startDateTime.toISOString());
+    console.log(this.reservation.endDateTime.toISOString());
+    //this.bookingService.postBooking(this.reservation);
   }
   editRow(index, modalName) {
     this.selectedEditMember = this.selectedMembers[index];

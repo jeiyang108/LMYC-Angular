@@ -34,6 +34,7 @@ export class FleetComponent implements OnInit {
 
   onBook(index: string) {
     // console.log(index);
+    window.scrollTo(0,0);
     this.boatService.selectedBoatId = index;
     //this.bookingService.setSelectedBoat(this.boats[index]);
   }
