@@ -1,0 +1,23 @@
+<div class="container">
+
+    <table *ngIf="docs" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Document</th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+    
+        <tr *ngFor="let d of docs; let i=index;" >
+            <td>{{d.documentName}}</td>
+
+            <td>
+                <button (click)="delete(c); $event.stopPropagation()">Download</button>
+            </td>
+        </tr>
+    
+    </table>
+
+</div>
