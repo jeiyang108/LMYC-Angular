@@ -13,7 +13,7 @@ export class BoatService {
       'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
     }
   );
-
+  selectedBoatId: string;
   constructor(private http: Http) { }
 
   getBoats(): Promise<Boat[]> {
