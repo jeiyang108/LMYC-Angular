@@ -41,10 +41,10 @@ export class FleetComponent implements OnInit {
   applyStatusStyle(status: string) {
     switch(status)
     {
-      case 'Out-of Service':
-        return 'text-danger';
-      default:
+      case 'Operational':
         return 'text-success';
+      default:
+        return 'text-danger';
     }
   }
 

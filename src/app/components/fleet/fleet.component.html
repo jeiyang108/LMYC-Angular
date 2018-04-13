@@ -25,7 +25,8 @@
                 <span class="fleet-boat-label" id="fleet-boat-label-credit">Credit(s) per Hour</span>
               </div>
             <hr>
-            <a [routerLink]="['/booking/create']" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
+            <a *ngIf="b.status === 'Operational'" [routerLink]="['/booking/create']" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
+            <a *ngIf="b.status !== 'Operational'" class="btn" id="fleet-boat-booking-btn-oos">Out of Service</a>
           </div>
         </div>
       </div>
