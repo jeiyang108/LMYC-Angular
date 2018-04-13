@@ -24,7 +24,6 @@ export class VolunteerComponent implements OnInit {
   ngOnInit() {
     this.report = new Report();
     this.report.dateCreated = new Date();
-    this.loadClassCodes();
   }
 
   constructor(private fb: FormBuilder,
@@ -33,6 +32,7 @@ export class VolunteerComponent implements OnInit {
   {
     this.report = new Report();
     this.report.dateCreated = new Date(); // This prevents a console error for reading a null date
+    this.loadClassCodes();
   }
 
   loadClassCodes() {
@@ -53,8 +53,9 @@ export class VolunteerComponent implements OnInit {
   //     volunteerDesc: ['', Validators.required],
   //   })
   // }
+
   newReport() {
-    console.log(AppComponent.url);
+    console.log(this.report.content);
 
     this.reportService.postReport(this.report)
       .then(response => console.log('success'));
