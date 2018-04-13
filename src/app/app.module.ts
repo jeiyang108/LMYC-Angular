@@ -28,9 +28,7 @@ import { MembershipRulesAndRegulationsComponent } from './components/membership/
 import { FaqComponent } from './components/faq/faq.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
-import { ReportComponent } from './components/report/report.component';
 import { ReportService } from './services/report.service';
-
 import { HttpClientModule } from '@angular/common/http';
 import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
