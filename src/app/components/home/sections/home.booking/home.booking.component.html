@@ -1,2 +1,32 @@
 <h1 class="header">Booking</h1>
+
+<table *ngFor="let b of bookings; let i=index" class="">
+    <thead>
+        <tr>
+            <th>Booking Id</th>
+            <th>Start Date Time</th>
+            <th>EndDate Time</th>
+            <th>Credits Used</th>
+            <th>Boat Id</th>
+            <th>User Id</th>
+            <th>Itinerary</th>
+            <th>Member List</th>
+            <th>Non Member List</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{b.bookingId}}</td>
+            <td>{{b.startDateTime}}</td>
+            <td>{{b.endDateTime}}</td>
+            <td>{{b.creditsUsed}}</td>
+            <td>{{b.boatId}}</td>
+            <td>{{b.userId}}</td>
+            <td>{{b.itinerary}}</td>
+            <td>{{b.memberList}}</td>
+            <td>{{b.nonMemberList}}</td>
+        </tr>
+    </tbody>
+</table>
+
 <button [routerLink]="['/booking']">Reserve</button>
