@@ -109,6 +109,7 @@ import { AddBookingComponent } from './components/booking/add-booking/add-bookin
     BoatService,
     AccountService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+
     ReportService,
     BookingService
   ],

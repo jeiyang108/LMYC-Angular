@@ -12,15 +12,15 @@
                     <div class="card" style="width: 15rem;">
                         <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
                         <div class="card-body myaccount-card">
-                            <p class="username">{{user.userName}}</p>
+                            <p class="username">{{user.UserName}}</p>
                             <p class="credit">
                                 <button type="button" class="btn btn-primary">
                                     {{user.Credits}} <span class="badge badge-light">credits</span>
                                 </button>
                             </p>
                             <div class="jumbotron status-card" style="background-color: white; margin-bottom: 0px; padding: 32px;">
-                                <div class="member-status">{{user.memberStatus}}</div>
-                                <div class="skipper-status">{{user.skipperStatus}}</div>
+                                <div class="member-status">{{user.MemberStatus}}</div>
+                                <div class="skipper-status">{{user.SkipperStatus}}</div>
                             </div>
                             <div class="edit" style="margin-bottom: 10px;">
                                 <button type="button" class="btn btn-primary" style="width:150.38px;" data-toggle="modal" data-target="#updateInfoModal">
@@ -59,11 +59,11 @@
                             </tr>
                             <tr>
                                 <td>Member Status</td>
-                                <td>{{user.memberStatus}}</td>
+                                <td>{{user.MemberStatus}}</td>
                             </tr>
                             <tr>
                                 <td>Skipper Status</td>
-                                <td>{{user.skipperStatus}}</td>
+                                <td>{{user.SkipperStatus}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -74,15 +74,15 @@
                         <tbody>
                             <tr>
                                 <td>Sailing Qualifications</td>
-                                <td>{{user.sailingQualifications}}</td>
+                                <td>{{user.SailingQualifications}}</td>
                             </tr>
                             <tr>
                                 <td>Skills</td>
-                                <td>{{user.skills}}</td>
+                                <td>{{user.Skills}}</td>
                             </tr>
                             <tr>
                                 <td>Experience</td>
-                                <td>{{user.sailingExeprience}}</td>
+                                <td>{{user.SailingExeprience}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -93,23 +93,23 @@
                         <tbody>
                             <tr>
                                 <td>Name</td>
-                                <td>{{user.firstName}} {{user.lastName}}</td>
+                                <td>{{user.FirstName}} {{user.LastName}}</td>
                             </tr>
                             <tr>
                                 <td>Address</td>
-                                <td>{{user.street}}, {{user.city}}, {{user.province}}, {{user.country}}, {{user.postalCode}}</td>
+                                <td>{{user.Street}}, {{user.City}}, {{user.Province}}, {{user.Country}}, {{user.PostalCode}}</td>
                             </tr>
                             <tr>
                                 <td>Mobile Phone</td>
-                                <td>{{user.mobilePhone}}</td>
+                                <td>{{user.MobilePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Home Phone</td>
-                                <td>{{user.homePhone}}</td>
+                                <td>{{user.HomePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Work Phone</td>
-                                <td>{{user.workPhone}}</td>
+                                <td>{{user.WorkPhone}}</td>
                             </tr>
                         </tbody>
                     </table>

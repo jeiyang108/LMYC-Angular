@@ -33,7 +33,7 @@ export class AccountService {
       .toPromise()
       .then();
   }
-
+  
   changePassword(username: string, currentPassword: string, newPassword: string) {
     let options = new RequestOptions({ headers: this.headers});
 
@@ -43,6 +43,7 @@ export class AccountService {
     };
 
     const url = AppComponent.url + "/api/applicationusers/" + username;
+    
     return this.http.patch(url, JSON.stringify(changeRequest), options) // JSON.stringify(newUser), options
       .toPromise()
       .then();

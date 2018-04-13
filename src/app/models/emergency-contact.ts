@@ -1,8 +1,8 @@
 export class EmergencyContact {
 
-    name1: string;
-    name2: string;
-    phone1: string;
-    phone2: string;
+    Name1: string;
+    Name2: string;
+    Phone1: string;
+    Phone2: string;
 
 }
