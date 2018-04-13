@@ -13,7 +13,6 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { LoginComponent } from './components/login/login.component';
 import { AboutComponent } from './components/about/about.component';
 import { FleetComponent } from './components/fleet/fleet.component';
-import { HistoryComponent } from './components/about/history/history.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MyAccountComponent } from './components/myaccount/myaccount.component';
@@ -53,7 +52,6 @@ import { AccountService } from './services/account.service';
     LoginComponent,
     AboutComponent,
     FleetComponent,
-    HistoryComponent,
     BookingComponent,
     FooterComponent,
     MembershipComponent,
