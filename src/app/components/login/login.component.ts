@@ -26,7 +26,7 @@ export class LoginComponent {
     ngOnInit() {
         sessionStorage.removeItem("username");
         sessionStorage.removeItem("access_token");
-        sessionStorage.removeItem("autheticated");
+        sessionStorage.removeItem("authenticated");
     }
 
     login() {

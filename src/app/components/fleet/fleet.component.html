@@ -1,4 +1,6 @@
 <div class="container-fluid">
+  <h1>Boat Catalogue</h1>
+  <br/>
   <div *ngIf="boats" class="row">
     <div *ngFor="let b of boats; let i=index" class="col-md-4 topbot15">
       <div class="card h-100">
@@ -23,7 +25,8 @@
                 <span class="fleet-boat-label" id="fleet-boat-label-credit">Credit(s) per Hour</span>
               </div>
             <hr>
-            <a [routerLink]="['/booking/create']" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
+            <a *ngIf="b.status === 'Operational'" [routerLink]="['/booking/create']" class="btn btn-primary" (click)="onBook(i)">Book Online</a>
+            <a *ngIf="b.status !== 'Operational'" class="btn" id="fleet-boat-booking-btn-oos">Out of Service</a>
           </div>
         </div>
       </div>

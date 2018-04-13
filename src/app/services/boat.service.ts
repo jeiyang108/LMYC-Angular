@@ -10,7 +10,7 @@ export class BoatService {
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      // 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
     }
   );
   selectedBoatId: string;
