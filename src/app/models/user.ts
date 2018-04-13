@@ -3,7 +3,6 @@ import { EmergencyContact } from '../models/emergency-contact';
 export class User {
 
     Email: string;
-    Id: string;
     UserName: string;
     FirstName: string;
     LastName: string;
@@ -20,8 +19,11 @@ export class User {
     Credits: number;
     SailingQualifications: string;
     Skills: string;
-    SailingExeprience: string;
-
+    SailingExperience: string;
     emergencyContacts: EmergencyContact;
 
+    Password: string;
+    ConfirmPassword: string;
+        
 }
+

@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { UserService } from '../../../../services/user.service';
 import { User } from '../../../../models/user';
+import { EmergencyContact } from '../../../../models/emergency-contact';
 
 
 @Component({
   selector: 'membership-modal-signup',
   templateUrl: './membership.modalsignup.component.html',
-  styleUrls: ['./membership.modalsignup.component.css']
+  styleUrls: ['./membership.modalsignup.component.css'],
+  providers: [UserService]
 })
 export class MembershipModalSignupComponent implements OnInit {
 
+  @Input() contact: EmergencyContact;
+  
   constructor(
     private signupService: UserService,
     private router: Router
@@ -21,34 +25,40 @@ export class MembershipModalSignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(signupForm: NgForm) {
+/* Sorry Micole...
+    register(signupForm: NgForm) {
     if (signupForm && signupForm.valid) {
       let user: User = {
-        username: signupForm.form.value.userName,
-        email: signupForm.form.value.email,
-        password: signupForm.form.value.password,
-        confirmPassword: signupForm.form.value.confirmPassword,
-        firstName: signupForm.form.value.firstName,
-        lastName: signupForm.form.value.lastName,
-        street: signupForm.form.value.street,
-        city: signupForm.form.value.city,
-        province: signupForm.form.value.province,
-        postalCode: signupForm.form.value.postalCode,
-        country: signupForm.form.value.country,
-        mobilePhone: signupForm.form.value.mobileNumber,
-        homePhone: signupForm.form.value.homePhone,
-        workPhone: signupForm.form.value.workPhone,
-        sailingQualification: signupForm.form.value.sailingQualification,
-        skills: signupForm.form.value.skills,
-        sailingExperience: signupForm.form.value.sailingExperience,
-        emContactName1: signupForm.form.value.emContactName1,
-        emContactPhone1: signupForm.form.value.emContactPhone1,
-        emContactName2: signupForm.form.value.emContactName2,
-        emContactPhone2: signupForm.form.value.emContactPhone2
+        UserName: signupForm.form.value.userName,
+        Email: signupForm.form.value.email,
+        //Password: signupForm.form.value.password,
+        //confirmPassword: signupForm.form.value.confirmPassword,
+        FirstName: signupForm.form.value.firstName,
+        LastName: signupForm.form.value.lastName,
+        Street: signupForm.form.value.street,
+        City: signupForm.form.value.city,
+        Province: signupForm.form.value.province,
+        PostalCode: signupForm.form.value.postalCode,
+        Country: signupForm.form.value.country,
+        MobilePhone: signupForm.form.value.mobileNumber,
+        HomePhone: signupForm.form.value.homePhone,
+        WorkPhone: signupForm.form.value.workPhone,
+        SailingQualifications: signupForm.form.value.sailingQualification,
+        Skills: signupForm.form.value.skills,
+        SailingExperience: signupForm.form.value.sailingExperience,
+        MemberStatus: signupForm.form.value.memberStatus,
+        SkipperStatus: signupForm.form.value.skipperStatus,
+        Credits: 320,
+        //contact.Name1: signupForm.form.value.emContactName1,
+        emergencyContacts: EmergencyContact = {
+          Name1 = signupForm.form.value.emContactName1;
+        } 
       }
 
-      console.log(user.password);
-      console.log(user.confirmPassword);
+
+*/
+      //console.log(user.password);
+      //console.log(user.confirmPassword);
 
     //   var result = this.authService.register(user)
     //     .subscribe(
@@ -66,6 +76,6 @@ export class MembershipModalSignupComponent implements OnInit {
     //     );
     // } else {
     //   this.errorMessage = 'Please enter a user name and password.';
-     }
-  }
+    // }
+  //}
 }
