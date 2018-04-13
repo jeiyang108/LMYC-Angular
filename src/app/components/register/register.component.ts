@@ -28,12 +28,12 @@ export class RegisterComponent implements OnInit {
     if (signupForm && signupForm.valid) {
       let address
       let contact: EmergencyContact = {
+
         name1: signupForm.form.value.name1,
         name2: signupForm.form.value.name2,
         phone1: signupForm.form.value.phone1,
         phone2: signupForm.form.value.phone2
       };
-
       let user: User = {
         UserName: signupForm.form.value.userName,
         Email: signupForm.form.value.email,
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
         SailingQualifications: signupForm.form.value.sailingQualification,
         Skills: signupForm.form.value.skills,
         SailingExperience: signupForm.form.value.sailingExperience,
-        emergencyContacts: contact,
+        EmergencyContacts: contact,
         MemberStatus: "Full Member",
         SkipperStatus: "Crew",
         Credits: signupForm.form.value.credits,

@@ -10,7 +10,7 @@ export class User {
     PostalCode: string;
     Password: string;
     ConfirmPassword: string;
-    emergencyContacts: EmergencyContact;
+    EmergencyContacts: EmergencyContact;
 
 //Boat stuff
     Credits: number;

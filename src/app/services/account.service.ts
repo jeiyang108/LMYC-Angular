@@ -5,7 +5,7 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class AccountService {
-  private BASE_URL = 'https://localhost:44302/Api/ApplicationUsers/';
+  private BASE_URL = 'https://localhost:44302/Api/ApplicationUsers';
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
@@ -23,6 +23,28 @@ export class AccountService {
       .catch(this.handleError);
   }
 
+  updateUserInfo(updatedUserInfo: User): Promise<Response> {
+    console.log("New Data: " + updatedUserInfo.UserName);
+    let options = new RequestOptions({ headers: this.headers});
+    const url = this.BASE_URL + "/" + updatedUserInfo.UserName;
+    return this.http.put(url, JSON.stringify(updatedUserInfo), options) // JSON.stringify(newUser), options
+      .toPromise()
+      .then();
+  }
+
+  changePassword(username: string, currentPassword: string, newPassword: string) {
+    let options = new RequestOptions({ headers: this.headers});
+
+    let changeRequest = {
+      CurrentPassword: currentPassword,
+      NewPassword: newPassword
+    };
+
+    const url = this.BASE_URL + "/" + username;
+    return this.http.patch(url, JSON.stringify(changeRequest), options) // JSON.stringify(newUser), options
+      .toPromise()
+      .then();
+  }
   // postBoat(newBoat: Boat): Promise<Boat> {
   //   return this.http.post(this.BASE_URL, JSON.stringify(newBoat))
   //     .toPromise()
