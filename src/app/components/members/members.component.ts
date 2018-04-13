@@ -32,5 +32,4 @@ export class MembersComponent implements OnInit {
   ngOnInit() {
     this.getMembers();
   }
-
 }

@@ -144,8 +144,6 @@ export class AddBookingComponent implements OnInit {
           }
         }
       }
-      
-
     }
   }
 
