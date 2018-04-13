@@ -9,7 +9,7 @@ export class Booking {
   boatId: string;
   userId: string;
   itinerary: string;
-  memberList: Member[];
-  nonMemberList: NonMember[];
+  members: Member[];
+  nonMembers: NonMember[];
   constructor() { }
 }

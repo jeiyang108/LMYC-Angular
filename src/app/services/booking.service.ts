@@ -65,6 +65,14 @@ export class BookingService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
+    // booking.memberList = JSON.stringify(booking.memberList);
+    // booking.nonMemberList = JSON.stringify(booking.nonMemberList);
+
+    for (let i=0; i<booking.members.length; i++) {
+      delete booking.members[i].name;
+      delete booking.members[i].bookingId;
+    }
+
     return this.http.post(AppComponent.url + '/api/Bookings' , booking, options)
       .toPromise()
       .then(response => response.json())

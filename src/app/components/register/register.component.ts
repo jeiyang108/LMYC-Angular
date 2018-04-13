@@ -53,34 +53,37 @@ export class RegisterComponent implements OnInit {
   register(signupForm: NgForm) {
     console.log(signupForm.valid);
     if (signupForm && signupForm.valid) {
+      let emergencyContact: EmergencyContact = {
+        name1: this.name1,
+        name2: this.name2,
+        phone1: this.phone1,
+        phone2: this.phone2
+      }
+
       let user: User = {
-        UserName: this.userName,
-        Email: this.email,
-        Password: this.password,
-        ConfirmPassword: this.confirmPassword,
-        FirstName: this.firstName,
-        LastName: this.lastName,
-        Street: this.street,
-        City: this.city,
-        Province: this.province,
-        PostalCode: this.postalCode,
-        Country: this.country,
-        MobilePhone: this.mobilePhone,
-        HomePhone: this.homePhone,
-        WorkPhone: this.workPhone,
-        SailingQualifications: this.sailingQualification,
-        Skills: this.skills,
-        SailingExperience: this.sailingExperience,
-        EmergencyContactName1: this.name1,
-        EmergencyContactName2: this.name2,
-        EmergencyContactPhone1: this.phone1,
-        EmergencyContactPhone2: this.phone2,
-        MemberStatus: 'Full Member',
-        SkipperStatus: 'Crew',
+        userName: this.userName,
+        email: this.email,
+        password: this.password,
+        confirmPassword: this.confirmPassword,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        street: this.street,
+        city: this.city,
+        province: this.province,
+        postalCode: this.postalCode,
+        country: this.country,
+        mobilePhone: this.mobilePhone,
+        homePhone: this.homePhone,
+        workPhone: this.workPhone,
+        sailingQualifications: this.sailingQualification,
+        skills: this.skills,
+        sailingExperience: this.sailingExperience,
+        emergencyContacts: emergencyContact,
+        memberStatus: 'Full Member',
+        skipperStatus: 'Crew',
         id: null
       };
       
-      console.log(user.City);
       this.signupService.register(user)
           .subscribe(res => {
             this.router.navigateByUrl('/login');

@@ -3,7 +3,7 @@ import { Document } from '../../models/Document';
 
 import { Router } from '@angular/router';
 import { DocumentService } from '../../services/document.service';
-import * as FileSaver from "file-saver";
+import { FileSaver } from "file-saver";
 import 'rxjs/Rx' ;
 @Component({
   selector: 'document',
