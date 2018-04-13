@@ -34,6 +34,7 @@ export class FleetComponent implements OnInit {
 
   onBook(index: string) {
     // console.log(index);
+    this.boatService.selectedBoatId = index;
     //this.bookingService.setSelectedBoat(this.boats[index]);
   }
 
@@ -41,7 +42,7 @@ export class FleetComponent implements OnInit {
     switch(status)
     {
       case 'Out-of Service':
-        return 'text-dangerous';
+        return 'text-danger';
       default:
         return 'text-success';
     }
