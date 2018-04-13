@@ -15,6 +15,7 @@ export class MyAccountComponent implements OnInit {
   user: User;
   emergencyContact: EmergencyContact;
   username: string = sessionStorage.getItem("username");
+  retrievedInfo: any;
 
   constructor(
     private accountService: AccountService,
@@ -30,6 +31,7 @@ export class MyAccountComponent implements OnInit {
       this.accountService.getUserByName(this.username)
         .then(user => {
           this.user = user;
+          this.retrievedInfo = user;
           console.log(user);
           this.emergencyContact = new EmergencyContact();
           this.emergencyContact.name1 = user.emergencyContacts.name1;
@@ -38,6 +40,11 @@ export class MyAccountComponent implements OnInit {
           this.emergencyContact.phone2 = user.emergencyContacts.phone2;
           console.log(this.emergencyContact);
         });
+  }
+  
+  updateUserInfo(): void {
+      console.log("submitted.");
+      this.accountService.updateUserInfo(this.retrievedInfo);
   }
   
 }

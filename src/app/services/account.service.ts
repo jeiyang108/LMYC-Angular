@@ -5,7 +5,7 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class AccountService {
-  private BASE_URL = 'https://localhost:44302/Api/ApplicationUsers/';
+  private BASE_URL = 'https://localhost:44302/Api/ApplicationUsers';
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
@@ -22,6 +22,13 @@ export class AccountService {
       .then(result => result.json() as User);
   }
 
+  updateUserInfo(updatedUserInfo: User): Promise<Response> {
+    console.log("New Data: " + updatedUserInfo);
+    const url = this.BASE_URL + "/" + updatedUserInfo.UserName;
+    return this.http.put(url, JSON.stringify(updatedUserInfo))
+      .toPromise()
+      .then();
+  }
   // postBoat(newBoat: Boat): Promise<Boat> {
   //   return this.http.post(this.BASE_URL, JSON.stringify(newBoat))
   //     .toPromise()
