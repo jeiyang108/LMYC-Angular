@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule } from 'angular-calendar';
+import { ReactiveFormsModule } from '@angular/forms'; 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -25,7 +26,10 @@ import { HomeBoatImagesComponent } from './components/home/sections/home.boatima
 import { MyAccountEmergencyContactsComponent } from './components/myaccount/sections/myaccount.emergencycontacts/myaccount.emergencycontacts.component';
 import { MembershipRulesAndRegulationsComponent } from './components/membership/sections/membership.rulesandregulations/membership.rulesandregulations.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
+import { ReportService } from './services/report.service';
+import { HttpClientModule } from '@angular/common/http';
 import { FleetImageComponent } from './components/fleet/fleet-image/fleet-image.component';
 import { ReportComponent } from './components/myaccount/sections/myaccount.report/myaccount.report.component';
 import { MembersComponent } from './components/members/members.component';
@@ -62,7 +66,9 @@ import { AccountService } from './services/account.service';
     HomeEventsComponent,
     HomeBoatImagesComponent,
     FaqComponent,
+    VolunteerComponent,
     ContactUsComponent,
+    ReportComponent,
     FleetImageComponent,
     ReportComponent,
     MembersComponent,
@@ -73,6 +79,8 @@ import { AccountService } from './services/account.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     CalendarModule.forRoot(), // for angular calendar
     NgbModule.forRoot(), // for angular boostrap
     RouterModule.forRoot([
@@ -87,6 +95,7 @@ import { AccountService } from './services/account.service';
       { path: 'my-account', component: MyAccountComponent },
       { path: 'about', component: AboutComponent},
       { path: 'faq', component: FaqComponent },
+      { path: 'volunteer', component: VolunteerComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'report', component: ReportComponent },
       { path: 'documents', component: DocumentComponent },
@@ -96,6 +105,7 @@ import { AccountService } from './services/account.service';
     BoatService,
     AccountService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    ReportService
   ],
   bootstrap: [AppComponent]
 })

@@ -25,5 +25,6 @@ export class User {
     MobilePhone: string;
     HomePhone: string;
     WorkPhone: string;
+    id: string;
 }
 
