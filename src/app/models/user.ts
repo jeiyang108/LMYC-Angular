@@ -1,5 +1,5 @@
 import { EmergencyContact } from '../models/emergency-contact';
-export class User {
+export interface User {
 //Confidential info
     Email: string;
     UserName: string;
@@ -13,7 +13,6 @@ export class User {
     emergencyContacts: EmergencyContact;
 
 //Boat stuff
-    Credits: number;
     SailingQualifications: string;
     Skills: string;
     SailingExperience: string;
