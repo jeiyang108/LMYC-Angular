@@ -7,7 +7,7 @@ export class Report {
     approved: boolean;
     dateCreated: Date;
     userId: string;
-    codeId: string;
+    codeId: ClassificationCode;
     
     constructor() { }
 }

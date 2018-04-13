@@ -55,7 +55,7 @@ export class VolunteerComponent implements OnInit {
   // }
 
   newReport() {
-    console.log(this.report.content);
+    console.log(JSON.stringify(this.report));
 
     this.reportService.postReport(this.report)
       .then(response => console.log('success'));
