@@ -17,8 +17,14 @@ body {
  p {
     font-size: 100%;
 }
+
 h1, h2, h5, p, ul, ol, ul.a{
+
     color: #849dbc;
+}
+
+p {
+    color: #000;
 }
 
 ul.a {

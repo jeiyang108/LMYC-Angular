@@ -41,24 +41,24 @@ export class FleetComponent implements OnInit {
   applyStatusStyle(status: string) {
     switch(status)
     {
-      case 'Out-of Service':
-        return 'text-danger';
-      default:
+      case 'Operational':
         return 'text-success';
+      default:
+        return 'text-danger';
     }
   }
 
   applyCardHeaderStyle(feet: number) {
     switch(feet)
     {
-      case 25:
+      /*case 25:
         return 'bg-warning';
       case 27:
         return 'bg-info';
       case 28:
         return 'bg-success';
       case 30:
-        return 'bg-dark';
+        return 'bg-dark';*/
       default:
         return 'bg-dark';
     }

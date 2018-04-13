@@ -24,3 +24,8 @@
 #fleet-boat-label-credit-number {
     font-size: 55px;
 }
+
+#fleet-boat-booking-btn-oos {
+    pointer-events:none;
+    text-decoration: line-through;
+}
