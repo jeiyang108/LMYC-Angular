@@ -23,9 +23,10 @@ export class AccountService {
   }
 
   updateUserInfo(updatedUserInfo: User): Promise<Response> {
-    console.log("New Data: " + updatedUserInfo);
+    console.log("New Data: " + updatedUserInfo.UserName);
+    let options = new RequestOptions({ headers: this.headers});
     const url = this.BASE_URL + "/" + updatedUserInfo.UserName;
-    return this.http.put(url, JSON.stringify(updatedUserInfo))
+    return this.http.put(url, JSON.stringify(updatedUserInfo), options) // JSON.stringify(newUser), options
       .toPromise()
       .then();
   }

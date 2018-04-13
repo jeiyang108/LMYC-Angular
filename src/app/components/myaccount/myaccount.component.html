@@ -12,15 +12,15 @@
                     <div class="card" style="width: 15rem;">
                         <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
                         <div class="card-body myaccount-card">
-                            <p class="username">{{user.userName}}</p>
+                            <p class="username">{{user.UserName}}</p>
                             <p class="credit">
                                 <button type="button" class="btn btn-primary">
-                                    {{user.credits}} <span class="badge badge-light">credits</span>
+                                    {{user.Credits}} <span class="badge badge-light">credits</span>
                                 </button>
                             </p>
                             <div class="jumbotron status-card" style="background-color: white; margin-bottom: 0px; padding: 32px;">
-                                <div class="member-status">{{user.memberStatus}}</div>
-                                <div class="skipper-status">{{user.skipperStatus}}</div>
+                                <div class="member-status">{{user.MemberStatus}}</div>
+                                <div class="skipper-status">{{user.SkipperStatus}}</div>
                             </div>
                             <p class="edit">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateInfoModal">
@@ -50,15 +50,15 @@
                         <tbody>
                             <tr>
                                 <td>Current Credits</td>
-                                <td>{{user.credits}}</td>
+                                <td>{{user.Credits}}</td>
                             </tr>
                             <tr>
                                 <td>Member Status</td>
-                                <td>{{user.memberStatus}}</td>
+                                <td>{{user.MemberStatus}}</td>
                             </tr>
                             <tr>
                                 <td>Skipper Status</td>
-                                <td>{{user.skipperStatus}}</td>
+                                <td>{{user.SkipperStatus}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -69,15 +69,15 @@
                         <tbody>
                             <tr>
                                 <td>Sailing Qualifications</td>
-                                <td>{{user.sailingQualifications}}</td>
+                                <td>{{user.SailingQualifications}}</td>
                             </tr>
                             <tr>
                                 <td>Skills</td>
-                                <td>{{user.skills}}</td>
+                                <td>{{user.Skills}}</td>
                             </tr>
                             <tr>
                                 <td>Experience</td>
-                                <td>{{user.sailingExeprience}}</td>
+                                <td>{{user.SailingExeprience}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -88,23 +88,23 @@
                         <tbody>
                             <tr>
                                 <td>Name</td>
-                                <td>{{user.firstName}} {{user.lastName}}</td>
+                                <td>{{user.FirstName}} {{user.LastName}}</td>
                             </tr>
                             <tr>
                                 <td>Address</td>
-                                <td>{{user.street}}, {{user.city}}, {{user.province}}, {{user.country}}, {{user.postalCode}}</td>
+                                <td>{{user.Street}}, {{user.City}}, {{user.Province}}, {{user.Country}}, {{user.PostalCode}}</td>
                             </tr>
                             <tr>
                                 <td>Mobile Phone</td>
-                                <td>{{user.mobilePhone}}</td>
+                                <td>{{user.MobilePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Home Phone</td>
-                                <td>{{user.homePhone}}</td>
+                                <td>{{user.HomePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Work Phone</td>
-                                <td>{{user.workPhone}}</td>
+                                <td>{{user.WorkPhone}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -132,7 +132,7 @@
 <!-- Update Info Modal -->
 <div class="modal fade" id="updateInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form (ngSubmit)="updateUserInfo()">
+        <div>
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title lead text-center jumbotron" id="updateInfoModalTitle">Update Information</h4>
@@ -143,38 +143,38 @@
                         <div class="row">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputFirstName">First Name</label>
-                                <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [value]="user.firstName"/>
+                                <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [(ngModel)]="changedUser.FirstName"/>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputLastName">Last Name</label>
-                                <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [value]="user.lastName"/>
+                                <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [(ngModel)]="changedUser.LastName"/>
                             </div>
                         </div>
             
                         <div class="form-group">
                             <label for="InputEmail">Email Address</label>
-                            <input type="email" class="form-control" id="InputEmail"  [value]="user.email">
+                            <input type="email" class="form-control" id="InputEmail"  [(ngModel)]="changedUser.Email">
                         </div>
                         <!--
                             
                         <div class="form-group">
                             <label for="InputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"  [value]="user.password">
+                            <input type="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="changedUser.password">
                         </div>
             
                         -->
                         <div class="row">
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputHomePhone">Home Phone</label>
-                                <input type="text" class="form-control" id="InputHomePhone"  [value]="user.homePhone" />
+                                <input type="text" class="form-control" id="InputHomePhone"  [(ngModel)]="changedUser.HomePhone" />
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputMobilePhone">Mobile Phone</label>
-                                <input type="text" class="form-control" id="InputMobilePhone"  [value]="user.mobilePhone" />
+                                <input type="text" class="form-control" id="InputMobilePhone"  [(ngModel)]="changedUser.MobilePhone" />
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputHomePhone">Work Phone</label>
-                                <input type="text" class="form-control" id="InputWorkPhone"  [value]="user.workPhone"/>
+                                <input type="text" class="form-control" id="InputWorkPhone"  [(ngModel)]="changedUser.WorkPhone"/>
                             </div>
                         </div>
                         
@@ -185,11 +185,11 @@
                         <div class="row">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyName1">Name</label>
-                                <input type="text" class="form-control" id="InputEmergencyName1"  [value]="emergencyContact.name1">
+                                <input type="text" class="form-control" id="InputEmergencyName1"  [(ngModel)]="changedEmergencyContact.Name1">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyNumber1">Contact Info</label>
-                                <input type="text" class="form-control" id="InputEmergencyNumber1" [value]="emergencyContact.phone1">
+                                <input type="text" class="form-control" id="InputEmergencyNumber1" [(ngModel)]="changedEmergencyContact.Phone1">
                             </div>
                         </div>
                         <hr />
@@ -197,23 +197,23 @@
                         <div class="row">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyName2">Name</label>
-                                <input type="text" class="form-control" id="InputEmergencyName2"  [value]="emergencyContact.name2">
+                                <input type="text" class="form-control" id="InputEmergencyName2" [(ngModel)]="changedEmergencyContact.Name2">
                             </div>
             
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyNumber2">Contact Info</label>
-                                <input type="text" class="form-control" id="InputEmergencyNumber2"  [value]="emergencyContact.phone2">
+                                <input type="text" class="form-control" id="InputEmergencyNumber2" [(ngModel)]="changedEmergencyContact.Phone2">
                             </div>
                         </div>
                         <hr />
                         <div class="row">
                             <div class="form-group col-lg-8 col-md-8 col-sm-8">
                                 <label for="InputSailingQualification">Sailing Qualification</label>
-                                <input type="text" class="form-control" id="InputSailingQualification" [value]="user.sailingQualifications">
+                                <input type="text" class="form-control" id="InputSailingQualification" [(ngModel)]="changedUser.SailingQualifications">
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputSailingExperience">Sailing Experience</label>
-                                <select class="form-control" id="InputSailingExperience" [value]="user.sailingExeprience">
+                                <select class="form-control" id="InputSailingExperience" [(ngModel)]="changedUser.SailingExeprience">
                                     <option>Professional</option>
                                     <option>Intermediate</option>
                                     <option>Beginner</option>
@@ -222,17 +222,17 @@
                         </div>
                         <div class="form-group">
                             <label for="InputSkills">Skills</label>
-                            <input type="text" class="form-control" id="InputSkills" [value]="user.skills">
+                            <input type="text" class="form-control" id="InputSkills" [(ngModel)]="changedUser.Skills">
                         </div>
 
                 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateUserInfo()">Update</button>
                 </div>
              </div>   
-        </form>  
+            </div>  
             
     </div>
   </div>
