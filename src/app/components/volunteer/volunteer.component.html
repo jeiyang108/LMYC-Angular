@@ -5,7 +5,7 @@
     Create Volunteer Hours
   </h3>
 
-  <form id="volunteerForm" name="volunteerForm" (ngSubmit)="newReport()" >
+  <form id="volunteerForm" name="volunteerForm" #volunteerForm="ngForm" (ngSubmit)="newReport()" >
       <div>
           <label for="volunteerDate">Date</label>
           <br/>
@@ -84,6 +84,6 @@
       </div>
       <br/>
 
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" [disabled]="volunteerForm.invalid" class="btn btn-success">Submit</button>
 
 </form>
