@@ -3,13 +3,13 @@
 <h1>My Account</h1>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-6">
         <div class="card-body">
                 <h5 class="card-title">User Overview</h5>
                 <!--left container contains basic info-->
             
                 <div class="jumbotron myaccount-left text-center" style="height: 40rem;">
-                    <div class="card" style="width: 15rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
                         <div class="card-body myaccount-card">
                             <p class="username">{{user.userName}}</p>
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-lg-8 col-md-6">
         <div class="card-body">
             <h5 class="card-title">Details</h5>
 
@@ -113,6 +113,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <my-account-emergency-contacts [contact]="emergencyContact"></my-account-emergency-contacts>
                 </div>
             </div>
             <hr />
@@ -120,7 +121,7 @@
     </div>
 </div>
 <br />
-<my-account-emergency-contacts [contact]="emergencyContact"></my-account-emergency-contacts>
+
 <br />
 <my-account-report></my-account-report>
 <br />
