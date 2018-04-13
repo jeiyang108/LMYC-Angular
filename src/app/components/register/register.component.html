@@ -38,10 +38,28 @@
                   <input type="text" class="form-control" id="InputWorkPhone" placeholder="Work Phone" [(ngModel)]="newUser.workPhone"/>
               </div>
           </div>
+          <div class="form-group"><label>Address</label></div>
           <div class="form-group">
-              <label for="InputAddress">Address</label>
-              <input type="text" class="form-control" id="InputAddress" aria-describedby="addressHelp" placeholder="123 Kingsway Ave, Burnaby, BC, V1V1V1" />
-              <small id="addressHelp" class="form-text text-muted">Enter your residential address.</small>
+              <label for="InputAddressStreet">Street</label>
+              <input type="text" class="form-control" id="InputAddressStreet" placeholder="123 Kingsway Ave" [(ngModel)]="newUser.street"/>
+          </div>
+          <div class="form-group">
+              <label for="InputAddressCity">City</label>
+              <input type="text" class="form-control" id="InputAddressCity" placeholder="Burnaby" [(ngModel)]="newUser.city"/>
+          </div>
+          <div class="row">
+              <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                  <label for="InputAddressProvince">Province</label>
+                  <input type="text" class="form-control" id="InputAddressProvince" placeholder="BC" [(ngModel)]="newUser.province"/>
+              </div>
+              <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                  <label for="InputAddressCountry">Country</label>
+                  <input type="text" class="form-control" id="InputAddressCountry" placeholder="Canada" [(ngModel)]="newUser.country"/>
+              </div>
+              <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                  <label for="InputAddressPostalCode">Postal Code</label>
+                  <input type="text" class="form-control" id="InputAddressPostalCode" placeholder="V1V1V1" [(ngModel)]="newUser.postalCode"/>
+              </div>
           </div>
 
           <br />
