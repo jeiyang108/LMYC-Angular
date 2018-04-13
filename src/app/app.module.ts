@@ -29,8 +29,10 @@ import { MembershipRulesAndRegulationsComponent } from './components/membership/
 import { FaqComponent } from './components/faq/faq.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { ContactUsComponent } from './components/contactus/contactus.component';
-import { ReportComponent } from './components/report/report.component'
+import { ReportComponent } from './components/report/report.component';
+import { ReportService } from './services/report.service';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,19 +59,19 @@ import { ReportComponent } from './components/report/report.component'
     VolunteerComponent,
     ContactUsComponent,
     ReportComponent
-    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     CalendarModule.forRoot(), // for angular calendar
     NgbModule.forRoot(), // for angular boostrap
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'fleet', component:FleetComponent },
+      { path: 'fleet', component: FleetComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'home', component: HomeComponent },
       { path: 'membership', component: MembershipComponent },
@@ -82,7 +84,7 @@ import { ReportComponent } from './components/report/report.component'
       { path: 'report', component: ReportComponent },
     ])
   ],
-  providers: [],
+  providers: [ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
