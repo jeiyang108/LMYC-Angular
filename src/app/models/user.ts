@@ -1,32 +1,29 @@
 import { EmergencyContact } from '../models/emergency-contact';
-export interface User {
+export class User {
 //Confidential info
-    Email: string;
-    UserName: string;
-    Street: string;
-    City: string;
-    Province: string;
-    Country: string;
-    PostalCode: string;
-    Password: string;
-    ConfirmPassword: string;
-
-    //
-    EmergencyContactName1: string;
-    EmergencyContactName2: string;
-    EmergencyContactPhone1: string;
-    EmergencyContactPhone2: string;
+    email: string;
+    userName: string;
+    street: string;
+    city: string;
+    province: string;
+    country: string;
+    postalCode: string;
+    password: string;
+    confirmPassword: string;
+    emergencyContacts: EmergencyContact
 
 //Boat stuff
-    SailingQualifications: string;
-    Skills: string;
-    SailingExperience: string;
-    MemberStatus: string;
-    SkipperStatus: string;
+    sailingQualifications: string;
+    skills: string;
+    sailingExperience: string;
+    memberStatus: string;
+    skipperStatus: string;
 
-    FirstName: string;
-    LastName: string;
-    MobilePhone: string;
-    HomePhone: string;
-    WorkPhone: string;
+    firstName: string;
+    lastName: string;
+    mobilePhone: string;
+    homePhone: string;
+    workPhone: string;
+
+    id: string;
 }

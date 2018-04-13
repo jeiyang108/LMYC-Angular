@@ -9,12 +9,12 @@ import 'rxjs/add/operator/catch';
 @Injectable() 
 export class UserService {
 
-    constructor(private http: Http, private appComponent: AppComponent) {
+    constructor(private http: Http) {
     }
     
     register(newUser: User) {
         console.log(newUser);
-        if (!newUser.UserName || !newUser.Password) {
+        if (!newUser.userName || !newUser.password) {
           return;
         }
         let options = new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})});

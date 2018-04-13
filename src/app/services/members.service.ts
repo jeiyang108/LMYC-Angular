@@ -1,36 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Document } from '../models/Document';
+import { Member } from '../models/Member';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 import { AppComponent } from '../app.component';
 
-
 @Injectable()
-export class DocumentService {
+export class MembersService {
   private headers = new Headers(
     {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
     }
   );
-
   constructor(private http: Http) { }
 
-  getDocs(): Promise<Document[]> {
-      console.log("In service getDocs")
+  getMembers(): Promise<Member[]> {
+      console.log("In service getMembers")
     let options = new RequestOptions({ headers: this.headers});
-    return this.http.get(AppComponent.url + "/api/documents", options)
+    return this.http.get(AppComponent.url, options)
       .toPromise()
-      .then(response => response.json() as Document[])
+      .then(response => response.json() as Member[])
       .catch(this.handleError);
-  }
-
-  getDocById(id: string): Promise<Document> {
-    let options = new RequestOptions({ headers: this.headers});
-    return this.getDocs()
-      .then(result => result.find(d => d.documentId === id));
   }
 
   private handleError(error: any): Promise<any> {

@@ -14,7 +14,7 @@
             <td>{{d.documentName}}</td>
 
             <td>
-                <button (click)="delete(c); $event.stopPropagation()">Download</button>
+                <button (click)="downloadFile(d.documentId)">Download</button>
             </td>
         </tr>
     

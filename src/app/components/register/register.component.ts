@@ -53,12 +53,6 @@ export class RegisterComponent implements OnInit {
   register(signupForm: NgForm) {
     console.log(signupForm.valid);
     if (signupForm && signupForm.valid) {
-      var contact: EmergencyContact = {
-        name1: this.name1,
-        name2: this.name2,
-        phone1: this.phone1,
-        phone2: this.phone2
-      }
       let user: User = {
         UserName: this.userName,
         Email: this.email,
@@ -82,7 +76,8 @@ export class RegisterComponent implements OnInit {
         EmergencyContactPhone1: this.phone1,
         EmergencyContactPhone2: this.phone2,
         MemberStatus: 'Full Member',
-        SkipperStatus: 'Crew'
+        SkipperStatus: 'Crew',
+        id: null
       };
       
       console.log(user.City);
@@ -91,5 +86,6 @@ export class RegisterComponent implements OnInit {
             this.router.navigateByUrl('/login');
       });
     }
+
   }
 }

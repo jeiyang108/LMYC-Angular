@@ -15,18 +15,23 @@
                             <p class="username">{{user.userName}}</p>
                             <p class="credit">
                                 <button type="button" class="btn btn-primary">
-                                    {{user.credits}} <span class="badge badge-light">credits</span>
+                                    {{user.Credits}} <span class="badge badge-light">credits</span>
                                 </button>
                             </p>
                             <div class="jumbotron status-card" style="background-color: white; margin-bottom: 0px; padding: 32px;">
                                 <div class="member-status">{{user.memberStatus}}</div>
                                 <div class="skipper-status">{{user.skipperStatus}}</div>
                             </div>
-                            <p class="edit">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateInfoModal">
+                            <div class="edit" style="margin-bottom: 10px;">
+                                <button type="button" class="btn btn-primary" style="width:150.38px;" data-toggle="modal" data-target="#updateInfoModal">
                                     Update My Info
                                 </button>
-                            </p>
+                            </div>
+                            <div class="changePassword">
+                                <button type="button" class="btn btn-primary" style="width:150.38px;" data-toggle="modal" data-target="#changePasswordModal">
+                                    Change Password
+                                </button>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -49,7 +54,7 @@
                     <table class="table table-hover member-status-table">
                         <tbody>
                             <tr>
-                                <td>Current Credits</td>
+                                <td>Current credits</td>
                                 <td>{{user.credits}}</td>
                             </tr>
                             <tr>
@@ -132,105 +137,144 @@
 <!-- Update Info Modal -->
 <div class="modal fade" id="updateInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title lead text-center jumbotron" id="updateInfoModalTitle">Update Information</h4>
-            </div>
-          
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                            <label for="InputFirstName">First Name</label>
-                            <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [value]="user.firstName"/>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                            <label for="InputLastName">Last Name</label>
-                            <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [value]="user.lastName"/>
-                        </div>
-                    </div>
-          
-                    <div class="form-group">
-                        <label for="InputEmail">Email Address</label>
-                        <input type="email" class="form-control" id="InputEmail"  [value]="user.email">
-                    </div>
-                    <div class="form-group">
-                        <label for="InputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1"  [value]="user.password">
-                    </div>
-          
-                    <div class="row">
-                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                            <label for="InputHomePhone">Home Phone</label>
-                            <input type="text" class="form-control" id="InputHomePhone"  [value]="user.homePhone" />
-                        </div>
-                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                            <label for="InputMobilePhone">Mobile Phone</label>
-                            <input type="text" class="form-control" id="InputMobilePhone"  [value]="user.mobilePhone" />
-                        </div>
-                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                            <label for="InputHomePhone">Work Phone</label>
-                            <input type="text" class="form-control" id="InputWorkPhone"  [value]="user.workPhone"/>
-                        </div>
-                    </div>
-                    
-                    <!-- Address part. -->
-
-                    <br />
-                    <hr />
-          
-                    <div class="form-group"><label>Emergency Contact 1</label></div>
-                    <div class="row">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                            <label for="InputEmergencyName1">Name</label>
-                            <input type="text" class="form-control" id="InputEmergencyName1"  [value]="emergencyContact.name1">
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                            <label for="InputEmergencyNumber1">Contact Info</label>
-                            <input type="text" class="form-control" id="InputEmergencyNumber1" [value]="emergencyContact.phone1">
-                        </div>
-                    </div>
-                    <hr />
-                    <div class="form-group"><label>Emergency Contact 2</label></div>
-                    <div class="row">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                            <label for="InputEmergencyName2">Name</label>
-                            <input type="text" class="form-control" id="InputEmergencyName2"  [value]="emergencyContact.name2">
-                        </div>
-          
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                            <label for="InputEmergencyNumber2">Contact Info</label>
-                            <input type="text" class="form-control" id="InputEmergencyNumber2"  [value]="emergencyContact.phone2">
-                        </div>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <div class="form-group col-lg-8 col-md-8 col-sm-8">
-                            <label for="InputSailingQualification">Sailing Qualification</label>
-                            <input type="text" class="form-control" id="InputSailingQualification" [value]="user.sailingQualifications">
-                        </div>
-                        <div class="form-group col-lg-4 col-md-4 col-sm-4">
-                            <label for="InputSailingExperience">Sailing Experience</label>
-                            <select class="form-control" id="InputSailingExperience" [value]="user.sailingExeprience">
-                                <option>Professional</option>
-                                <option>Intermediate</option>
-                                <option>Beginner</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="InputSkills">Skills</label>
-                        <input type="text" class="form-control" id="InputSkills" [value]="user.skills">
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Update</button>
-            </div>
-          
+        <div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title lead text-center jumbotron" id="updateInfoModalTitle">Update Information</h4>
+                </div>
             
-        </div>
+                <div class="modal-body">
+                    
+                        <div class="row">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                <label for="InputFirstName">First Name</label>
+                                <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [(ngModel)]="changedUser.FirstName"/>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                <label for="InputLastName">Last Name</label>
+                                <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [(ngModel)]="changedUser.LastName"/>
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="InputEmail">Email Address</label>
+                            <input type="email" class="form-control" id="InputEmail"  [(ngModel)]="changedUser.Email">
+                        </div>
+                        <!--
+                            
+                        <div class="form-group">
+                            <label for="InputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="changedUser.password">
+                        </div>
+            
+                        -->
+                        <div class="row">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                                <label for="InputHomePhone">Home Phone</label>
+                                <input type="text" class="form-control" id="InputHomePhone"  [(ngModel)]="changedUser.HomePhone" />
+                            </div>
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                                <label for="InputMobilePhone">Mobile Phone</label>
+                                <input type="text" class="form-control" id="InputMobilePhone"  [(ngModel)]="changedUser.MobilePhone" />
+                            </div>
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                                <label for="InputHomePhone">Work Phone</label>
+                                <input type="text" class="form-control" id="InputWorkPhone"  [(ngModel)]="changedUser.WorkPhone"/>
+                            </div>
+                        </div>
+                        
+                        <!-- Address part. -->
+                        <hr />
+            
+                        <div class="form-group"><label>Emergency Contact 1</label></div>
+                        <div class="row">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                <label for="InputEmergencyName1">Name</label>
+                                <input type="text" class="form-control" id="InputEmergencyName1"  [(ngModel)]="changedUser.EmergencyContactName1">
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                <label for="InputEmergencyNumber1">Contact Info</label>
+                                <input type="text" class="form-control" id="InputEmergencyNumber1" [(ngModel)]="changedUser.EmergencyContactPhone2">
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group"><label>Emergency Contact 2</label></div>
+                        <div class="row">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                <label for="InputEmergencyName2">Name</label>
+                                <input type="text" class="form-control" id="InputEmergencyName2" [(ngModel)]="changedUser.EmergencyContactName2">
+                            </div>
+            
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                <label for="InputEmergencyNumber2">Contact Info</label>
+                                <input type="text" class="form-control" id="InputEmergencyNumber2" [(ngModel)]="changedUser.EmergencyContactPhone2">
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="form-group col-lg-8 col-md-8 col-sm-8">
+                                <label for="InputSailingQualification">Sailing Qualification</label>
+                                <input type="text" class="form-control" id="InputSailingQualification" [(ngModel)]="changedUser.SailingQualifications">
+                            </div>
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                                <label for="InputSailingExperience">Sailing Experience</label>
+                                <select class="form-control" id="InputSailingExperience" [(ngModel)]="changedUser.SailingExeprience">
+                                    <option>Professional</option>
+                                    <option>Intermediate</option>
+                                    <option>Beginner</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputSkills">Skills</label>
+                            <input type="text" class="form-control" id="InputSkills" [(ngModel)]="changedUser.Skills">
+                        </div>
+
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateUserInfo()">Update</button>
+                </div>
+             </div>   
+        </div>  
     </div>
-  </div>
+</div>
+
+
+
+
+
+
+<!-- Change Password Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title lead text-center jumbotron" id="updateInfoModalTitle">Change Password</h4>
+                </div>
+            
+                <div class="modal-body" style="padding: 30px;">
+                    <div class="form-group">
+                        <label for="password1" class="">Current Password</label>
+                        <input id="password1" class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="currentPassword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">New Password</label>
+                        <input id="password2" class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="newPassword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password3">New Password Confirm</label>
+                        <input id="password3" class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="newPasswordConfirm" />
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="changePassword()">Update</button>
+                </div>
+             </div>   
+        </div>  
+    </div>
+</div>

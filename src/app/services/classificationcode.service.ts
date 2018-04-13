@@ -2,64 +2,63 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { AppComponent } from '../app.component';
 import { Report } from '../models/report';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map';
+import { ClassificationCode } from '../models/classification-code';
 
 @Injectable()
-export class ReportService {
+export class ClassificationcodeService {
 
   constructor(private http: Http) {
   }
 
-  getReports(): Promise<Report[]> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': "Bearer " + sessionStorage.getItem('access_token') });
+  getClassCodes(): Promise<ClassificationCode[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(AppComponent.url + '/api/Reports', options)
+    return this.http.get(AppComponent.url + '/api/classificationcodes', options)
       .toPromise()
       .then(response => 
-        response.json() as Report[]
+        response.json() as ClassificationCode[]
       )
       .catch(this.handleError);
   }
 
-  getReport(id: string): Promise<Report> {
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': "Bearer " + sessionStorage.getItem('access_token') });
+  getClassCode(id: string): Promise<ClassificationCode> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(AppComponent.url + '/api/Reports/' + id, options)
+    return this.http.get(AppComponent.url + '/api/classificationcodes/' + id, options)
       .toPromise()
       .then(response =>
-        response.json() as Report
+        response.json() as ClassificationCode
       )
       .catch(this.handleError);
   }
 
-  putReport(report: Report): Promise<any> {
+  putClassCodes(report: Report): Promise<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(AppComponent.url + '/api/Reports/' + report.reportID, report, options)
+    return this.http.put(AppComponent.url + '/api/classificationcodes/' + report.reportID, report, options)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);
   }
 
-  postReport(report: Report): Promise<any> {
+  postClassCodes(report: Report): Promise<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(AppComponent.url + '/api/Reports', report, options)
+    return this.http.post(AppComponent.url + '/api/classificationcodes', report, options)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);
   }
 
-  deleteReport(id: string): Promise<any> {
+  deleteClassCodes(id: string): Promise<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.delete(AppComponent.url + '/api/Reports/' + id, options)
+    return this.http.delete(AppComponent.url + '/api/classificationcodes/' + id, options)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);

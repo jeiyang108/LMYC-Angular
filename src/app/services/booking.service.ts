@@ -8,7 +8,7 @@ import { AppComponent } from '../app.component';
 @Injectable()
 export class BookingService {
 
-  constructor(private http: Http, private appComponent: AppComponent) { }
+  constructor(private http: Http) { }
 
   getBookings(): Promise<Booking[]> {
     let headers = new Headers({
