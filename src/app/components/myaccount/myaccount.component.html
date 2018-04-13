@@ -3,24 +3,24 @@
 <h1>My Account</h1>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-6">
         <div class="card-body">
                 <h5 class="card-title">User Overview</h5>
                 <!--left container contains basic info-->
             
                 <div class="jumbotron myaccount-left text-center" style="height: 40rem;">
-                    <div class="card" style="width: 15rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../assets/images/myaccount.jpg" alt="Card image cap">
                         <div class="card-body myaccount-card">
-                            <p class="username">{{user.UserName}}</p>
+                            <p class="username">{{user.userName}}</p>
                             <p class="credit">
                                 <button type="button" class="btn btn-primary">
-                                    {{user.Credits}} <span class="badge badge-light">credits</span>
+                                    {{user.credits}} <span class="badge badge-light">credits</span>
                                 </button>
                             </p>
                             <div class="jumbotron status-card" style="background-color: white; margin-bottom: 0px; padding: 32px;">
-                                <div class="member-status">{{user.MemberStatus}}</div>
-                                <div class="skipper-status">{{user.SkipperStatus}}</div>
+                                <div class="member-status">{{user.memberStatus}}</div>
+                                <div class="skipper-status">{{user.skipperStatus}}</div>
                             </div>
                             <div class="edit" style="margin-bottom: 10px;">
                                 <button type="button" class="btn btn-primary" style="width:150.38px;" data-toggle="modal" data-target="#updateInfoModal">
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-lg-8 col-md-6">
         <div class="card-body">
             <h5 class="card-title">Details</h5>
 
@@ -59,11 +59,11 @@
                             </tr>
                             <tr>
                                 <td>Member Status</td>
-                                <td>{{user.MemberStatus}}</td>
+                                <td>{{user.memberStatus}}</td>
                             </tr>
                             <tr>
                                 <td>Skipper Status</td>
-                                <td>{{user.SkipperStatus}}</td>
+                                <td>{{user.skipperStatus}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -74,15 +74,15 @@
                         <tbody>
                             <tr>
                                 <td>Sailing Qualifications</td>
-                                <td>{{user.SailingQualifications}}</td>
+                                <td>{{user.sailingQualifications}}</td>
                             </tr>
                             <tr>
                                 <td>Skills</td>
-                                <td>{{user.Skills}}</td>
+                                <td>{{user.skills}}</td>
                             </tr>
                             <tr>
                                 <td>Experience</td>
-                                <td>{{user.SailingExeprience}}</td>
+                                <td>{{user.sailingExeprience}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -93,26 +93,27 @@
                         <tbody>
                             <tr>
                                 <td>Name</td>
-                                <td>{{user.FirstName}} {{user.LastName}}</td>
+                                <td>{{user.firstName}} {{user.lastName}}</td>
                             </tr>
                             <tr>
                                 <td>Address</td>
-                                <td>{{user.Street}}, {{user.City}}, {{user.Province}}, {{user.Country}}, {{user.PostalCode}}</td>
+                                <td>{{user.street}}, {{user.city}}, {{user.province}}, {{user.country}}, {{user.postalCode}}</td>
                             </tr>
                             <tr>
                                 <td>Mobile Phone</td>
-                                <td>{{user.MobilePhone}}</td>
+                                <td>{{user.mobilePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Home Phone</td>
-                                <td>{{user.HomePhone}}</td>
+                                <td>{{user.homePhone}}</td>
                             </tr>
                             <tr>
                                 <td>Work Phone</td>
-                                <td>{{user.WorkPhone}}</td>
+                                <td>{{user.workPhone}}</td>
                             </tr>
                         </tbody>
                     </table>
+                    <my-account-emergency-contacts [contact]="emergencyContact"></my-account-emergency-contacts>
                 </div>
             </div>
             <hr />
@@ -120,7 +121,7 @@
     </div>
 </div>
 <br />
-<my-account-emergency-contacts [contact]="emergencyContact"></my-account-emergency-contacts>
+
 <br />
 <volunteer></volunteer>
 <br />
@@ -148,17 +149,17 @@
                         <div class="row">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputFirstName">First Name</label>
-                                <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [(ngModel)]="changedUser.FirstName"/>
+                                <input type="text" class="form-control" id="InputFirstName" aria-describedby="firstnameHelp" [(ngModel)]="changedUser.firstName"/>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputLastName">Last Name</label>
-                                <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [(ngModel)]="changedUser.LastName"/>
+                                <input type="text" class="form-control" id="InputLastName" aria-describedby="lastnameHelp"  [(ngModel)]="changedUser.lastName"/>
                             </div>
                         </div>
             
                         <div class="form-group">
                             <label for="InputEmail">Email Address</label>
-                            <input type="email" class="form-control" id="InputEmail"  [(ngModel)]="changedUser.Email">
+                            <input type="email" class="form-control" id="InputEmail"  [(ngModel)]="changedUser.email">
                         </div>
                         <!--
                             
@@ -171,15 +172,15 @@
                         <div class="row">
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputHomePhone">Home Phone</label>
-                                <input type="text" class="form-control" id="InputHomePhone"  [(ngModel)]="changedUser.HomePhone" />
+                                <input type="text" class="form-control" id="InputHomePhone"  [(ngModel)]="changedUser.homePhone" />
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputMobilePhone">Mobile Phone</label>
-                                <input type="text" class="form-control" id="InputMobilePhone"  [(ngModel)]="changedUser.MobilePhone" />
+                                <input type="text" class="form-control" id="InputMobilePhone"  [(ngModel)]="changedUser.mobilePhone" />
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputHomePhone">Work Phone</label>
-                                <input type="text" class="form-control" id="InputWorkPhone"  [(ngModel)]="changedUser.WorkPhone"/>
+                                <input type="text" class="form-control" id="InputWorkPhone"  [(ngModel)]="changedUser.workPhone"/>
                             </div>
                         </div>
                         
@@ -190,11 +191,11 @@
                         <div class="row">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyName1">Name</label>
-                                <input type="text" class="form-control" id="InputEmergencyName1"  [(ngModel)]="changedUser.EmergencyContactName1">
+                                <input type="text" class="form-control" id="InputEmergencyName1"  [(ngModel)]="changedUser.emergencyContacts.name1">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyNumber1">Contact Info</label>
-                                <input type="text" class="form-control" id="InputEmergencyNumber1" [(ngModel)]="changedUser.EmergencyContactPhone2">
+                                <input type="text" class="form-control" id="InputEmergencyNumber1" [(ngModel)]="changedUser.emergencyContacts.phone2">
                             </div>
                         </div>
                         <hr />
@@ -202,23 +203,23 @@
                         <div class="row">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyName2">Name</label>
-                                <input type="text" class="form-control" id="InputEmergencyName2" [(ngModel)]="changedUser.EmergencyContactName2">
+                                <input type="text" class="form-control" id="InputEmergencyName2" [(ngModel)]="changedUser.emergencyContacts.name2">
                             </div>
             
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
                                 <label for="InputEmergencyNumber2">Contact Info</label>
-                                <input type="text" class="form-control" id="InputEmergencyNumber2" [(ngModel)]="changedUser.EmergencyContactPhone2">
+                                <input type="text" class="form-control" id="InputEmergencyNumber2" [(ngModel)]="changedUser.emergencyContacts.phone2">
                             </div>
                         </div>
                         <hr />
                         <div class="row">
                             <div class="form-group col-lg-8 col-md-8 col-sm-8">
                                 <label for="InputSailingQualification">Sailing Qualification</label>
-                                <input type="text" class="form-control" id="InputSailingQualification" [(ngModel)]="changedUser.SailingQualifications">
+                                <input type="text" class="form-control" id="InputSailingQualification" [(ngModel)]="changedUser.sailingQualifications">
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4">
                                 <label for="InputSailingExperience">Sailing Experience</label>
-                                <select class="form-control" id="InputSailingExperience" [(ngModel)]="changedUser.SailingExeprience">
+                                <select class="form-control" id="InputSailingExperience" [(ngModel)]="changedUser.sailingExeprience">
                                     <option>Professional</option>
                                     <option>Intermediate</option>
                                     <option>Beginner</option>
@@ -227,7 +228,7 @@
                         </div>
                         <div class="form-group">
                             <label for="InputSkills">Skills</label>
-                            <input type="text" class="form-control" id="InputSkills" [(ngModel)]="changedUser.Skills">
+                            <input type="text" class="form-control" id="InputSkills" [(ngModel)]="changedUser.skills">
                         </div>
 
                 
