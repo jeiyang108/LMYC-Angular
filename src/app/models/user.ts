@@ -1,3 +1,4 @@
+
 import { EmergencyContact } from '../models/emergency-contact';
 export class User {
 
@@ -22,4 +23,5 @@ export class User {
     SailingExeprience: string;
 
     emergencyContacts: EmergencyContact;
+
 }

@@ -21,7 +21,7 @@
 
 
 
-<div class="container jumbotron signup-container">
+<div *ngIf="!authenticated" class="container jumbotron signup-container">
     <form>
         <h2 class="display-4">Come aboard and join the adventure!</h2>
         <p class="lead">Fill in the form to join our organizaiton. </p>
