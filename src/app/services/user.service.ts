@@ -12,7 +12,7 @@ export class UserService {
     }
     
     register(newUser: User) {
-        if (!newUser.username || !newUser.password) {
+        if (!newUser.UserName || !newUser.Password) {
           return;
         }
         let options = new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})});

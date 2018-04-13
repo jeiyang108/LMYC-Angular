@@ -1,0 +1,24 @@
+<!--Copied from Meghan's. TBD-->
+<div class="modal-dialog viewdocs-modal">
+  <div class="modal-content">
+      <form (ngSubmit)="login()">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title text-center">Login</h4>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <input id="username" type="text" placeholder="Username" name="username" [(ngModel)]="username" />
+              </div>
+              <br />
+              <div class="row">
+                  <input id="password" type="password" placeholder="Password" name="password" [(ngModel)]="password" />
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button id="login" type="submit" class="btn btn-main">Login</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+      </form>
+  </div>
+</div>
