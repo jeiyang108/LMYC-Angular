@@ -85,7 +85,7 @@ export class BookingService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(AppComponent.url + '/api/Bookings/' + boatId + selectedDate.toString())
+    return this.http.get(AppComponent.url + '/api/Bookings/' + boatId + selectedDate.toISOString())
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);
