@@ -57,3 +57,6 @@ ul.a {
 .card-body {
     padding: 1rem;
 }
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: #343a40 !important;
+}

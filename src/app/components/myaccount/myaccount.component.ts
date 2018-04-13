@@ -17,9 +17,6 @@ export class MyAccountComponent implements OnInit {
   changedUser: User = new User();
   emergencyContact: EmergencyContact = new EmergencyContact();
   changedEmergencyContact: EmergencyContact = new EmergencyContact();
-
-  firstName: string
-
   username: string = sessionStorage.getItem("username");
   
   currentPassword: string;
@@ -33,6 +30,8 @@ export class MyAccountComponent implements OnInit {
 
   ngOnInit() {
     this.displayUserInfo();
+    this.user.emergencyContacts = new EmergencyContact();
+    this.changedUser.emergencyContacts = new EmergencyContact();
   }
 
   convertToUppercase(input: any) : User {
@@ -54,8 +53,6 @@ export class MyAccountComponent implements OnInit {
           this.changedUser= user;
           //this.changedUser = this.convertToUppercase(user);
 
-          // console.log(user);
-          
           console.log(this.user.emergencyContacts.name1)
           this.emergencyContact.name1 = user.emergencyContacts.name1;
           this.emergencyContact.name2 = user.emergencyContacts.name2;
