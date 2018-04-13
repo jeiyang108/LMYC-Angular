@@ -26,6 +26,12 @@ export class DocumentService {
       .catch(this.handleError);
   }
 
+  getDocById(id: string): Promise<Document> {
+    let options = new RequestOptions({ headers: this.headers});
+    return this.getDocs()
+      .then(result => result.find(d => d.documentId === id));
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
