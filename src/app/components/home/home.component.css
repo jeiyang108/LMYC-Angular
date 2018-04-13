@@ -2,6 +2,12 @@ h1 {
     color: #343a40;
     padding-top: 50px;
 }
+
+h4 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 .welcome {
     position: absolute;
     left: 0;
